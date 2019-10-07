@@ -1,0 +1,31 @@
+\documentclass[border=5mm,tikz]{standalone}
+
+\input{preamble}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+    \def\sliceZ{0.8}
+    \def\side{2}
+
+    % draw slices
+   	 \foreach \i in {0,...,7}
+   	 {
+   	 \filldraw[thin, shade, bottom color=red!70, top color=green!50] (0,\sliceZ+\i/3,0) -- (0,\sliceZ+\i/3,\side) -- (\side,\sliceZ+\i/3,\side) -- (\side,\sliceZ+\i/3,0) -- cycle;
+	 }
+	 \draw[->] (0,0,-.1) -- (0,0,3);
+	 \draw[->] (1.2,0,-.5) -- (3.5,0,-.5);
+	  \draw[->] (0,3.1,0) -- (0,4,0);
+   	 
+    % draw cube
+%    \draw (\side,0,0) -- (\side,\side,0) node[midway,right] {axial} -- (0,\side,0);
+%    \draw (0,0,\side) -- (\side,0,\side) node[midway,below] {lateral} -- (\side,\side,\side) -- (0,\side,\side) -- (0,0,\side);
+%    \draw (\side,0,0) -- (\side,0,\side) node[midway,below right] {temporal};
+%    \draw (\side,\side,0) -- (\side,\side,\side);
+%    \draw (0,\side,0) -- (0,\side,\side);
+
+%    \node at (1,\sliceZ,1) {slice};
+\end{tikzpicture}
+
+\end{document}

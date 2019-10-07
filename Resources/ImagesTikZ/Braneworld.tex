@@ -1,0 +1,71 @@
+\documentclass[border=2pt]{standalone}
+
+\input{preamble}
+
+\begin{document}
+
+% Define styles for the different kind of edges in a Feynman diagram
+\tikzset{
+    photon/.style={decorate, decoration={snake}, draw=red},
+    electron/.style={draw=blue, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=blue]{>}}}},
+    antielectron/.style={draw=blue, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=blue]{<}}}},
+    gluon/.style={decorate, draw=magenta,
+        decoration={coil,amplitude=4pt, segment length=5pt}} 
+}
+
+\begin{tikzpicture}[
+        thick,
+        % Set the overall layout of the tree
+        level/.style={level distance=1.5cm},
+        level 2/.style={sibling distance=2.6cm},
+        level 3/.style={sibling distance=2cm}
+    ]
+    \coordinate
+        child[grow=left]{
+            child {
+                node {}
+                % The 'edge from parent' is actually not needed because it is
+                % implicitly added.
+                edge from parent [antielectron]
+            }
+            child {
+                node {}
+                edge from parent [antielectron]
+            }
+            edge from parent [photon] node{}
+        }
+        % I have to insert a dummy child to get the tree to grow
+        % correctly to the right.
+        child[grow=right, level distance=0pt] {
+        child  {
+	edge from parent [electron]
+            node [below] {}
+        }
+        child {
+            edge from parent [electron]
+            node [above] {}
+        }
+    };
+    
+     \begin{scope}[xscale=3, yscale = 2]
+	\draw[name path=braneA, smooth cycle, tension=0, fill=white, pattern color=orange, pattern=north west lines, opacity=.3] plot coordinates{(1.5,3) (-1.5,2) (-1.5,-2) (1.5,-1)};
+	\draw [name path=openString, red] (-1.5, 2.1) to[out=0, in = 170] (-.7, 2.25);
+	\draw [name path=openString, dashed, red] (-.7, 2.25) to[out=-20, in = 190] (1, 2.2);
+	\draw [green, fill = green ] (1,2.2) circle (.01)
+		node[black] at (.8, 2.07) {$p$}
+		node[black] at (1.2,.3) {\Huge \Gentsroom \Ladiesroom};
+	\draw [->, green, thick] (1,2.2) -- (1, 1.7);
+	\draw [->, green, thick] (1,2.2) -- (1.2, 1.8);
+	\draw [->, green, thick] (1,2.2) -- (1.3, 2.3);
+	\draw [->, green, thick] (1,2.2) -- (1, 2.7);
+	\draw [->, green, thick] (1,2.2) -- (1.2, 2.5);
+	\draw [->, green, thick] (1,2.2) -- (.8, 2.5);
+	\draw [->, green, thick] (1,2.2) -- (.85, 1.85);
+	\draw [->, green, thick] (1,2.2) -- (1.25, 2.07);
+     \end{scope}
+\end{tikzpicture}
+
+
+\end{document}

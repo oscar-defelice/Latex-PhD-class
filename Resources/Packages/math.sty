@@ -1,0 +1,67 @@
+%
+%  math.sty
+%
+%  Created by Hugo Ricateau on 22/08/2016, this file is standalone.
+%  Copyright © 2016 - 2017 Hugo Ricateau.
+%
+%  This file is free software: you can redistribute it and/or modify it under
+%  the terms of the GNU General Public License as published by the
+%  Free Software Foundation, either version 3 of the License, or any
+%  later version.
+%
+%  This program is distributed in the hope that it will be useful, but
+%  WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+%  See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License
+%  along with this program. If not, see <http://www.gnu.org/licenses/>.
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math}[2016/08/22]
+\RequirePackage{xifthen}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+\RequirePackage{stmaryrd}
+\RequirePackage{calligra}
+\RequirePackage{mathtools}
+\RequirePackage{nicefrac}
+\RequirePackage{bm}
+%\RequirePackage{cancel}
+%\RequirePackage{tensor}
+
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
+\newcommand{\mathscal}[1]{\ensuremath{\text{\textcalligra{#1}}}}
+
+\allowdisplaybreaks[1]
+
+\newcommand{\inp}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\inbk}[1]{\ensuremath{\left[#1\right]}}
+\newcommand{\inbe}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\mean}[1]{\ensuremath{\left<#1\right>}}
+
+\renewcommand{\d}[2][]{\ifthenelse{\isempty{#1}}{\ensuremath{\text{d}#2}}{\ensuremath{\text{d}^{#1}#2}}}
+\newcommand{\db}[2][]{\ifthenelse{\isempty{#1}}{\ensuremath{\textbf{d}#2}}{\ensuremath{\textbf{d}^{#1}#2}}}
+\newcommand{\D}[1]{\ensuremath{\mathcal{D}#1}}
+
+\newcommand\phantomtilde[1]{\mathrlap{\smash{\tilde{#1}}}\phantom{#1}}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\mini}{min}
+\DeclareMathOperator{\sizeof}{size}
+
+\newcommand{\eqpc}[1][]{\ifthenelse{\isempty{#1}}{\ensuremath{\text{~,}}}{\ensuremath{\text{~,~#1}}}}
+\newcommand{\eqps}[1][]{\ifthenelse{\isempty{#1}}{\ensuremath{\text{~;}}}{\ensuremath{\text{~;~#1}}}}
+\newcommand{\eqpd}{\ensuremath{\text{~.}}}
+\newcommand{\eqpo}[2][]{\ifthenelse{\isempty{#1}}{\ensuremath{\text{~#2}}}{\ensuremath{\text{~#2~#1}}}}
+
+\newlength{\hcenteredinphantomlength}
+\newcommand{\hcenteredinphantom}[2]{\settowidth{\hcenteredinphantomlength}{\ensuremath{\displaystyle{#2}}}\setlength{\hcenteredinphantomlength}{\hcenteredinphantomlength/2}\ensuremath{\kern\hcenteredinphantomlength \mathclap{#1}\kern\hcenteredinphantomlength}}
+
+\endinput

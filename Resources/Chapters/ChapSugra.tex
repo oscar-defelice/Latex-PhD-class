@@ -1,0 +1,563 @@
+\documentclass[debug]{phd}
+
+\begin{document}
+%%
+\ensurepagenumbering{arabic}
+%%
+	%
+	\chapter{Flux Compactifications}
+	\label{chapSugra}
+		%
+		\section{Introduction and motivations}
+			%
+						
+			This thesis is devoted to the study of supersymmetric compactifications with non-trivial fluxes.
+			We will see in the first part of this chapter how requiring some amount of supersymmetry on the lower dimensional theory constrains the geometry of the internal manifold $M$, such that it must admit geometrical structures like the ones we described in~\cref{chap1}.
+			For the well-known case of fluxless compactification of a $10$-dimensional type II supergravity to a minimal supergravity in $4$ dimensions, the constraints on the internal manifold requires it to be a Calabi-Yau three-fold~\cite{CYcomp}.
+			When we allow fluxes to be turned on, the supersymmetry conditions can be cast in a compact and elegant form using \emph{Generalised Geometry} and generalised structures we will introduce in~\cref{chapEGG}.
+			%
+		\section{Supergravity theories}
+			%
+			Supergravity theories are theories combining general relativity with supersymmetry (making this a local symmetry).
+			These can be seen as low-energy effective theories of the different string theories.
+			There exists also an eleven-dimensional maximally supersymmetric supergravity, which is not connected (as low-energy limit) to any string theory.
+			This has been interpreted to have its higher dimensional origin in $M$-theory.
+			
+			The aim of this section is to describe the main feature of type II and eleven-dimensional supergravity theories, with their effective actions and the gauge symmetries of their potentials.
+			%
+			\subsection{Eleven-dimensional supergravity}
+				%
+				This section is devoted to the description of eleven-dimensional supergravity, \emph{i.e.} the low energy effective theory of M-theory. 
+				This is not meant to be an exhaustive treatment and we refer to~\cite{polchinski, BeckerBeckerSchw} for further details.
+
+				The bosonic degrees of freedom of eleven dimensions supergavity consist of the metric $g$, a three-form potential $A$ and its dual.
+				Although it does not transport independent degrees of freedom, one often introduces the dual seven-form $\tilde G$, whose six-form potential is conventionally denoted by $\tilde A$.			
+	
+				The theory is invariant under diffeomorphisms and the gauge transformations			
+					%
+					 	\begin{equation}
+							A_3 \longrightarrow A_3 + \dd \Lambda_2 \, ,
+						\end{equation}
+					%
+				where $\Lambda_2$ is a two-form. 
+				The gauge invariant field strength is $G_4 = \dd A_3$.
+				
+				The bosonic action of the eleven-dimensional supergravity is
+					%
+						\begin{equation}
+							\begin{split}
+								S_{11} =& \frac{1}{2\kappa^2} \int \dd^{11} x \ \sqrt{g} \left[ \left(R - \frac{1}{2} \lvert G \rvert^2 \right)\right] - \\
+								& - \underbrace{\frac{1}{6} G_4 \wedge G_4 \wedge A}_{S_{CS}} \, , 
+							\end{split}
+						\end{equation}
+					%
+				
+The equation of motion and Bianchi identity can be written (in a sourceless case) as
+					%
+						\begin{equation}
+							\begin{split}
+								\dd &\star G + \frac{1}{2} G \wedge G = 0 \, , \\
+								\dd &G = 0 \, .
+							\end{split}
+						\end{equation}
+					%
+The theory is supersymmetric, with $\mathcal{N}=1$ supersymmetry. Notice that this is the maximal possible supersymmetry in eleven dimensions.
+The fermionic degrees of freedom are completely captured by the gravitino $\Psi$. 
+				
+				
+				In addition, the equation of motion for the metric $g$, \emph{i.e.} the Einstein equation, can be written as follows,
+					%
+						\begin{align}
+							R_{MN} - \dfrac{1}{12}\left( G_{MPQR}G_{N}^{\phantom{N}PQR} - \dfrac{1}{12}g_{MN} G^2 \right) &= 0 \, .
+						\end{align}
+					%
+				%%	
+				%
+			\subsection{Type II theories}\label{sec:IIsugra}
+				%
+Type II supergravities are the ten-dimensional effective theories for massless fields type II string theories. There are two such theories that differ in the chirality of
+the fermionic fields and the rank of the form potentials. 
+
+The bosonic sector consists of two sets of fields: the Neveu-Schwarz Neveu-Schwarz (NSNS) and the Ramond-Ramond (RR).
+					%
+						\begin{table}[h!]
+						\centering
+							\begin{tabular}{c c c c}
+									\toprule
+%														&											&										\\
+%									\midrule
+														& 			$g$								&	metric (graviton)							\\[1.2mm]
+									NSNS 				&			$B$								&	Kalb-Ramond $2$-form						\\[1.2mm]
+											 			&			$\phi$							&	dilaton									\\[1.6mm]
+									RR		 			&			$A_p$							&	\begin{tabular}{@{\ }l@{}}
+ 																											$p$ odd for type IIA \\ 
+																											$p$ even for type IIB 
+ 																										\end{tabular}								\\[2mm]
+									\midrule	
+														&	$\psi_M^{\alpha, +}$, $\psi_M^{\alpha, \mp}$		&	Gravitinos									\\[1.2mm]
+														&	$\lambda_\alpha^{-}$, $\lambda_\alpha^{\pm}$		&	Dilatinos									\\[1.2mm]
+									\bottomrule
+								\end{tabular}
+							\caption{Type II supergravities spectrum in ten dimensions. 
+							The different chiralities of spinors define the two theories. 
+							Upper signs refer to type IIA, while lower ones to type IIB.}
+							\label{tabspectr}
+						\end{table}
+					%			
+				
+				As one can see from~\cref{tabspectr}, the NSNS sector is the same for both type II theories.
+				It contains the metric $g$, the dilaton $\phi$ and the NSNS two-form $B$.
+				The latter is a $\U(1)$ gauge potential with field strength $H = \dd B$.
+				
+				The RR sector depends on the theory.
+				Type IIA contains odd forms, while for type IIB has even ones.
+				These are also $\U(1)$ gauge potentials. For applications to generalised geometry is it convenient to use the \emph{democratic formulation}~\cite{DemSugra},
+of supergravity. 		This formulation considers RR potentials of all ranks $C_p$, with $p = 1, 3, \ldots, 9$ for type IIA and $p = 0, 2, \ldots, 8$ for IIB. 
+				These are not all independent since their field strengths have to satisfy duality relations with respect to the Hodge dual.
+				The field strength\footnote{%
+					There exists another common choice for the RR potential, the so-called $A$-basis, which is related to the $C$-basis we use as $A = e^{-B} \wedge C$. 
+					In this basis the field strength~\eqref{Fform} reads $F = e^B \wedge (\dd A + m)$.%
+					}
+				are defined by,
+					%
+						\begin{equation}\label{Fform}
+							F_p = \dd C_{p-1} + H \wedge C_{p-3} + e^B F_0 \, ,
+						\end{equation}
+					%
+				where $F_0 = m$ is the Romans mass, which can be added only in type IIA~\cite{RomansMass}, and 
+				the duality relations,
+					%
+						\begin{equation}\label{Fdual}
+							F_p = (-1)^{\left[\frac{p+3}{2}\right]} \star F_{10-p} \, .
+						\end{equation}
+					%
+
+				 
+				 The fermionic sector of the two theories consists of two Majorana-Weyl spinors of spin $3/2$, the gravitinos $\psi_M^\alpha$, and two Majorana-Weyl spin 1/2 spinors $\lambda^\alpha$, the dilatinos.
+				 Gravitinos and dilatinos have opposite chirality.
+				 In type IIA the gravitinos have opposite chirality, while in type IIB they have the same chirality (chosen positive by convention).
+				 As a consequence, type IIB dilatinos will both have negative chirality. 
+				 This is the difference between type IIA and IIB, the former is a non-chiral theory, while the latter is chiral.
+				 Nevertheless, they are both maximal supersymmetry in ten dimensions, \emph{i.e.} they are $\mathcal{N}=2$.
+				 An important fact is that type IIA supergravity can be obtained by the eleven-dimensional one by a compactifiation on a circle.
+				 We will analyse this reduction in a while.
+				 
+				 The string frame\footnote{%
+				 	Einstein frame and string frame metric are related by a dilaton rescaling, \emph{i.e.}
+						%
+							\begin{equation*}
+								g = e^{\phi/2} g^E \, .
+							\end{equation*}
+						%
+					} action for the bosonic fields of type IIA is (we follow the conventions of~\cite{DemSugra}) 
+				 	%
+						\begin{equation*}
+							\begin{split}
+								S_{IIA} = \frac{1}{2\kappa^2}& \int \dd^{10} x \ \underbrace{\sqrt{g} \left[ e^{-2\phi} \left(R + 4 \nabla \phi ^2 - \frac{1}{2} \lvert H \rvert^2 \right)\right]}_{S_{NS}} - \underbrace{\frac{\sqrt{g}}{2} \sum_{k=0}^2 \lvert F_{2k} \rvert^2}_{S_{R}} \\
+								&- \underbrace{\frac{1}{2} B \wedge \mathcal{F}_4 \wedge \mathcal{F}_4}_{S_{CS}} \, ,
+							\end{split}		
+						\end{equation*}
+					%
+				 where $\mathcal{F}_4 = \dd C_3$, while $F_p$ are the field strength defined above in~\eqref{Fform}.
+
+				The bosonic action for type IIB reads 
+					%
+						\begin{equation*}
+							\begin{split}
+							S_{IIB} = \frac{1}{2\kappa^2}& \int \dd^{10} x \ \underbrace{\sqrt{g} \left[ e^{-2\phi} \left(R + 4 \nabla \phi ^2 - \frac{1}{2} \lvert H \rvert^2 \right)\right]}_{S_{NS}} - \underbrace{\frac{\sqrt{g}}{2} \sum_{k=0}^2 \frac{1}{k!}\lvert F_{2k+1} \rvert^2}_{S_{R}} \\
+															& - \underbrace{\frac{1}{2} C_4 \wedge H_3 \wedge \mathcal{F}_3}_{S_{CS}} \, .
+							\end{split}							
+						\end{equation*}
+					%
+				Analogously to the type IIA case, we introduced $\mathcal{F}_n = \dd C_{n-1}$.
+				This action has a constant shift symmetry $C_0 \rightarrow C_0 + c$, where $c$ is a constant. 
+				Hence, it is referred to as an \emph{axion}~\cite{BeckerBeckerSchw, Weinberg:1977ma}.
+				Furthermore, the five-form field strength $F_5$ satisfies the self-duality condition
+					%
+						\begin{equation}\label{F5dual}
+							F_5 = \star F_5 \, ,
+						\end{equation}
+					%
+				which has to be imposed as a further constraint together with the equations of motion.
+				
+					
+				It is be useful to collect all the RR field strengths and potentials into a single polyform,
+					%
+						\begin{equation*}
+							\begin{array}{lr}
+								C = \sum_p C_p & p\ \text{odd/even for type IIA/IIB}\, , \\[3mm]
+								F = \sum_p F_p & p\ \text{even/odd for type IIA/IIB}\, .								 
+							\end{array}
+						\end{equation*}
+					%
+				In this notation, the~\eqref{Fform} and~\eqref{Fdual} take the following form,
+					%
+						\begin{align*}
+							F &= \dd_H C + e^B F_0\, , \\
+							F &= \star s (F) \, ,
+						\end{align*}
+					%
+				where we introduced the differential operator $\dd_h := \dd - H \wedge$ acting on polyforms, called \emph{$H$-twisted exterior derivative}, and the \emph{index reversal operator} $s$,
+					%
+						\begin{equation}
+							s(A_p) = (-1)^{\left[p/2\right]} A_p \, .
+						\end{equation}
+					%
+				The field strengths defined above are invariant under gauge transformations of potentials,
+					%
+						\begin{equation}\label{gaugetrans}
+							\begin{split}
+								\delta B &= - \dd \lambda \, , \\
+								\delta C &= - e^B \wedge \left(\dd \omega - m \lambda \right) \, , \\
+							\end{split}
+						\end{equation}
+					%
+				where $\lambda$ is a one-form, $\omega$ is a polyform made of even/odd forms for type IIA/IIB and the term proportional to the Romans mass $m$ is there only in the type IIA case.			
+				
+				The RR field strengths have the following equations of motions and Bianchi identities (when there are no sources, like $\mathrm{D}_p$ branes).
+				Bosonic fields equations for type II appear as,
+					%
+						\begin{align}
+							(\dd e^{-2\phi} \star H) \pm \frac{1}{2} F \wedge \star F = 0 \, , \label{eom1}
+							(\dd + H) \star F &= 0 \, , 
+						\end{align}
+					%
+				where $\pm$ sign is referred to type IIA/B respectively, and
+					%
+						\begin{equation}
+							\dd F = H \wedge F \, .
+						\end{equation}
+					%
+				
+				Notice that for type IIA the~\eqref{eom1},
+					%
+						\begin{equation}\label{Hstar}
+							\dd (e^{-2\phi} \star H) + \frac{1}{2} \left[ F \wedge \star F \right]_8 = 0 \, ,
+						\end{equation}
+					%
+				can be interpreted as the Bianchi identity for the dual seven-form field strength,
+					%
+						\begin{equation}
+							\tilde{H} = e^{-2\phi} \star H \, .
+						\end{equation}
+					%
+				We denoted by $[\ldots]_k$ the rank $k$ form of the polyform in the bracket.
+
+				Making use of the self-duality relation for $F$~\eqref{Fdual}, we can rewrite the~\eqref{Hstar} as,
+					%
+						\begin{equation}
+							\dd \left( \tilde H + \frac{1}{2} \left[ s(F) \wedge C + m e^{-B} \wedge C \right]_7 \right) = 0\, ,
+						\end{equation}
+					%
+				which is solved by,
+					%
+						\begin{equation}
+							\tilde H = \dd \tilde{B} - \frac{1}{2} \left[ s(F) \wedge C + m e^{-B} \wedge C \right]_7 \, .
+						\end{equation}
+					%
+				Thus we introduce a new potential $\tilde{B}$~\cite{Bergshoeff:1997ak, Bergshoeff:2006qw}, whose (linearised) gauge transformations are fixed by requiring the invariance of its field strength,
+					%
+						\begin{equation}
+							\delta \tilde{B} = -(\dd \sigma + m \omega_6) - \frac{1}{2} \left[ e^{B} \wedge (\dd \omega - m \lambda ) \wedge s(C) \right]_6 \, ,
+						\end{equation}
+					%
+				where $\sigma$ is a five-form, while $\omega$ and $\lambda$ are the parameters of the gauge transformations~\eqref{gaugetrans}.
+				
+				An interesting point to notice about the massive IIA theory~\cite{RomansMass} is that one can obtain it from the non-massive one by shifting the gauge parameters as,
+					%
+						\begin{equation}\label{gaugeshifts}
+							\begin{split}
+								\dd \omega_0 &\longrightarrow \dd \omega_0 - m \lambda \, , \\
+								\dd \sigma & \longrightarrow \dd \sigma + m \omega_6 \, .
+							\end{split}
+						\end{equation}
+					%
+				These relations will be the key of the construction of the exceptional generalised geometry for massive type IIA~\cite{oscar1}.
+				
+				Type IIB theory exhibits a non-compact global symmetry $\SL(2, \RR)$.
+				This is not evident in the formulation we gave above, so we want to make it explicit.
+				The two two-form potentials $B$ and $C_2$ can be organised into a doublet of $\SL(2, \RR)$,
+					%
+						\begin{equation}
+							B^i := \begin{pmatrix}
+									B \\
+									C_2
+							\end{pmatrix}^i \, .
+						\end{equation}
+					%
+				Similarly, we introduce $F^i = \dd B^i$.
+				Under an $\SL(2,\RR)$ transformations the $B$ fields transform linearly,
+					%
+						\begin{align}
+							& &	B^i \longrightarrow \Lambda_{ij} B^j \, ,	& &	\Lambda_{ij} = \begin{pmatrix}
+																					a & b \\
+																					c & d					
+																				\end{pmatrix} \in \SL(2, \RR) \, . 
+						\end{align}
+					%
+				One can also define a complex scalar field $\tau$ which is the complex combination of the axion and the dilaton field, for this reason this is called \emph{axion-dilaton field}.
+				This is useful since it transforms nicely under $\SL(2,\RR)$,
+					%
+						\begin{equation}
+							\tau \longrightarrow \frac{a \tau + b}{c \tau + d} \, .
+						\end{equation}
+					%
+				Then, type IIB action $S_{IIB}$ can be re-written in terms of $\SL(2,\RR)$ representations, like the symmetric matrix $h$,
+					%
+						\begin{equation}
+							h_{ij} = \begin{pmatrix}
+								\lvert \tau \rvert^2 & -C_0 \\
+								-C_0 & 1
+							\end{pmatrix}_{ij} \, ,
+						\end{equation} 
+					%
+				transforming under $\SL(2, \RR)$ as
+					%
+						\begin{equation}
+							h_{ij} \longrightarrow \Lambda^{ik} h_{kl} \Lambda^{lj} \, .
+						\end{equation}
+					%
+				Then the action $S_{IIB}$ in terms of $\SL(2, \RR)$ covariant objects can be recast as,
+					%
+						\begin{equation}
+							\begin{split}
+								S_{IIB} = \frac{1}{2\kappa^2}& \int \dd^{10} x \ \sqrt{g} \left[e^{-2\phi} \left(R - \frac{1}{12}F^i h_{ij} F^j + \frac{1}{4} \partial h_{ij} \partial h^{ji} \right)\right] \\
+											& - \frac{1}{8 \kappa^2}\int \dd^{10} x \ \left[ \sqrt{g} \lvert F_{5} \rvert^2 - \epsilon_{ij} C_4 \wedge F^i \wedge F^j \right] \, .
+							\end{split}
+						\end{equation}
+					%
+				The self duality condition on the $5$-form field strength~\eqref{F5dual} (which is a constraint in this formalism) is also $\SL(2,\RR)$ invariant.
+				Moreover, one can re-write its definition in an $\SL(2,\RR)$ invariant form,
+					%
+						\begin{equation}
+							F_5 = \dd C_4 + \frac{1}{2} \epsilon_{ij} B^i \wedge H^j \, .
+						\end{equation}
+					%
+				
+				%%%
+					
+				%%
+				%
+	\section{Supersymmetric backgrounds and compactifications}
+				%
+				After describing the actions and the equations of motion of eleven- and ten-dimensional supergravities, we are interested in solutions.
+	 Since we want to study compactifications, we look for solutions that are warped products 
+		
+			\begin{equation*}
+					\mathcal{M}_{10} = \mathcal{X} \times M_d\, ,
+				\end{equation*}
+				
+				of a maximally symmetric external spacetime (Minkowski, Anti-de Sitter, de Sitter) and an internal space $M_d$.
+				In order to preserve Poincar\'e invariance in the external spacetime, we must set all fermionic fields to zero so the background is purely bosonic.
+				
+				Then, the metric ansatz reads
+					%
+						\begin{equation}\label{metrsplit}
+							\dd s^2_{\mathcal{M}} = e^{2A}\dd s^2_{\mathcal{X}} + \dd s^2_{M} \, ,
+						\end{equation}
+					%
+				where $A$ is a real function of the coordinates on $M_d$, the \emph{warp factor}.
+					
+				We look for supersymmetric solutions. 			
+				A background is supersymmetric if all the supergravity fields (and hence the solutions) are invariant under supersymmetry transformations.
+				Choosing $\epsilon$ as the quantity parameterising supersymmetry variations, one is allowed to write (schematically)
+					%
+						\begin{align}\label{susyvar}
+							& &	\delta(\text{boson}) = \epsilon (\text{fermion})\, ,	& &	\delta(\text{fermion}) = \epsilon (\text{boson})\, .	& &
+						\end{align}
+					%
+				The variations of the bosonic fields always contain a fermionic field, and since we have set these to zero the variations automatically vanish.
+				On the other hand, we get non-trivial conditions from the variations of the fermionic fields. 
+				Then, supersymmetry of the background is equivalent to the existence of a non-vanishing spinor $\varepsilon$ for which the supersymmetry variations vanish.
+				These can be recast into differential and algebraic equations, known as \emph{Killing spinor equations}.
+				The spinor $\epsilon$ solving these is then called \emph{Killing spinor}.
+				A background is supersymmetric if it admits Killing spinors. The Killing spinor equation for M-theory is 
+					%
+						\begin{equation}
+							\nabla_M \epsilon + \frac{1}{288} \left[ \Gamma_M^{\phantom{M}NPQR} - 8 \delta_M^{\phantom{M}N} \Gamma^{PQR} \right] G_{NPQR}\ \epsilon =0 \, ,
+						\end{equation}
+					%
+				where $M,N, \ldots = 0,1, \dots, 10$, $\epsilon$ is a Majorana spinor and the Gamma matrices are the Clifford algebra elements in $11$ dimensions. 
+				
+				Type IIA Killing spinor equation can be derived by the previous one by a compactification, so we do not give it explicitly.
+Finally, for type IIB the Killing spinor equations, given in terms of ten-dimensional Gamma matrices are
+					%
+						\begin{subequations}
+							\begin{align}
+								\nabla_M \epsilon - \frac{1}{96} \left[ \Gamma_M^{\phantom{M}PQR} - 9 \Gamma^{PQ} \right] G_{MPQ}\ \epsilon^c + \frac{1}{192}\Gamma^{PQRS}F_{MPQRS} \epsilon =0 \, , \\
+								i \Gamma^M P_M \epsilon^c + \frac{i}{24} \Gamma^{PQR} G_{PQR} \epsilon = 0 \, .
+							\end{align}
+						\end{subequations}
+					%
+				where, following~\cite{Gauntlett:2005ww}, we defined $P = \tfrac{i}{2}e^\phi \dd C_0 + \tfrac{1}{2}\dd \phi$ and $G = i e^{\phi/2}(\tau \dd B - \dd C_2)$, and here $M,N = 0,1, \dots, 9$.
+				%
+					
+The Killing spinor equations are central in the study of supersymmetric string backgrounds. This is due to the fact that for backgrounds of the 	\eqref{metrsplit} one can show that
+the supersymmetry variations plus the Bianchi identities for the NS and RR fields imply all other equations of motion. Thus a solution of the 			
+Killing spinor equations is automatically a solution of the supergravity equations of motions. 				
+	
+	On backgrounds of the type~\eqref{metrsplit} the supersymmetry parameters factorise accordingly					%
+						\begin{equation}
+							\epsilon = \sum_{i=N} \varepsilon_i \otimes \chi \, ,
+						\end{equation}
+					%
+				where $\varepsilon_i$ are anticommuting spinors on the external space and $\chi$ is a generic commuting spinor on the internal manifold.
+				The number $N$ of spinors $\varepsilon_i$ detemine the number of supersymmetries preserved by the background. 
+				This splitting induces also a splitting of the Killing spinor equations into distinct conditions for $\varepsilon$ and for $\chi$.
+				The existence of Killing spinors (and the differential conditions they have to satisfy) on the internal manifold $M$ puts several constraints on the geometry of the manifold. 
+				Investigating how this happens and how this allows compactifications with fluxes is the goal of next sections.
+						
+			\subsection{Calabi-Yau backgrounds in type II}
+				%
+				Let us start by a famous example of compactifications to four dimensions. We consider a purely geometric solutions where the only non-trivial field is the metric.
+				We are going to see how supersymmetry conditions constrain the internal geometry to be Calabi-Yau.
+				
+				
+				As discussed above, to find solutions it is enough to solve the supersymmetry variations for the spinors~\eqref{susyvar}.
+				In type II theory, in absence of fluxes they reduce to 
+					%
+						\begin{equation}
+							\begin{array}{lcr}
+								\delta \lambda_1 = \partial_M \phi \Gamma^M \epsilon_1 = 0 \, , & & \delta \lambda_2 = \partial_M \phi \Gamma^M \epsilon_2 = 0 \, ,
+							\end{array}
+						\end{equation}
+					%
+				for the dilatino variations, while the gravitino variations reduce to the requirement that the supersymmetry parameters must be covariantly constant
+					%
+						\begin{equation}\label{grav0}
+							\begin{array}{lcr}
+								\delta \psi^1_{M} = \nabla_M \epsilon_1 = 0 \, , & & \delta \psi^2_{M} = \nabla_M \epsilon_2 = 0 \, .
+							\end{array}
+						\end{equation}
+					%
+				The supersymmetry parameters decompose as 
+					%	
+						\begin{align}\label{spinansatz}
+							& \epsilon_1 = \zeta_1 \otimes \eta_1 + \text{c.c.} \, , \\
+							& \epsilon_2 = \zeta_2 \otimes \eta_2 + \text{c.c.} \, .
+						\end{align}
+					%
+				Here $\zeta$ is a four-dimensional chiral spinor $(\gamma_5\zeta=\zeta)$ and $\eta_{1,2}$ are six-dimensional chiral spinors, of opposite chirality in IIA and same chirality in IIB
+					%
+						\begin{align}
+							& &	\gamma_7\eta_{1}=\eta_{1} & & \gamma_7\eta_{2}=\mp\eta_2 & & \mbox{in IIA/IIB} \, .
+						\end{align}					
+					%
+					
+				Using the decomposition ansatz for the metric~\eqref{metrsplit}, and supersymmetry parameters~\eqref{spinansatz}, we obtain the six-dimensonal equations
+\begin{equation}\label{intdilCY}
+\slashed{\partial} \phi\,\eta_{1,2}=0\ ,
+\end{equation}
+where $\slashed{\partial}\phi=\gamma^m\partial_m\phi$. This implies that the dilaton must be constant, $\partial_m\phi=0$, since $||\slashed{\partial}\phi\,\eta_{1,2}||^2=(\partial\phi)^2||\eta_{1,2}||^2$.
+
+
+The gravitino variations reduce to 
+\begin{align}
+& \nabla_\mu \rightarrow \nabla_\mu\otimes \id 
++ \frac{1}{2}e^A (\gamma_\mu \gamma_5 \otimes \slashed\partial A )\ , \\
+& \nabla_m \rightarrow \id\otimes \nabla_m\ ,
+\end{align}
+where, on the right hand side, $\nabla_\mu$ and $\nabla_m$ are the covariant derivatives with respect to the external four-dimensional unwarped metric and the internal six-dimensional metric, respectively. Using again~\eqref{spinansatz}, we can decompose~\eqref{grav0} into
+an external (four-dimensional) and an internal (six-dimensional) part as
+\begin{align}
+\label{extgravsplit} 
+& \nabla_\mu\zeta_1 \otimes \eta_1 - \frac{1}{2}e^A (\gamma_\mu \zeta^* \otimes \slashed\partial A\, \eta_1^*)+\text{c.c.}=0 \, , \\
+\label{intgravsplit}
+& \zeta_1 \otimes \nabla_m \eta_1+\text{c.c.}=0 \ .
+\end{align}
+An identical equation holds for $\eta_2$.
+The external gravitino equations~\eqref{extgravsplit} imply that $\slashed\partial A\, \eta_{1,2}^*$ should be proportional to $\eta_{1,2}$, which is impossible since $\eta_{1,2}^\dagger\gamma_m\eta_{1,2}=0$. It follows that the warping must be constant. Taking this into account,~\eqref{extgravsplit} further reduces to
+\begin{equation}
+\label{extgravsplit2}
+\nabla_\mu\zeta_{1,2}=0 \, .
+\end{equation}
+The commutator of two external covariant derivatives gives
+ \begin{equation}\label{extint}
+[\nabla_\mu, \nabla_\nu]= \frac{1}{4\!} R_{\mu \nu \rho \sigma} \gamma^{\rho \sigma}= \frac{\Lambda}{6} \gamma_{\mu \nu} \, ,
+\end{equation}
+where we used the expression for the curvature tensor for a maximally symmetric (unwarped) four-dimensional metric:
+$R_{\mu \nu \rho \sigma} = \frac{1}{3} \Lambda (g_{\mu \rho} g_{\nu \sigma}
+- g_{\mu \sigma} g_{\nu \rho})$. 
+%This is a solution of the Einstein equations containing {\em cosmological constant} $\Lambda$:
+%\eq{
+%R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R + \Lambda g_{\mu\nu} = 0 \,.
+%}
+From~\eqref{extgravsplit2} and~\eqref{extint}, it then follows $\Lambda\gamma_{\mu \nu}\zeta=0$
+which implies the vanishing of the cosmological constant
+\begin{equation}
+\label{lapl}
+\Lambda = 0 \, .
+\end{equation}
+Then, the external gravitino equations require that the warp factor $A$ must be constant, 
+and the four-dimensional space must be Minkowski ($\Lambda =0$).
+
+Let us now turn to the internal gravitino equations,~\eqref{intgravsplit}, which reduce to
+\begin{align}
+\label{intgrav2}
+& & \nabla_m\eta_1=0\, , & & \nabla_m\eta_2=0\ . & &
+\end{align}
+Applying the same argument as below~\eqref{extint}, we see that the internal metric must be Ricci flat.
+
+Moreover, a covariantly constant spinor implies a reduction of the holonomy group of a Riemannian manifold.
+From~\eqref{intgrav2} it follows that the internal metric must have at most holonomy SU(3). A Ricci flat manifold of SU(3) holonomy is a Calabi-Yau.
+
+
+
+If the internal metric has strict SU(3)-holonomy, then $\eta^1_+$ and $\eta^2_+$ must be proportional. Without loss of generality we can set $\eta^1_+=\eta^2_+=\eta$ with $\eta^\dagger\eta=1$. We can express 
+
+We can construct the forms $\omega$ and $\Omega$ as spinors bilinears of the covariantly constant spinor $\eta$. Then 
+we can rewrite the Calabi-Yau condition $\nabla_m\eta=0$ in the alternative form
+					%
+						\begin{equation}
+							\begin{array}{lcr}
+								\dd \omega = 0\, , & & \dd \Omega = 0 \, .
+							\end{array}
+						\end{equation}
+					%
+				
+				Thus, we got an important result: in absence of fluxes, looking for a supersymmetric vacuum requires to consider a Calabi-Yau three-fold as internal manifold.
+	
+The properties of Calabi-Yau's manifolds are such that one can explicitely derive the four-dimensional effective action (see~\cite{CeresoleN2, Bodner:1990zm} for details).		
+			This is an $\mathcal{N} = 2$ supergravity theory in four-dimensions, that is characterised by the presence of massless uncostrained scalars, the moduli. 
+			In supersymmetric theories massless scalar fields are not a problem, the trouble is if some of them stay massless after SUSY breaking: massless scalar fields would provide long range interactions that are not observed in nature. 
+			One solutions to the moduli problem is to find ways to generate potential terms for some or all such scalars. 
+			One way is to consider compactifications admitting non-trivial fluxes.
+			%	
+		\subsection{Backgrounds with fluxes in type II}
+			%		
+			We now turn to the study of more general solutions of type II supergravity where some of the fluxes have non-zero values. 
+			The presence of fluxes drastically changes the properties of the solutions. This can be seen both from the equations of motion and the
+supersymmetry variations.		
+Indeed, from the Einstein equation, which reads schematically
+\begin{equation}
+R_{MN} \sim H_{MPQ}H_N{}^{PQ}+\sum_p F_{M Q_{1} \ldots Q_{p}} F_N{}^{\, Q_{1} \ldots Q_{p}} \, ,
+\end{equation}
+we see that the fluxes back-react on the metric, which generically cannot be Ricci-flat (and thus Calabi-Yau) anymore. 
+%Therefore the geometry is modified with respect to the fluxless case. 
+Another generic feature is a non trivial warp factor in the ten-dimensional metric. 
+
+The supersymmetry variations are also modified. For example, from~\eqref{susyvar} one can see that in the presence of RR fluxes the supersymmetry conditions relate $\epsilon^{1}$ and $\epsilon^2$ so that the four-dimensional components $\zeta_{1,2}$ cannot be chosen independently anymore, as in~\eqref{spinansatz}. Therefore, in the presence of RR-fluxes one generically obtains $\mathcal{N}=1$ in four dimensions. 
+	
+
+Repeating the strategy used in the fluxless case, we decompose the supersymmetry conditions according to the compactification
+ansatz. We do not give all details here, but one can easily see that the internal gravitino variations become
+%
+\begin{equation}\label{intgravsplitagain}
+\begin{split}
+(\nabla_m+\frac14\slashed{H}_m)&\eta_1+\frac{1}{8} e^\phi\slashed{F}\gamma_m\gamma_7\eta_2 = 0\ , \\
+(\nabla_m-\frac14\slashed{H}_m)&\eta_2-\frac{1}{8} e^\phi\slashed{F}^\dagger\gamma_m\gamma_7\eta_1 = 0\ , 
+\end{split}
+\end{equation}
+%
+from which we see that, generically, the internal manifold is no longer Ricci flat and hence no longer Calabi-Yau, since
+\begin{equation}\label{susyintegr}
+	[\nabla_m , \nabla_n ] \eta_{1,2} = \frac{1}{4} {R}_{mn}{}^{ pq} \gamma_{pq} \eta_{1,2} \neq 0 \, .
+\end{equation}
+%This is in agreement with the argument based on the equations of motion at the beginning of this section.
+
+It is therefore natural to wonder whether it is still possible
+to say something about the geometry of the internal manifold.
+Generalized Complex Geometry provides a general framework to describe flux backgrounds in string theory.
+
+								%
+\end{document}

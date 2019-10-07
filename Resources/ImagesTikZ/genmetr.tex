@@ -1,0 +1,40 @@
+\documentclass[border=2pt]{standalone}
+
+\input{preamble}
+
+\begin{document}
+%
+\begin{tikzpicture}
+%
+	\node (o)    at ( 0,0) {};
+	\node (x)    at ( 1.5,0) {};
+	\node (inf)  at  ( 3,3) {}; 
+	\node (inf-) at ( 3,-3) {};
+	\node (-inf-) at (-3,-3) {};
+	\node (+inf-) at (-3,3) {};
+	\node (y) at (0,3.5) {};
+	\node (x) at (3.5,0) {};
+	\node (-y) at (0,-3.5) {};
+	\node (-x) at (-3.5,0) {};
+
+		\path  
+		  (o) +(1.5,1.5)  coordinate  (gplus)
+  		     +(1.5,-1.5) coordinate (gminus)
+		     ;
+       
+		\draw[color=blue] (-inf-) -- (inf)
+       			node[pos=0.75, above left, color= black]    {$v+ gv$}
+			node[pos=1.03, above right, color= black] {$C_{g+}$};
+		\draw[color= blue] (+inf-) -- (inf-)
+			node[pos=0.75, below left, color= black]    {$v-gv$}
+			node[pos=1.03, above right, color= black] {$C_{g-}$};
+		\draw[->] (-y)--(y)
+			node[pos=1.01, above] {$T^*M$};
+		\draw[->] (-x) -- (x) 
+			node[pos=1.04, above] {$TM$};
+		\draw[dashed, gray!70] (gminus) -- (gplus)
+			node[pos = 0.5, above right] {$v$};
+%
+\end{tikzpicture}
+
+\end{document}

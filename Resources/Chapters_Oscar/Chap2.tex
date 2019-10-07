@@ -1,0 +1,1663 @@
+\documentclass[debug]{phd}
+
+\begin{document}
+%%
+\ensurepagenumbering{arabic}
+%%	
+	%
+	\chapter{Generalising the geometry}
+	\label{chapEGG}
+		%
+		\section{Introduction and motivations}
+			%
+			The aim of this chapter is to give the introduction to Generalised Geometry, both complex (its simpler version) and Exceptional.
+			We describe generalised $G$-structures and we define the differential operators in this context~\cite{waldram1, waldram2, waldram3, waldram4}.
+			
+			After presenting a generalisation of the notion of $G$-structure adapted to generalised geometry, we discuss integrability of these structures.
+			We conclude the chapter with a presentation of exceptional generalised geometry, together with the generalised identity structure for the exceptional tangent bundle that we will use in the next chapter to build maximaly supersymmetric consistent truncation.
+%
+			%
+		\section{Generalised complex geometry}
+			%
+				Generalised complex geometry was introduced by Hitchin~\cite{hitch1} and Gualtieri~\cite{gualtphd} to find a structure interpolating between complex and symplectic geometries.
+				
+				In the following we will deal with the concept of generalised $G$-structure, meaning that the transition functions will not act on the usual frame bundle, but on a generalised version of the latter.
+				%
+			\subsection{Generalised tangent bundle}
+				%
+					The main idea of generalised complex geometry is to generalise the tangent bundle to the sum of the tangent and the cotangent bundle, such that a section of this new objects includes the degrees of freedom of a vector and a one-form.
+					
+					Given a $d$-dimensional manifold $M$, the generalised tangent bundle is isomorphic (in a sense that will be specified in the following), to the bundle~\cite{gualtphd, hitch1}
+						%
+							\begin{equation}
+								\tilde{E} = TM \oplus T^*M \, .
+							\end{equation}
+						%
+					Sections of $\tilde{E}$ are called \emph{generalised vectors} and can be written as,
+						%
+							\begin{equation}
+								V = v + \mu \in TM \oplus T^*M\, , 
+							\end{equation}
+						%
+					The generalised tangent bundle -- because of the duality between $TM$ and $T^*M$ as linear spaces -- is equipped with a natural $\rmO(d,d)$ symmetric bilinear form $\eta$, \emph{i.e.} a metric
+						%
+							\begin{equation}
+								\eta(V , W) = \eta(v+\mu , w + \lambda ) = \frac{1}{2} \left( \mu(w) + \lambda(v) \right) \, ,
+							\end{equation}
+						%
+					where we denoted $\mu(w) = \iota_w \mu$.
+					One can use a vector notation and get a matrix form for the $\eta$.
+					Indeed, one can write the relation above as $\eta(V , W) = V^T \eta W$, where,
+						%
+							\begin{align}
+								V = \begin{pmatrix}
+								 v \\
+								 \mu
+								\end{pmatrix}\, , & & W = \begin{pmatrix}
+								 w \\
+								 \lambda
+								\end{pmatrix}\, , & & \eta = \frac{1}{2} \begin{pmatrix}
+									0 & \id \\
+									\id & 0 
+								\end{pmatrix}\, .
+							\end{align}
+						%
+					One can diagonalise the matrix $\eta$ and make the signature $(d,d)$ explicit
+						%
+							\begin{equation}
+								\tilde{\eta} = \frac{1}{2} \begin{pmatrix}
+									\id & 0\\
+									0 & -\id 
+								\end{pmatrix}\, .
+							\end{equation}
+						%
+					As discussed in~\cref{chap1}, defining a metric is equivalent to define a $G$-structure.
+					In this case, the metric $\eta$ defines $\rmO(TM \oplus T^*M) \cong \rmO(d,d)$.
+					
+					The $\rmO(d,d)$-structure naturally arises from the linear structure of $TM \oplus T^{*}M$, in fact, this generalised bundle is the analog of the tangent one, and we can consider the group $\rmO(d,d)$ as the structure group that acts on the generalised tangent bundle, in analogy with $GL(d, \RR)$ acting on the fibres of $TM$ in the ordinary geometry case.
+					This leads to the concept of \emph{generalised tensors}, which in generalised geometry are representations of the $\rmO(d,d)$ group.
+					
+					In addition to the metric, the generalised tangent bundle $\tilde{E}$ has an orientation too~\cite{gualtphd}.
+					It can be defined by the $\eta$ metric through the Levi-Civita symbol,
+						%
+							\begin{equation}
+								\mathrm{vol}_\eta = \frac{1}{(d!)^2} \epsilon^{m_1 \ldots m_d} \epsilon_{n_1 \ldots n_d} \partial_{m_1} \wedge \ldots \wedge \partial_{m_d} \wedge \dd x^{n_1} \wedge \ldots \wedge \dd x^{n_d} \, ,
+							\end{equation}
+						%
+					The structure group preserving both the metric and the volume form is $\SO(d,d)$.
+					The Lie algebra of $\SO(TM \oplus T^{*}M) \cong \SO(d,d)$ is given by 
+						%
+							\begin{equation}\label{soalg}
+								\mathfrak{so}(TM \oplus T^{*}M) = \left\{ T \mid \eta( TV , W) + \eta( V , TW ) = 0 \right\},
+							\end{equation}
+						%
+					\textit{i.e.} generators are antisymmetric. 
+					This algebra decomposes~\cite{KoerberReview} in 
+						%
+							\begin{equation}\label{sodec}
+								\mathrm{End}(TM) \oplus \Lambda^2 TM \oplus \Lambda^2 T^*M \, ,
+							\end{equation} 
+						%
+					or, equivalently, a generic element $T \in \mathfrak{so}(TM \oplus T^{*}M)$ can be written as
+						%
+							\begin{equation}\label{Bbeta}
+								T = \begin{pmatrix} A & \beta \\ B & -A^{T} \end{pmatrix}\ ,
+							\end{equation}
+						%
+					where $A \in \mathrm{End}(TM)$, $B \in \Lambda^2 T^*M$, $\beta \in \Lambda^2 TM$, and hence
+						%
+							\begin{equation*}
+								\begin{tikzcd}[row sep=tiny]
+									A : TM \arrow{r} & TM \\
+									B : TM \arrow{r} & T^*M \\
+									\beta : T^*M \arrow{r} & TM\ .
+								\end{tikzcd}
+							\end{equation*}
+						%
+					The action of the three subgroups can be done explicitly.
+					For $\GL(d,\RR)$ part,
+						%
+							\begin{equation}
+								e^A \cdot V = A v + A^{-T} \mu \, , 
+							\end{equation}
+						%
+					for the so-called $B$-transformation,
+						%
+							\begin{equation}\label{bact}
+								e^B \cdot V = v + \mu - \iota_v B \, , 
+							\end{equation}
+						%
+					and, finally for the $\beta$-transformation,
+						%
+							\begin{equation}
+								e^\beta \cdot V = v - \beta \lrcorner \mu + \mu \, .
+							\end{equation}
+						%
+					Here $\cdot$ denotes the adjoint action of the $\mathfrak{so}(d,d)$ algebra.
+					A noteworthy fact is that since both $B$ and $\beta$ are not invariant under $\GL(d, \RR)$, their actions do not commute with the $\GL(d, \RR)$ one.
+					Another observation one can make is that, since both $B$ and $\beta$ are antisymmetric tensors, the symmetric product defined by the metric $\eta$ is invariant under $B$ and $\beta$ transformations,
+						%
+							\begin{equation}
+								\eta(e^{B + \beta} V, e^{B + \beta} W ) = \eta (V, W)\, .
+							\end{equation}
+						%
+					%
+					\subsubsection{Patching rules}
+						%
+						Given an atlas $\{U_\alpha\}$ on the manifold $M$, we can think at the $B$-field as a transformation gluing the generalised tangent bundle structures between two charts.
+						In particular, one can interpret the $B$ field transformations as an higher-rank form analogous of the one-form connection for the $\U(1)$-bundle.
+						This bundle generalisation goes under the name of a \emph{gerbe}.
+						Thus, given an atlas $\{U_\alpha \}$ over $M$, on each chart $U_\alpha$, one can define a local $2$-form $B_{(\alpha)}$ and by this a map
+							%
+								\begin{equation}\label{Bmap}
+									\begin{array}{rl}
+										B_{(\alpha)}\ :\ TU_\alpha & \longrightarrow E\vert_{U_{\alpha}} \\
+										 v_{(\alpha)} & \longmapsto v_{(\alpha)} + \iota_{v_{(\alpha)}} B_{(\alpha)}
+									\end{array}
+								\end{equation}
+							%
+						The local $2$-form $B$ transforms over the intersection of two patches $U_\alpha \cap U_\beta$, 
+							%
+								\begin{equation}\label{Btrans}
+									B_{(\alpha\beta)}:= B_{(\alpha)} - B_{(\beta)} = \dd \Lambda_{(\alpha \beta)}\, .
+								\end{equation}
+							%
+						We make this choice of patching rules for $B$ since this will correspond to the supergravity $B$-field gauge transformations, as we will see in the next chapter.
+						The quantity $\Lambda$ is a one-form gauge parameter satisfying the co-cycle condition on the triple overlap $U_\alpha \cap U_\beta \cap U_\gamma$,
+							%
+								\begin{equation}\label{cycliccond}
+									\Lambda_{(\alpha\beta)} + \Lambda_{(\beta\gamma)} + \Lambda_{(\gamma\alpha)} = - i g^{-1}_{(\alpha\beta\gamma)} \dd g_{(\alpha\beta\gamma)}\, ,
+								\end{equation}
+							%
+						and $g$ is an element of $\U(1)$, satisfying the condition for transition functions
+							%
+								\begin{align}
+									& & g_{(\beta\gamma\delta)} g^{-1}_{(\alpha\gamma\delta)} g_{(\alpha\beta\delta)} g^{-1}_{(\alpha\beta\gamma)} = 1\, , & & \mbox{on}\ U_\alpha \cap U_\beta \cap U_\gamma \cap U_\delta\, .	
+								\end{align}
+							%
+						Indeed, this gives $B$ the structure of a \emph{connection on a gerbe}~\cite{HitchinLagrangian}.
+						
+						Given the actions of these components of the algebra, we can define the so-called \emph{twisted} generalised vector as in~\eqref{bact}
+							%
+								\begin{equation}\label{Btwist}
+									V = e^{B} \tilde{V} = e^{B} (v + \mu) = v + \mu - \iota_v B \, ,
+								\end{equation}
+							%
+						where we denoted by $\tilde{V} = v + \mu$ the so called \emph{untwisted vector}.
+	
+						Now we are ready to give the formal definition of the generalised tangent bundle. Given a $d$-dimensional manifold $M$, one defines the \emph{generalised tangent bundle} $E$ as a non-trivial fibration of $T^*M$ over $TM$, where the fibration is given by a \emph{gerbe}~\cite{HitchinLagrangian}.
+
+						The generalised tangent bundle is the extension,
+							%
+								\begin{equation}\label{gentanext}
+								\begin{tikzcd}
+										0 \arrow{r} &T^*M \arrow{r}{i} & E \arrow{r}{\pi}& TM \arrow[bend left=50, color = red!60]{l}{B} \arrow{r}& 0 \ .
+									\end{tikzcd}
+								\end{equation}
+							%
+					As seen in~\eqref{Bmap}, the two-form connection $B$ gives a map from $TM$ to $E$ and this gives a non-canonical -- since it depends on the choice of $B$ -- isomorphism between $E$ and the direct sum $TM \oplus T^*M$~\cite{Hatcher}.
+					
+					Sections of $E$ are called \emph{generalised vectors} and can be locally written as,
+						%
+							\begin{equation}
+								V = v + \mu \in TM \oplus T^*M\, , 
+							\end{equation}
+						%
+					and $\pi$ is a projection map called \emph{anchor} acting on a generic section of $E$ as,
+						%
+							\begin{equation}
+								\pi (V) = \pi (v+ \mu) = v \, .
+							\end{equation}
+						%
+					Furthermore, the patching rules for $V$ are fixed by the transformation rules by~\eqref{Btrans},
+						%
+							\begin{equation}\label{patchV}
+								\begin{array}{ccc}
+								V_{(\alpha)} = e^{A_{(\alpha\beta)} + \dd \Lambda_{(\alpha\beta)}} \cdot V_{(\beta)} & \Longrightarrow &
+									\begin{cases}
+										v_{(\alpha)} = A_{(\alpha\beta)} v_{(\beta)} \, ,\\[1,5mm]
+										\mu_{(\alpha)} = A^{-T}_{(\alpha\beta)} \mu_{(\beta)} - \iota_{A_{(\alpha\beta)} v_{(\beta)}} \dd \Lambda_{(\alpha\beta)} \, .
+									\end{cases}
+								\end{array}
+							\end{equation}
+						%
+					In the expression above, $A_{(\alpha\beta)}$ is a $\GL(d,\RR)$ transformation.
+					We can see that the map $B_{(\alpha\beta)}$ gives the non-trivial fibration of the cotangent bundle on the tangent one.
+					In other words, the vector part of the generalised vector $V$ is a well-defined vector, meaning it patches correctly as a vector over the manifold.
+					On the other hand, as one can observe from~\eqref{patchV} the form part does not patch as one can expect from a one-form, but it has an extra-part parametrised by $\dd \Lambda_{(\alpha\beta)}$.
+					This is what we mean when we say that the isomorphism (formally called \emph{splitting}~\cite{Hatcher}) $E \cong TM \oplus T^*M$ is not canonical, but it depends on the choice of the map $B$.
+										
+%					The generalised tangent bundle -- because of the duality between $TM$ and $T^*M$ as linear spaces -- is equipped with a natural $\rmO(d,d)$ symmetric bilinear form $\eta$, \emph{i.e.} a metric
+%						%
+%							\begin{equation}
+%								\eta(V , W) = \eta(x+\mu , w + \omega ) = \frac{1}{2} \left( \mu(w) + \omega(v) \right) \, ,
+%							\end{equation}
+%						%
+%					where we denoted $\mu(w) = \iota_w \mu$.
+%					One can use a vector notation and get a matrix form for the $\eta$.
+%					Indeed, one can write the relation above as $\eta(V , W) = V^T \eta W$, where,
+%						%
+%							\begin{align}
+%								V = \begin{pmatrix}
+%								 x \\
+%								 \mu
+%								\end{pmatrix}\, , & & W = \begin{pmatrix}
+%								 y \\
+%								 \lambda
+%								\end{pmatrix}\, , & & \eta = \frac{1}{2} \begin{pmatrix}
+%									0 & \id \\
+%									\id & 0 
+%								\end{pmatrix}\, .
+%							\end{align}
+%						%
+%					One can diagonalise the matrix $\eta$ and make the signature $(d,d)$ explicit
+%						%
+%							\begin{equation}
+%								\tilde{\eta} = \frac{1}{2} \begin{pmatrix}
+%									\id & 0\\
+%									0 & -\id 
+%								\end{pmatrix}\, .
+%							\end{equation}
+%						%
+%					As discussed in~\cref{chap1}, defining a metric is equivalent to define a $G$-structure.
+%					In this case, the metric $\eta$ defines $\rmO(TM \oplus T^*M) \cong \rmO(d,d)$.
+%					
+%					The $\rmO(d,d)$-structure naturally arises from the linear structure of $TM \oplus T^{*}M$, in fact, this generalised bundle is the analog of the tangent one, and we can consider the group $\rmO(d,d)$ as the structure group that acts on the generalised tangent bundle, in analogy with $GL(d, \RR)$ acting on the fibres of $TM$ in the ordinary geometry case.
+%					This leads to the concept of \emph{generalised tensors}, which in generalised geometry are representations of the $\rmO(d,d)$ group.
+%					
+%					In addition to the metric, the generalised tangent bundle $E$ has an orientation too~\cite{gualtphd}.
+%					Indeed, one can consider the highest antisymmetric tensor product,
+%						%
+%							\begin{equation}
+%								\Lambda^{2d}(TM \oplus T^*M) \, ,
+%							\end{equation}
+%						%
+%					it can be decomposed as
+%						%
+%							\begin{equation}
+%								\Lambda^d TM \oplus \Lambda^d T^*M \, ,
+%							\end{equation}
+%						%
+%					then, one can observe the existence of a natural pairing between sections of $\Lambda^d TM$ and of $\Lambda^d T^*M$, given by
+%						%
+%							\begin{equation}
+%								\begin{tikzcd}[row sep=tiny, column sep= small]
+%									\det : \! \! \! \!\! \! \! \! \!& \Lambda ^{d} TM \times \Lambda^{d} T^{*}M \arrow{r} & \RR \\
+% 															& x,\mu \arrow[mapsto]{r} & \det(x \otimes \mu) \, .
+%								\end{tikzcd}
+%							\end{equation}
+%						%
+%					It can be defined by the $\eta$ metric through the Levi-Civita symbol,
+%						%
+%							\begin{equation}
+%								\mathrm{vol}_\eta = \frac{1}{(d!)^2} \epsilon^{m_1 \ldots m_d} \epsilon_{n_1 \ldots n_d} \partial_{m_1} \wedge \ldots \wedge \partial_{m_d} \wedge \dd x^{n_1} \wedge \ldots \wedge \dd x^{n_d} \, ,
+%							\end{equation}
+%						%
+%					The structure group preserving both the metric and the volume form is $\SO(d,d)$.
+%					The Lie Algebra of the $SO(TM \oplus T^{*}M) \cong \SO(d,d)$ is given by 
+%						%
+%							\begin{equation}\label{soalg}
+%								\mathfrak{so}(TM \oplus T^{*}M) = \left\{ T \mid \eta( TV , W) + \eta( V , TW ) = 0 \right\},
+%							\end{equation}
+%						%
+%					\textit{i.e.} generators are antisymmetric. 
+%					This algebra decomposes~\cite{Koerber} in 
+%						%
+%							\begin{equation}\label{sodec}
+%								\mathrm{End}(TM) \oplus \Lambda^2 TM \oplus \Lambda^2 T^*M \, ,
+%							\end{equation} 
+%						%
+%					or, equivalently, a generic element $T \in \mathfrak{so}(TM \oplus T^{*}M)$ can be written as
+%						%
+%							\begin{equation}\label{Bbeta}
+%								T = \begin{pmatrix} A & \beta \\ B & -A^{T} \end{pmatrix}\ ,
+%							\end{equation}
+%						%
+%					where $A \in End(TM)$, $B \in \Lambda^2 T^*M$, $\beta \in \Lambda^2 TM$, and hence
+%						%
+%							\begin{equation*}
+%								\begin{tikzcd}[row sep=tiny]
+%									A : TM \arrow{r} & TM \\
+%									B : TM \arrow{r} & T^*M \\
+%									\beta : T^*M \arrow{r} & TM\ .
+%								\end{tikzcd}
+%							\end{equation*}
+%						%
+%					The action of the three subgroups can be done explicitly.
+%					For $\GL(d,\RR)$ part,
+%						%
+%							\begin{equation}
+%								e^A \cdot V = A v + A^{-T} \mu \, , 
+%							\end{equation}
+%						%
+%					for the so-called $B$-transformation,
+%						%
+%							\begin{equation}
+%								e^B \cdot V = v + \mu - \iota_v B \, , 
+%							\end{equation}
+%						%
+%					and, finally for the $\beta$-transformation,
+%						%
+%							\begin{equation}
+%								e^\beta \cdot V = x - \beta \lrcorner \mu + \mu \, .
+%							\end{equation}
+%						%
+%					A noteworth fact is that since both $B$ and $\beta$ are not invariant under $\GL(d, \RR)$, their actions do not commute with the $\GL(d, \RR)$ one.
+%					Another observation one can make is that, since both $B$ and $\beta$ are antisymmetric tensors, the symmetric product defined by the metric $\eta$ is invariant under $B$ and $\beta$ transformations,
+%						%
+%							\begin{equation}
+%								\eta(e^{B + \beta} V, e^{B + \beta} W ) = \eta (V, W)\, .
+%							\end{equation}
+%						%
+					
+					At this stage, we can point out some observations.
+					First, we will denote in the following by $\tilde{V}$ the sections of $\Gamma(TM \oplus T^*M)$ and by $V$ the sections of the \emph{twisted} bundle $E$.
+					The two quantities are related by a $B$-transformation as in~\eqref{Btwist}.
+					Second, the $B$-field is a potential only defined locally, however its field strength $H = \dd B$ is globally defined and it will encode the Kalb-Ramond flux in type II supergravity.
+					Indeed, the patching rules~\eqref{patchV} and~\eqref{Btrans} will correctly reproduce the gauge transformations prescribed by supergravity.
+					
+					Finally, before moving to describe the generalised analogous of the almost complex structure, we discuss the generalised frame bundle allowing us to define \emph{generalised $G$-structures}.
+					%
+					\subsection{The generalised frame bundle}\label{genframOdd}
+						%
+						The definition of generalised frame bundle is straightforward from the generalisation of the frame bundle. 
+						Given a frame on $E$, that we call $\{\hat{E}_A\}$, satisfying the orthonormality condition with respect to the natural inner product
+							%
+								\begin{equation}\label{eqn:frame}
+									\eta\left(\hat{E}_A, \hat{E}_B\right) = \eta_{AB} = \frac{1}{2} \begin{pmatrix} 0 & \id \\ 
+																					\id & 0 \end{pmatrix}_{AB} \, ,
+								\end{equation}
+							%
+						we can define the \emph{generalised frame bundle} as follows. 
+						The \emph{frame bundle} is the bundle associated to these basis vectors. 
+						Points on the fibre (frames) are connected by $\rmO(d,d)$ transformations. 
+						Conversely, all frames connected by $\rmO(d,d)$ transformations to a given frame that satisfies~\eqref{eqn:frame} will satisfy it too. 
+						In other words, these frames form an $\rmO(d,d)$-bundle, that we call \emph{generalised frame bundle},
+							%
+								\begin{equation}\label{genfr}
+									F := \bigsqcup_{p\in M} \left\{\left( p,\, \hat{E}_A \right) \mid p \in M,\ \eta\left(\hat{E}_A, \hat{E}_B\right) = \eta_{AB} \right\} \, .
+								\end{equation}
+							%
+
+						Given the frame $\{\hat{e}_a\}$ for $TM$ and $\{e^a\}$ for the cotangent bundle $T^*M$, we can made a particular choice of frame, that will be convenient in the further analysis. 
+						We introduce the \emph{split frame} from frames on $TM$ and $T^*M$ such that we can keep track of the vector and form part of our generalised sections~\cite{waldram1, waldram3}. 
+						Explicitly we can choose,
+							%
+								\begin{equation}\label{splitframe}
+									\hat{E}_A := \begin{cases}
+												\begin{pmatrix}\hat{e}_a\\ - i_{\hat{e}_a}B\end{pmatrix} \, , & A = a \, ,\\[3mm]
+												\begin{pmatrix} e^a \\ 0 \end{pmatrix} \ , & A = a + d \, . \end{cases}
+								\end{equation} 
+							%
+						Note that the $B$-shift is present in our definition of the split frame. 
+						This because we make explicit the fact that one can obtain the split frame by a twist of a generic basis of $TM \oplus T^*M$.
+						
+						We can then define a \emph{generalised $G$-structure}, as a sub-bundle of the principal generalised frame bundle associated to $E$.
+						In other words, a generalised $G$-structure is a set of generalised tensors that are invariant under the action of a subgroup $G \subset \rmO(d,d)$.
+						%
+					\subsection{Generalised metric}\label{genmetrOdd}
+					%
+						Proceeding on the path of the analogies with the ordinary structures, we want to describe the analogous of a Riemannian metric on the generalised tangent bundle.
+						
+						One can define a \emph{generalised metric} on a generalised tangent bundle $E$, as a positive definite sub-bundle of rank $d$, such that the restriction of the natural metric $\eta$ is positive definite~\cite[def. 4.1.1]{baraglia}.
+						In terms of generalised $G$-structures, we say that a generalised metric is an $\rmO(d) \times \rmO(d)$-structure over $M$.
+						
+						In order to motivate the definition of the generalised metric we can consider a Riemannian manifold $(M,g)$ and observe that the metric $g$ is completely described by its graph $C_{+} = \{ x+gx \mid x \in TM \} \subset TM \oplus T^*M$, where $g$ is seen as a linear map from $TM$ to $T^*M$, see~\cref{graph}. 
+						We are going to show that the restriction of the natural scalar product $\eta$ is positive definite and allows us to define a generalised metric~\cite{baraglia}.
+							%
+								\begin{figure}
+								\centering
+									\input{./Resources/ImagesTikZ/genmetr}
+									\caption{We can represent the splitting of $E$ into the sub-bundles $C_{+} \oplus C_{-}$ by the graph of a linear map $h: TM \longrightarrow T^*M$. 
+									Here is shown the particular case of a zero $B$ field transformation.}
+									\label{graph}
+								\end{figure}
+							%
+												
+						The presence of such a structure splits the generalised tangent bundle $E$ into two sub-bundles,
+							%
+								\begin{equation}
+									E \cong C_+ \oplus C_- \, ,
+								\end{equation}
+							% 
+						corresponding to spaces where the inner product $\eta$ has a definite sign~\cite{gualtphd, petrini3}.
+						
+						One can build the invariant tensor associated to the generalised $\rmO(d) \times \rmO(d)$-structure as
+							%
+								\begin{equation}\label{Gmetr}
+									\mathcal{G}(\cdot,\cdot) = \eta(\cdot,\cdot) \big|_{C_{+}} - \eta(\cdot,\cdot)\big|_{C_{-}} \, .
+								\end{equation}
+							%
+						Since any generalised section which is made only by a vector field or only a form has a zero norm with respect to the metric $\eta$, we can state for instance $T^*M \cap C_{\pm} = \{0\}$. 
+						Analogously intersections between $TM$ and $C_{\pm}$ are just made by the zero section, as represented in~\cref{graph}.
+						
+						For these reasons, we can define a map $h : TM \longrightarrow T^*M$ such that $C_{+}$ is the graph of $h$, and $C_{-}$ its orthogonal complement, and explicitly
+							%
+								\begin{equation}\label{cplus}
+									C_{+} = \left\{v+ hv \mid v \in \Gamma\left(TM\right)\right\}.
+								\end{equation}
+							%
+						The map $h$ provides an isomorphism between $TM$ and $C_{+}$.
+						
+						One can see $h$ as an element of $T^*M \otimes T^*M$, \emph{i.e.} a $2$-tensor, and hence can be written as a sum of a symmetric and an antisymmetric part: $h=g+B$, exploiting the decomposition $T^*M \otimes T^*M \cong Sym^2 T^*M \oplus \Lambda^2 T^*M$, where $g \in Sym^2 T^*M$ and $B \in \Lambda^2 T^*M$. 
+						Thus one can write a general element $V_{+} \in C_{+}$ as $V_{+} = v + \left(B + g \right)v$, where we denote with $Bv$ the contraction $\iota_v B$. 
+						The orthogonality condition between $C_{+}$ and $C_{-}$ force us to write $V_{-} \in C_{-}$ as $V_{-} = v + \left(B - g \right)v$ and so
+							%
+								\begin{equation}\label{cminus}
+									C_{-} = \left\{v+ \left(B-g\right)v \mid v \in \Gamma\left(TM\right)\right\} \, .
+								\end{equation}
+							%
+						Thanks of the symmetry of the inner product induced by $\eta$ under $B$ shifts, we can identify $g$ as an ordinary Riemannian metric on $M$.
+						Indeed, given any $V_{+}, W_{+} \in C_{+}$ and their inner product
+							%
+								\begin{equation*}
+									\begin{split}
+										\eta \left( V_{+}, W_{+} \right) 	& = \eta( v + \iota_v B + g v , w + \iota_w B + g w ) \\
+ 																& = \eta( v + gv , w + gw ) \\
+ 																& = \frac{1}{2} \left( \iota_w g v + i_v g w \right) = g\left(v,w\right)\, .
+									\end{split}
+								\end{equation*}
+							%
+						By construction, $g$ is a positive definite Riemannian metric on $M$.
+						
+						One can find an explicit form for the generalised metric $\mathcal{G}$~\eqref{Gmetr} by studying its action on $C_{\pm}$.
+						The construction below will closely follow the one in~\cite{baraglia}, which we refer to for further details.
+						
+						Given a generalised vector $V \in E$, one can write it as $ V= V_+ + V_{-}$, where $V_{\pm} \in C_{\pm}$.
+						Thus, we have the map
+							%
+								\begin{equation}
+									\begin{tikzcd}[row sep=tiny]
+										\mathcal{G} :\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!& E \arrow{r} & E^* \cong E \\
+ 																	& V \arrow[mapsto]{r} & \mathcal{G}(V) = \mathcal{G}(V, \cdot)
+									\end{tikzcd}
+								\end{equation}
+							%
+						where we denoted by $\mathcal{G}(V)$ the \emph{generalised one-form} $\mathcal{G}(V,\cdot)$, but since $(TM \oplus T^*M )^* \cong TM \oplus T^*M$ it can be thought as a generalised vector and then decomposed in $C_{\pm}$ components,
+							%
+								\begin{equation}
+									\mathcal{G}(V) = \mathcal{G}(V, \cdot) = \eta( V_{+} + V_{-}, \cdot )\big|_{C_{+}} - \eta( V_{+} + V_{-}, \cdot )\big|_{C_{-}} = V_{+} - V_{-} \, .
+								\end{equation}
+							%
+						From the expression above, one can state $\mathcal{G}^2 = \id$, and $C_\pm$ are the eigenspaces relative to the eigenvalues $\pm 1$ of $\mathcal{G}$.
+						
+						Consider the usual Riemannian metric $g$ over $M$, this induces the splits of $TM \oplus T^*M$ into
+							%
+								\begin{equation}
+									C_{g\pm} = \left\{v \pm gv \mid v \in TM \right\}\, .
+								\end{equation}
+							%
+						A generic vector in $C_{g\pm}$ can be written as $V_{g\pm} = v \pm g v$. 
+						In this particular case $2x= V_{g+} + V_{g-}$, thus, we are now allowed to write
+							%
+								\begin{equation*}
+									2\mathcal{G}(v) = V_{g+} - V_{g-} = 2 g(v),
+								\end{equation*}
+							%
+						and since $\mathcal{G}^2 = \id$, it holds
+							%
+								\begin{equation*}
+									2\mathcal{G}^2(v) = 2 \mathcal{G}(g(v)) = V_{g+} + V_{g-} = 2v \, .
+								\end{equation*}
+							%
+						In this basis, the simplest form the matrix $\mathcal{G}$ can take is
+							%
+								\begin{equation*}
+									\mathcal{G}_g = \begin{pmatrix} 0 & g^{-1} \\
+ 											g & 0 \end{pmatrix}\ .
+								\end{equation*}
+							%
+						Now we want to reintroduce the $B$ field we have ignored so far. 
+						Recall that
+							%
+								\begin{equation*}
+									e^{B} V_{g\pm} = \left(v \pm gv + B v\right) = V_{\pm}
+								\end{equation*}
+							%
+						and also that 
+							%
+								\begin{equation}\label{proj}
+									\mathcal{G}\left(V_{\pm}\right) = \pm V_{\pm}.
+								\end{equation}
+							%
+						Using the previous relations and applying the $B$ transformation to $V_{g\pm}$, we can obtain a matrix representation for $\mathcal{G}$ as follows, 
+							%
+								\begin{equation*}
+									\begin{split}
+										V_{\pm} = e^{B}V_{g\pm} & =\pm e^{B}\mathcal{G}_g V_{g\pm} = \\
+														 & =\pm e^{B} \mathcal{G}_g e^{-B} e^{B} V_{g\pm} =\\
+														 & = \pm e^{B} \mathcal{G}_g e^{-B} V_{\pm}\ .
+									\end{split}
+								\end{equation*}
+							%
+						This is true if and only if
+							%
+								\begin{equation}\label{genmet}
+									\mathcal{G}= e^{-B} \mathcal{G}_g e^{B} = \begin{pmatrix} g^{-1}B & g^{-1} \\
+																g - B g^{-1} B & -B g^{-1} \end{pmatrix}\, .
+								\end{equation}
+							%
+						The generalised metric is an element of the coset space $\rmO(d,d)/O(d) \times O(d)$ and encodes both the metric and the $B$-field~\cite{petrini3}.
+						One can also introduce the so-called \emph{generalised vielbeins}, parametrising the coset, the local flat symmetry in ordinary geometry is here replaced by $O(d) \times O(d)$.
+						We also require that the set of local vielbeins $\{\hat{E}_A\}$ makes the generalised metric take the following form,
+							%
+								\begin{align}
+									& & \eta = \hat{E}^{T} \begin{pmatrix}
+										\id & 0 \\
+										0 & -\id
+									\end{pmatrix} \hat{E} \, , & & \mathcal{G} = \hat{E}^{T} \begin{pmatrix}
+										\id & 0 \\
+										0 & \id
+									\end{pmatrix} \hat{E} \, ,
+								\end{align}
+							%
+						An explicit form is given by,
+							%
+								\begin{equation}
+									\hat{E} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+									e_+ - \hat{e}_+^T B & \hat{e}_+^T \\
+									- e_{-} - \hat{e}_{-}^T B & \hat{e}_{-}^T 
+									\end{pmatrix}\, ,
+								\end{equation}
+							%
+						where $e_{\pm}$ are two sets of of coordinates and $\hat{e}_\pm$ their inverse.
+						They have to satisfy
+							%
+								\begin{align}
+									&& g = e_{\pm}^T e_{\pm}\, , && g^{-1} = \hat{e}_{\pm} \hat{e}_{\pm}^T \, , & &
+								\end{align}
+							%
+						which are the canonical conditions on ordinary vielbeins.
+						%
+					%
+				%
+				\subsection{Generalised almost complex structure}
+					%
+						A \emph{generalised almost complex structure} is a map
+							%
+								\begin{equation}
+									\mathcal{I} : E \longrightarrow E \, ,
+								\end{equation}
+							%
+						compatible with the bundle structure, \emph{i.e.} $\pi( \mathcal{I} V) = \pi(V)$ and with the property analogous to~\eqref{I2mid},
+							%
+								\begin{equation}
+									\mathcal{I}^2 = - \id \, .
+								\end{equation}
+							%
+						In addition, the compatibility with the $\rmO(d,d)$ metric is required,
+							%
+								\begin{equation}\label{hermeta}
+									\mathcal{I}^T \eta \mathcal{I} = \eta \, ,
+								\end{equation}
+							%
+						or equivalently
+							%
+								\begin{equation}\label{hermeta2}
+									\eta(\mathcal{I} V, \mathcal{I} W) = \eta (V, W) \, , \qquad \forall V, W \, .
+								\end{equation}
+							%
+						
+						An ordinary complex structure reduces the structure group to $U(d/2)$. 
+						Here something analogous happens, the generalised almost complex structure implies $M$ is even-dimensional, and the structure group of the exceptional tangent bundle $\rmO(d,d)$ is reduced to $\U(d/2, d/2)$. 
+						
+						Also in this case, one can adopt a ``matrix'' notation and describe the generalised almost complex structure as a block matrix acting on a generalised vector.
+						From~\eqref{hermeta}, it follows that the generalised almost complex structure takes the form,
+							%
+								\begin{equation}\label{gencompl}
+									\mathcal{I} = \begin{pmatrix}
+												- I	&	R \\
+												L	& 	I^T
+												\end{pmatrix} \, , 
+								\end{equation}
+							%
+						where $R$ and $L$ are an antisymmetric two-vector and a two-form respectively. 
+						The requirement for $\mathcal{I}$ to square to $-\id$ imples,
+							%
+								\begin{align}
+									I^2 + RL &= -\id_d \, , \\
+									-I R + R I^T &= 0 \, , \\
+									-LI + I^T L &= 0 \, .
+								\end{align}
+							%
+						An important feature of the generalised almost complex structure is that it contains both the ordinary almost complex and the almost symplectic structures,
+							%
+								\begin{align}
+									&&	\mathcal{I}_I = \begin{pmatrix}
+												- I	&	0 \\
+												0	& 	I^T
+												\end{pmatrix} \, ,	&&	\mathcal{I}_\omega = \begin{pmatrix}
+												0		&	\omega^{-1} \\
+												-\omega	& 	0
+												\end{pmatrix} \, .
+								\end{align}
+							%
+						We can think as the general case~\eqref{gencompl}, as a set of continuous intermediate structures, interpolating between the two extrema of complex and symplectic geometry, by varying the tensors $R$ and $L$.
+						Indeed, the original purpose of Hitchin and Guatieri~\cite{HitchinLagrangian, gualtphd} was to find a way to unify the two formalisms.
+						
+						As in the ordinary case, also the generalised almost complex structure generates two \emph{generalised distributions}, that is the two eigenbundles associated to the eigenvectors $\pm i$,
+							%
+								\begin{equation}
+									E \otimes \CC = L_\mathcal{I} \oplus \overline{L}_\mathcal{I} \, .
+								\end{equation}
+							%
+						This is somehow analogous to the split seen previously induced by the generalised metric.
+						
+						$L_\mathcal{I}$ and $\overline{L}_\mathcal{I}$ are \emph{maximally isotropic sub-bundles} of $E\otimes \CC$.
+						Recall that a generalised sub-bundle $L$ is \emph{isotropic} if and only if it is \emph{null} with respect to the natural $\rmO(d,d)$ metric,
+							%
+								\begin{equation}
+									\eta(V,W) = 0 \, \qquad \forall V, W \in L \, .
+								\end{equation}
+							%
+						In addition, it is maximally isotropic if its rank is half of the rank of $E$.
+						
+						We can show that $L_\mathcal{I}$ is actually are maximally isotropic.
+						Let us take into account $V, W \in L_\mathcal{I}$, their inner product is,
+							 %
+								\begin{equation*}
+									\eta(V,W) = V^T \eta W = V^T \mathcal{I}^T \eta \mathcal{I} W = (i V)^T \eta (iW) = - V^T \eta W = - \eta (V,W) = 0 \, ,
+								\end{equation*}
+							%
+						where we used the~\eqref{hermeta} in the second equality and the fact that both $V$ and $W$ are elements of $L_{\mathcal{I}}$ in the third one.
+						Moreover, since $L_\mathcal{I}$ and $\bar{L}_\mathcal{I}$ have the same rank, we have that both have complex dimension $d$, such that $L_\mathcal{I}$ is maximally isotropic.
+						As in the analogous ordinary case, the existence of an almost complex structure constrains the dimension of $M$ to be even~\cite{gualtphd}.
+						%	
+					%
+			\subsection{Dorfman derivative and Courant bracket}
+				%
+					As for ordinary vectors, one can define a differential operator generalising the action of the Lie derivative in the ordinary case.
+					In particular we look for an object generalising the concept of diffeomorphism for the generalised tangent bundle.
+					
+					Given two sections of $E$, for instance $V = v + \mu$ and $W = w + \lambda$, where $v, w \in \Gamma(TM)$ and $\mu, \lambda \in \Gamma(T^*M)$, we define the \emph{Dorfman derivative} or \emph{generalised Lie derivative}~\cite{hitch1, waldram5, waldram1}
+						%
+							\begin{equation}\label{dorf}
+								L_{V} W := \mathcal{L}_v w + \mathcal{L}_v \lambda - \iota_w \dd \mu \, .
+							\end{equation}
+						%
+					Dorfman derivative enjoys the Leibnitz rule, \emph{i.e.}
+						%
+							\begin{equation}\label{eq:Leibniz}
+								L_V (L_W Z) = L_{L_V W} Z + L_W (L_V Z) \, .
+							\end{equation}
+						%
+					This gives the generalised tangent bundle, endowed with the generalised Lie derivative the structure of a \emph{Leibnitz algebroid}~\cite{baragliaLeib}.
+					
+					Note that we can give a definition that makes explicit the action of the $\rmO(d,d)$ group.
+					This comes from the observation that the Lie derivative between two ordinary vectors $v$ and $v'$ of $\Gamma(TM)$ can be written in components using the $\mathfrak{gl}(d, \RR)$ action,
+						%
+							\begin{equation*}
+								( \mathcal{L}_v v')^m = v^n \,\partial_n v^{\prime m} - (\partial \times v)^m_{\phantom{m}n} \,v^{\prime n} \, .
+							\end{equation*}
+						%
+					Thus, by analogy one can use the $\rmO(d,d)$ action to write the Dorfman derivative as
+						%
+							\begin{equation}\label{adjDorf}
+								\left(L_V V'\right)^M = V^N \partial_N V^{\prime M} - \left(\partial \times_{\mathrm{ad}} V \right)^M_{\phantom{M}N}V^{\prime N} \, ,
+							\end{equation}
+						%
+					where $\times_{\mathrm{ad}}$ denotes the projection onto the adjoint bundle,
+						%
+							\begin{equation}
+								\times_{\mathrm{ad}} : E^* \times E \longrightarrow \mathrm{ad} \, .
+							\end{equation}
+						%
+					This definition is useful not only because allows to define the action of the $L_V$ operator also on representations of the tangent bundle which are different from the fundamental one (like the adjoint, the second rank symmetric, etc.), but this is also easily extendable to the exceptional case.
+					
+					The Dorfman derivative is not antisymmetric.
+					Its antisymmetrisation defines the \emph{Courant bracket}~\cite{CourWein, waldram1},
+						%
+							\begin{equation}\label{cour}
+								\llbracket V, W \rrbracket := \frac{1}{2}\left( L_V W - L_W V \right) = \left[v, w\right] + \mathcal{L}_v \lambda - \mathcal{L}_w \mu - \frac{1}{2} \dd (\iota_v \lambda - \iota_w \mu) \, ,
+							\end{equation}
+						%
+					which makes explicit the fact that in the $\rmO(d,d)$ generalised geometry we have a \emph{Courant algebroid}~\cite{CourWein, courant}.
+					A nice historical review on the subject can be found in~\cite{courhist}.
+					
+					The Courant bracket is an interesting object for us, since it is the right tool allowing us to express integrability of generalised structures, generalising the Lie bracket.
+					It reduces to the ordinary Lie bracket when restricted to vectors, while it vanishes on one-forms.
+					It is invariant under diffeomorphisms, and under $B$-shifts parametrised by a closed $2$-form $b$,
+						%
+							\begin{equation}\label{bCour}
+								\llbracket e^b \cdot V, e^b \cdot W \rrbracket = e^b \llbracket V, W \rrbracket + \iota_v \iota_w \dd b \, .
+							\end{equation}
+						%
+					The relation above suggests the introduction of a \emph{twisted} Courant bracket by a $3$-form $H$
+						%
+							\begin{equation}\label{HCour}
+								\llbracket V, W \rrbracket_H = \llbracket V, W \rrbracket + \iota_v \iota_w H \, .
+							\end{equation}
+						%
+					One can see that the twisted Courant bracket is the right differential operator acting on untwisted vectors, while the~\eqref{cour} is the one used in the twisted picture, where the $B$-shift is already encoded in generalised vectors.
+					In the following we will identify the three-form $H$ as the NSNS flux in both type IIA and type IIB supergravities.
+					%
+				%
+				\subsubsection{Integrability}
+					%	
+						Recall that for an ordinary complex structure, integrability can be expressed in terms of the involutivity of the distribution $L$ with respect to the Lie bracket.
+						Here, we can give a definition of integrability in terms of Courant bracket and the involutivity of the generalised subbundle $L_\mathcal{I}$.
+						
+						Given a generalised almost complex structure $\mathcal{I}$ on $E$, we say it is \emph{integrable} if and only if its $i$-eigenspace $L_\mathcal{I}$ is closed under the Courant bracket,
+							%
+								\begin{equation}
+									\llbracket V, W \rrbracket \in \Gamma(L_\mathcal{I}) \, , \qquad \forall V, W \in \Gamma(L_\mathcal{I}) \, .
+								\end{equation}
+							%
+						A manifold admitting such a structure (called \emph{generalised complex structure}) is said \emph{generalised complex manifold}.
+					%
+				%
+			%
+		%
+		\section{Exceptional generalised geometry}
+			%
+			Exceptional generalised geometry is the study of structures on a generalised vector bundle admitting the action of a structure group which is not $\rmO(d,d) \times \RR^+$, but $\E_{d(d)} \times \RR^+$~\cite{hull1, waldram5, waldram2}\footnote{%
+				$\E_{d(p)}$ is a non-compact version of the exceptional group $\E_d$, meaning the group having as Lie algebra the exceptional one $\mathfrak{e}_d$, with a number $p$ of non-compact generators.}. 
+			This construction allows to encode the RR degrees of freedom further than the NSNS ones.
+			
+			The general definitions of frame bundle, generalised $G$-structures and generalised Lie derivative hold also here.
+			However, we will report them in the adapted form for exceptional generalised geometry.
+			
+			An important difference between $\rmO(d, d)$ generalised geometry and the exceptional one is that in the $\rmO(d,d)$ case the same structure of the generalised tangent bundle allows to describe both type IIA and IIB and furthermore it does not depend on the dimension of the manifold $M_d$, as we will see in~\cref{chapComp}. 
+			On the other hand, the exceptional tangent bundle takes a different form depending on whether one works in M-theory, type IIA or type IIB supergravity, and depending on the dimension of $M_d$, its fibres transform in different representations of the structure group.
+			
+			Thus, we are going to analyse the various cases separately, describing the suitable generalised geometry to describe the theories we will focus on.
+			%
+			\subsection{M-theory}\label{sec:MthExcGeom}
+				%
+				Here we review from~\cite{waldram2} the construction of the suitable generalised geometry to M-theory, using $\GL(d,\RR)$ decomposition, where $d$ is the real dimension of the manifold on which we build the generalised bundles.
+				%
+				\subsubsection{Generalised bundles}
+					%
+						Given a $d$-dimensional manifold $M$, we define the generalised tangent bundle as isomorphic to a sum of tensor bundles~\cite{hull1, waldram5},
+							%
+								\begin{equation}\label{MthExBun}
+									E \cong TM \oplus \Lambda^2 T^*M \oplus \Lambda^5 T^*M \oplus (T^*M \otimes \Lambda^7 T^*M) \, .
+								\end{equation}
+							%
+						As for the $\rmO(d,d)$ case the isomorphism is not unique, since it depends on the choice of some \emph{splitting maps}, as we will see below.
+						A generic section of $E$ is written as,
+							%
+								\begin{equation}
+									V = v + \omega + \sigma + \tau \, ,
+								\end{equation}
+							%
+						where $v \in \Gamma(TM)$ is a vector, $\omega \in \Gamma(\Lambda^2 T^*M)$, so is a two-form, etc.
+						
+						The bundle is defined together with patching rules. 
+						These are such that, given a chart $U_\alpha$ of an atlas covering $M$, we have
+							%
+								\begin{equation}
+									\begin{split}
+										V_{(\alpha)} = &\, v_{(\alpha)} + \omega_{(\alpha)} + \sigma_{(\alpha)} + \tau_{(\alpha)} \\[1mm]
+												&\phantom{v} \in \Gamma\left( TU_{(\alpha)} \oplus \Lambda^2 T^*U_{(\alpha)} \oplus \Lambda^5 T^*U_{(\alpha)} \oplus (T^*U_{(\alpha)} \otimes \Lambda^7 T^*U_{(\alpha)}) \right) \, ,
+									\end{split}
+								\end{equation}
+							%
+						for a local section.
+						Then these sections are patched through the whole $E$ as
+							%
+								\begin{align}\label{Vpatch}
+									& & V_{(\alpha)} = e^{\dd \Lambda_{(\alpha \beta)} + \dd \tilde{\Lambda}_{(\alpha \beta)}} V_{(\beta)} \, , & & \mbox{on}\ U_\alpha \cap U_\beta \, . \phantom{U_\alpha \cap U_\beta}
+								\end{align}
+							% 
+						The two quantities $\Lambda_{(\alpha \beta)}$ and $\tilde{\Lambda}_{(\alpha \beta)}$ are respectively a two- and a five-form.
+						
+						The exponential acts on a section of the generalised tangent bundle through the adjoint action of~\eqref{expAdj}.
+							\comment{Maybe this in the appendix.}
+							%
+								\begin{subequations}\label{expAdj}
+									\begin{align}
+										v_{(\alpha)} 		&= 	v_{(\beta)}									 						\, , \\
+										\omega_{(\alpha)} 	&=	\omega_{(\beta)} + \iota_{v_{(\beta)}} \dd \Lambda_{(\alpha\beta)}			 	\, , \\
+										\sigma_{(\alpha)} 	&=	\sigma_{(\beta)} + \dd \Lambda_{(\alpha\beta)}\wedge \omega_{(\beta)} 
+																+\tfrac{1}{2}\dd \Lambda_{(\alpha\beta)} \wedge \iota_{v_{(\beta)}} \dd \Lambda_{(\alpha\beta)} 
+																+ \iota_{v_{(\beta)}} \dd \tilde{\Lambda}_{(\alpha\beta)}		 			\, , \\
+										%
+										\begin{split}
+										\tau_{(\alpha)} 		&=	\tau_{(\beta)} +	j \dd \Lambda_{(\alpha\beta)}\wedge \sigma_{(\beta)} 
+																- j \dd \tilde{\Lambda}_{(\alpha\beta)} \wedge \omega_{(\beta)} 
+																+ j \dd \Lambda_{(\alpha\beta)} \wedge \iota_{v_{(\beta)}} \dd \tilde{\Lambda}_{(\alpha\beta)} \\
+																& \phantom{= \tau}
+																+ \tfrac{1}{2} j \dd \Lambda_{(\alpha\beta)} \wedge \dd \Lambda_{(\alpha\beta)} \wedge \omega_{(\beta)}
+																+ \tfrac{1}{6} j \dd \Lambda_{(\alpha\beta)} \wedge \dd \Lambda_{(\alpha\beta)} \wedge \iota_{v_{(\beta)}} \dd \Lambda_{(\alpha\beta)}	 \, .
+										\end{split}
+										%
+									\end{align}
+								\end{subequations}
+							%
+							%
+								\comment{Where the \emph{$j$-operator} is defined in~\eqref{joper}.}
+							%
+						We introduced the so-called \emph{$j$-operator} for $\lambda \in \Lambda^{p}T^*$ and $\mu \in \Lambda^{d-p+1}T^*$.
+						Where $j \lambda \wedge \mu \in T^* \otimes \Lambda^d T^*$ gives
+							%
+							 	\begin{equation}
+									\left(j \lambda \wedge \mu\right)_{m,\,m_1\ldots m_d} = \frac{d!}{(p-1)!(d-p+1)!}\,\lambda_{m[m_1\ldots m_{p-1}}\mu_{m_p\ldots m_d]}\, .
+								\end{equation}
+							%
+						This is the same as $j\lambda \wedge \mu = \dd x^m \otimes (\iota_m \lambda \wedge \mu)$. 
+						Upon exchanging $\lambda$ and $\mu$ one has
+							%
+							\begin{equation} 
+								j \lambda \wedge \mu = (-1)^{p(d-p+1)+1}\, j\mu \wedge \lambda\, .
+							\end{equation}
+							%
+						
+						Technically the patching rules~\eqref{Vpatch} defines the generalised tangent bundle as a series of extensions,
+							%
+								\begin{equation}
+									\begin{tikzcd}[row sep=tiny]
+										0 \arrow{r} &\Lambda^2 T^*M \arrow{r} &E'' \arrow{r} &TM \arrow{r} &0 	\, , \\
+										0 \arrow{r} &\Lambda^5 T^*M \arrow{r} &E' \arrow{r} &E'' \arrow{r} &0 	\, , \\
+										0 \arrow{r} &T^*M \otimes \Lambda^7 T^*M \arrow{r} &E \arrow{r} &E' \arrow{r} &0 \, .
+									\end{tikzcd}
+								\end{equation}
+							%
+						Analogously to what we have seen in~\eqref{gentanext}, these extensions are splitted~\cite{Hatcher} into the isomorphism~\eqref{MthExBun} by the choice of some potentials, formally some connections on a gerbe~\cite{HitchinLagrangian}.
+						
+						The collection of $\Lambda_{(\alpha\beta)}$ defines this connective structure on the gerbe, satisfying the series of relations analogous to the~\eqref{cycliccond},
+							%
+								\begin{equation}
+									\begin{array}{lr}
+										\Lambda_{(\alpha\beta)} + \Lambda_{(\beta\gamma)} +\Lambda_{(\gamma\alpha)} = \dd \Lambda_{(\alpha\beta\gamma)} & \mbox{on} \ U_\alpha \cap U_\beta \cap U_\gamma \, , \\
+										\Lambda_{(\beta\gamma\delta)} - \Lambda_{(\alpha\gamma\delta)} + \Lambda_{(\alpha\beta\delta)} - \Lambda_{(\alpha\beta\gamma)} = \dd \Lambda_{(\alpha\beta\gamma\delta)} & \mbox{on} \ U_\alpha \cap U_\beta \cap U_\gamma \cap U_\delta \, .
+									\end{array}
+								\end{equation}
+							%
+						Similar relations hold for $\tilde{\Lambda}$~\cite{waldram4}, 
+							%
+								\begin{align*}
+									\begin{split}
+										\tilde{\Lambda}_{(\alpha\beta)} - \tilde{\Lambda}_{(\beta\gamma)} +\tilde{\Lambda}_{(\gamma\alpha)} = &\dd \tilde{\Lambda}_{(\alpha\beta\gamma)} \\
+										& + \tfrac{1}{2 (3!)}\left(\Lambda_{(\alpha\beta)} \wedge \dd \Lambda_{(\beta\gamma)} + \mbox{antisymm. in}\, [\alpha\beta\gamma] \right) \, ,
+									\end{split}
+									%
+									\\[2mm]
+									\begin{split}
+										\tilde{\Lambda}_{(\alpha\beta\gamma)} - \tilde{\Lambda}_{(\alpha\beta\delta)} + \tilde{\Lambda}_{(\alpha\gamma\delta)} - \tilde{\Lambda}_{(\beta\gamma\delta)} = &\dd \tilde{\Lambda}_{(\alpha\beta\gamma\delta)} \\
+										& + \tfrac{1}{2 (4!)}\left(\Lambda_{(\beta\gamma\delta)} \wedge \dd \Lambda_{(\gamma\delta)} + \mbox{antisymm. in}\, [\alpha\beta\gamma\delta] \right)\, .
+									\end{split}
+								\end{align*}
+							%
+						In this case one can notice that the connective structure for $\tilde{\Lambda}$ depends on $\Lambda$, this further generalises the previous gerbe construction~\cite{HitchinLagrangian}, but it generates the correct patching rules that will be reinterpreted as gauge transformations of supergravity potentials in the next chapter.
+						
+						The patching rules defined above are compatible with the action of $\E_{d(d)} \times \RR^+$~\eqref{expAdj}.
+						That is, one can define a generalised structure as a sub-bundle of the frame bundle, analogously to the $\rmO(d,d)$ case in~\cref{genframOdd}.
+						
+						Let us define $\{\hat{E}_A\}$ as a basis of a fibre of the exceptional tangent bundle ($A$ runs over the dimension of the bundle).
+						As in~\eqref{genfr}, the frame bundle is a principal bundle by construction.
+						An exceptional $G$-structure is defined as a principal sub-bundle of $F$, such that its structure group is reduced to $G$.
+						
+						Take into account a point $p \in M$ and the exceptional fibre in that point $E_p$.
+						Let $\{\hat{e}_a\}$ be a basis for $T_p M$ and $\{e^a\}$ a basis for $T^*_p M$.
+						Following~\cite{waldram4}, an explicit basis of $E_p$ can be constructed as
+							%
+								\begin{equation}
+									\{\hat{E}_A\} = \{\hat{e}_a\} \cup \{e^{ab}\} \cup \{e^{a_1 \ldots a_5}\} \cup \{e^{a. a_1 \ldots a_6}\} \, .
+								\end{equation}
+							%
+						Thus, the definition for the exceptional frame bundle (analogous to~\eqref{genfr}) reads
+							%
+								\begin{equation}
+									F = \left\{ \left(x, \{\hat{E}_A\} \right) \mid x \in M \, , \, \, \mbox{and}\, \, \{\hat{E}_A\}\, \, \mbox{basis of}\, \, E\right\} \, .
+								\end{equation}
+							%
+						By construction, this is a principal bundle with fibre $\E_{d(d)} \times \RR^+$.
+						It might be useful to consider the decomposition under $\GL(d,\RR)$ of the bundle transforming in the adjoint representation,
+							%
+								\begin{equation}\label{eq:Ggeom-M}
+									\adj \cong \RR \oplus (TM\otimes T^*M) \oplus \Lambda^3 T^*M \oplus \Lambda^6 T^*M \oplus \Lambda^3 TM \oplus \Lambda^6 TM \, ,
+								\end{equation}
+							%
+						then one can see it contains a scalar $l$, a $\mathfrak{gl}(d,\RR)$ element $r$, three- and a six-form $A$ and $\tilde{A}$ and a three- and a six-vector $\alpha$ and $\tilde{\alpha}$.
+						Since we are interested in describing the degrees of freedom of eleven-dimensional supergravity, we will interpret $A$ and $\tilde{A}$ as the supergravity potentials.
+						In exceptional generalised geometry these are gerbe connections patched on an overlap $U_\alpha \cap U_\beta$ as,
+							%
+								\begin{equation}
+									\begin{split}
+										A_{(\alpha)} 		&= A_{(\beta)} + \dd \Lambda_{(\alpha\beta)} \, , \\
+										\tilde{A}_{(\alpha)} 	&= \tilde{A}_{(\beta)} + \dd \tilde{\Lambda}_{(\alpha\beta)} - \frac{1}{2} \dd \Lambda_{(\alpha\beta)} \wedge A_{(\beta)} \, .
+									\end{split}
+								\end{equation}
+							%
+						We will see how these reproduces the gauge transformations for potentials in eleven-dimensional supergravity~\cite{waldram4, waldram5, hull1}.
+						Indeed the invariant field strengths 
+							%
+								\begin{equation}
+									\begin{split}
+										F		&= \dd A \, , \\
+										\tilde{F} 	&= \dd\tilde{A} - \frac{1}{2} A \wedge F \, ,
+									\end{split}
+								\end{equation}
+							%
+						reproduce the supergravity ones.
+						
+						Also in the exceptional case we can define the twisting by these potential of the generalised vectors,
+							%
+								\begin{equation}
+									V = e^{A+ \tilde{A}} \cdot \tilde{V} \, , 
+								\end{equation}
+							%
+						where $\cdot$ denotes the adjoint action of the $\mathfrak{e}_7 \oplus \RR^+$ algebra (given explicitly in~\cref{app:EGG})~\cite{waldram5}.
+						The sections of $E$ are called \emph{twisted} vectors, while the $\tilde{V}$ take the name of untwisted generalised sections.
+							
+						Also here the Dorfman derivative is constructed as a generalisation of the Lie derivative. 
+						In particular, it holds also the~\eqref{adjDorf}, and similarly indicating by $V^M$ the components of $V$ in a standard coordinate basis, and embedding the standard derivative operator as a section of the dual generalised tangent bundle $E^*$, one can define the Dorfman derivative as
+							%
+							\begin{equation}\label{dorfMadj}
+								\left(L_V V'\right)^M = V^N \partial_N V^{\prime M} - (\partial \times_{\rm ad} V)^M_{\phantom{M}N} V^{\prime N} \, ,
+							\end{equation}
+							%
+						where again $ \times_{\rm ad}$ is the projection onto the adjoint bundle,
+							%
+								\begin{equation}
+									\times_{\mathrm{ad}} : E^* \times E \rightarrow \mathrm{ad}\, . 
+								\end{equation}
+							%
+						In terms of $\mathfrak{gl}(d, \RR)$ components the generalised Lie derivative can be expressed as
+							%
+								\begin{equation}\label{dorfM}
+									\begin{split}
+									L_V V' &= \mathcal{L}_{v} v' + \left(\mathcal{L}_{v} \omega^{\prime} -\iota_{v^\prime}\dd \omega\right) + \left(\mathcal{L}_{v} \sigma' -\iota_{v^\prime}\dd\sigma - \omega^{\prime}\wedge \dd \omega\right) \\
+										& \phantom{= \mathcal{L}_{v} v'}+ \left(\mathcal{L}_{v} \tau^{\prime} - j \sigma^{\prime}\wedge \dd \omega - j \omega' \wedge\dd\sigma \right) \, .
+									\end{split}
+								\end{equation}
+							%
+						
+						The version of Dorfman derivative being able to act on untwisted objects is called \emph{twisted Dorfman derivative} and denoted by $\mathbb{L}_{\tilde{V}}$,
+							%
+								\begin{equation}
+									\mathbb{L}_{\tilde{V}} \tilde{\mathcal{A}} = e^{-A-\tilde{A}}L_{e^{A+\tilde{A}} \tilde{V}} (e^{A+\tilde{A}}\tilde{\mathcal{A}}) \, ,
+								\end{equation}
+							%
+						where $\tilde{\mathcal{A}}$ is a generic generalised tensor.
+						
+						The explicit form of the twisted derivative is the same as the untwisted one, modulo the following replacements,
+							%
+								\begin{equation}\label{repruleTwDorf}
+									\begin{split}
+										\dd \omega	&\rightarrow 	\dd \tilde{\omega} -\iota_{\tilde{v}} F \, , \\
+										\dd\sigma 		&\rightarrow	\dd \tilde{\sigma} - \iota_{\tilde{v}} \tilde{F} + \tilde{\omega}\wedge F \, .
+									\end{split}
+								\end{equation}
+							%
+						We collect in the~\cref{app:EGG} the other relevant objects and representation bundles for exceptional generalised geometry.
+				%
+				%
+			\subsection{Type IIA}
+				%
+				The relevant generalised geometry for type IIA theories has been constructed in~\cite{oscar1}.
+				The structure group for a $(d-1)$-dimensional manifold is $\E_{d(d)} \times \RR^+$, and it is possible to get its generalised geometry by a reduction of the M-theory one. 
+				We give this construction explicitly in~\cref{app:EGG}, here we just collect the most important results and definitions.
+					%
+				\subsubsection{Generalised tangent bundle}
+					%
+					As for the M-theory case, the generalised tangent bundle is defined by a series of extensions,
+						%
+							\begin{equation}\label{IIAexten}
+								\begin{tikzcd}[row sep=tiny]
+										0 \arrow{r} & T^*M \arrow{r} &E''' \arrow{r} &TM \arrow{r} &0 	\, , \\
+										0 \arrow{r} &\Lambda^{\mathrm{even}} T^*M \arrow{r} &E'' \arrow{r} &E''' \arrow{r} &0 	\, , \\
+										0 \arrow{r} &\Lambda^5 T^*M \arrow{r} &E' \arrow{r} &E'' \arrow{r} &0 \, . \\
+										0 \arrow{r} &T^*M \otimes \Lambda^6 T^*M \arrow{r} &E \arrow{r} &E' \arrow{r} &0 \, .
+									\end{tikzcd}
+							\end{equation}
+						%
+					Once the potential maps are chosen, $E$ is isomorphic to
+						%
+							\begin{equation}\label{IIAtangbung}
+								E \cong TM \oplus T^*M \oplus \Lambda^5 T^*M \oplus \Lambda^{\mathrm{even}} T^*M \oplus (T^*M \otimes \Lambda^6 T^*M)\, ,
+							\end{equation}
+						%
+					and a generic section can be decomposed according to a $\GL(d-1,\RR)$ decomposition,
+						%
+							\begin{equation}\label{IIAgenV}
+								V = v + \lambda + \sigma + \omega + \tau \, ,
+							\end{equation}
+						%
+					where $v$ is a vector, $\lambda$ a one-form, $\sigma$ a five-form, $\omega$ a polyform in $\Gamma(\Lambda^{\mathrm{even}}T^*M)$ and $\tau \in \Gamma(T^*M \otimes \Lambda^6 T^*M)$.
+					
+					It is also useful to consider the decomposition under $\GL(6,\RR)$ of the adjoint bundle $\adj \subset E \otimes E^*$, 
+						%
+							\begin{equation}\label{decomp_adjoint}
+								\begin{split}
+									\adj = 	\RR_\Delta \oplus& \RR_\phi \oplus (TM\otimes T^*M) \oplus \Lambda^2 TM \oplus \Lambda^2 T^*M \oplus \Lambda^6 TM \oplus \Lambda^6 T^*M \\
+											& \oplus \Lambda^{\mathrm{odd}} TM \oplus \Lambda^{\text{odd}} T^*M \, .
+								\end{split}
+							\end{equation}
+						%
+					Its sections $R$ transform in the $\mathbf{133}_0 + \mathbf{1}_0$ of $\E_{7(7)}\times \RR^+$, and decompose as 
+						%
+							\begin{equation}\label{section_adjoint}
+								R = l + \varphi + r + \beta + B + \tilde \beta + \tilde B + \Gamma + C \, ,
+							\end{equation} 
+						%
+					where each term in the sum is a section of the corresponding sub-bundle in~\eqref{decomp_adjoint}.
+					
+					It is precisely in the set of local sections of $\adj$ in~\eqref{decomp_adjoint} that we pick the potentials splitting the~\eqref{IIAexten}, like for the M-theory description above.
+					Specifically, we will see how these maps will encode transformations of supergravity theory.
+					In particular, $r \in \mathrm{End}(T)$ will correspond to the $GL(d,\RR)$ action, while the scalars $l$ and $\varphi$ will be related to the shifts of the warp factor and dilaton, respectively. 
+					The forms $B$, $\tilde B$ and $C = C_1 + C_3 + C_5$ will encode the internal components of the NSNS two-form, of its dual and of the RR potentials.
+					The other elements are poly-vectors obtained by raising the indices of the forms, and do not have an immediate supergravity counterpart.
+					
+					The potentials do not need to be globally defined, but we allow them to patch in a specific way\footnote{%
+						The patching is chosen such that one can recover the supergravity gauge transformations.
+						}.
+					In order to define the parching rules for potentials and generalised vectors, first we define the \emph{twist} of a section $\tilde{V} = \tilde{v} + \tilde{\lambda} + \tilde{\sigma} + \tilde{\omega} + \tilde{\tau}$ as
+						%
+							\begin{equation}\label{eq:twistC_short}
+								V = e^{\tilde{B}} e^{-B} e^C \cdot \tilde{V} \, ,
+							\end{equation}
+						%
+					where, as usual, $\cdot$ denotes the adjoint action of the structure group algebra.
+					This twist concretely specifies the isomorphism~\eqref{IIAtangbung}.
+					As in the ordinary case, we call the bundle having as sections $\tilde{V}$ the \emph{untwisted bundle}, while $V$ is a section of the \emph{twisted tangent bundle}.
+					
+					An explicit expansion of~\eqref{eq:twistC_short} can be written as,
+						%
+							\begin{equation}\label{eq:twistC}
+								\begin{split}
+									v 		&= \tilde{v}\, , \\[1.5mm]
+									\lambda 	&= \tilde{\lambda} + \iota_{\tilde{v}} B\, , \\[1.5mm]
+									\sigma 	&= \tilde{\sigma} + \iota_{\tilde{v}} \tilde{B} - \left[s(C) \wedge \big(\tilde{\omega} + \tfrac{1}{2} \iota_{\tilde{v}}C + \tfrac{1}{2}\tilde{\lambda} \wedge C \big)\right]_5 \, , \\[1.5mm]
+									\omega 	&= e^{-B}\wedge \big( \tilde{\omega} + \iota_{\tilde{v}}C + \tilde{\lambda} \wedge C \big) \, , \\[1.5mm]
+									\tau 		&= \tilde{\tau} + j B\wedge \left[\tilde{\sigma} - s(C)\wedge \big(\tilde{\omega} + \tfrac{1}{2} \iota_{\tilde{v}}C + \tfrac{1}{2}\tilde{\lambda} \wedge C \big)\right]_5 
+												+ j\tilde{B} \wedge (\tilde{\lambda} + \iota_{\tilde{v}}B) \\
+											&\phantom{=\tilde{\tau}} - j s(C)\wedge\big(\tilde{\omega} + \tfrac{1}{2}\iota_{\tilde{v}}C + \tfrac{1}{2} \tilde{\lambda} \wedge C \big) \, ,
+								\end{split}
+							\end{equation}
+						%
+					where the ``$j$-notation'' is explained in~\cref{app:notation} and $[\cdot]_k$ denotes the degree $k$-form of a polyform.
+					
+					We give details about other representation bundles in the~\cref{app:EGG}.
+					
+					The twist map is used to define the patching rules.
+					Given an atlas $\{U_\alpha\}$ covering $M$, and two partially overlapping charts $U_\alpha$ and $U_\beta$, the patching condition for the generalised vector $V$ on $U_\alpha \cap U_\beta$ includes $p$-forms gauge transformations and reads,
+						%
+							\begin{equation}\label{patchingIIA}
+								V_{(\alpha)} = e^{\dd \tilde{\Lambda}_{(\alpha\beta)}}e^{\dd \Omega_{(\alpha\beta)}} e^{\dd \Lambda_{(\alpha\beta)}} V_{(\beta)}\, ,
+							\end{equation}
+						%
+					where $\Lambda_{(\alpha \beta)}$ is a one-form, $\tilde\Lambda_{(\alpha \beta)}$ a five-form, and $\Omega_{(\alpha \beta)}$ a poly-form of even degree, all defined on $U_{\alpha} \cap U_{\beta}$.
+					In addition, in the~\eqref{patchingIIA} we have dropped the transformations due to the $\GL(d,\RR)$ action.
+					
+					Plugging~\eqref{eq:twistC_short} into~\eqref{patchingIIA} and reorganising the exponentials on the right hand side, one obtains the patching conditions for the adjoint fields (corresponding to gauge transformations of supergravity potentials),
+						%
+							\begin{equation}\label{eq:gauge-field-patchingmassless}
+								\begin{split}
+									B_{(\alpha)} &= B_{(\beta)} + \dd \Lambda_{(\alpha\beta)} \, , \\
+									C_{(\alpha)} &= C_{(\beta)} + e^{B_{(\beta)} +\dd \Lambda_{(\alpha\beta)}} \wedge \dd \Omega_{(\alpha\beta)} \, , \\
+									\tilde{B}_{(\alpha)} &= \tilde{B}_{(\beta)} + \dd \tilde \Lambda_{(\alpha\beta)} + \tfrac{1}{2} \left[ \dd \Omega_{(\alpha\beta)} \wedge e^{B_{(\beta)} + \dd \Lambda_{(\alpha\beta)}}\wedge s(C_{(\beta)}) \right]_6 \, .
+		 						\end{split}
+							\end{equation}
+						%
+					As we clarify in~\cref{appsec:EGGgauge}, these do indeed correspond to the finite supergravity gauge transformations between patches (here given for vanishing Romans mass, $m=0$). 
+					As in the previous case, this construction generalises the standard definition of a gerbe connection.
+					
+					To conclude this discussion, we want to raise an observation about the relation between the $\E_{d(d)} \times \RR^+$ generalised geometry and the $\rmO(d,d)$ one.
+					Indeed, one can additionally view $E$ as an extension of Hitchin's generalised tangent space $E'$~\cite{hitch1,gualtphd} by $\rmO(d,d)\times\RR^+$ tensor bundles, as we describe in~\cref{appsec:EGGodd}.
+				%
+				\subsubsection{Generalised Lie derivative}
+					%
+					The Dorfman derivative for the massless version of type IIA can be obtained by the~\eqref{dorfM} by a dimensional reduction, or by analogy from~\eqref{dorfMadj}.
+					We will make use of the second approach also because it is easier to get rid of the new terms appearing when the Romans mass is turned on.
+					Namely, using an index $M$ to denote the components of a generalised vector $V$ in a standard coordinate basis, 
+						%
+							\begin{equation}
+								V^M = \left\{v^m , \lambda_m, \sigma_{m_1\ldots m_5}, \tau_{m,m_1\ldots m_6} , \omega, \omega_{m_1m_2}, \omega_{m_1\ldots m_4}, \omega_{m_1\ldots m_6}\right\} \, ,
+							\end{equation}
+						%
+					and embedding the standard derivative operator as a section of the dual generalised tangent bundle $E^*$, $\partial_M = (\partial_m, 0, \ldots,0)$, the Dorfman derivative is defined as~\cite{waldram4}
+						%
+							\begin{equation}\label{eq:Liedefg}
+								(L_V V')^M = V^N \partial_N V^{\prime M} - (\partial \times_{\rm ad} V)^M_{\phantom{M}N} V^{\prime N}\, , 
+							\end{equation}
+						%
+					where $ \times_{\mathrm{ad}}$ is again the projection onto the adjoint bundle.
+					In this case, this explicitly gives 
+						%
+							\begin{equation}
+								\partial \times_{\ad} V = \partial \times v -\dd \lambda + \dd \sigma + \dd \omega\ .
+							\end{equation}
+						%
+					We recall this operator satisfies the Leibniz property~\eqref{eq:Leibniz} and is not antisymmetric.
+					Hence, the generalised Lie derivative for massless type IIA in $\GL(d,\RR)$ decomposition reads
+						%
+							\begin{equation}\label{dorfIIA}
+								\begin{split}
+									L_V V' =&\dd \mathcal{L}_v v' + \left(\mathcal{L}_v \lambda' - \iota_{v^\prime} \dd\lambda \right) + \left( \mathcal{L}_v \sigma' - \iota_{v^\prime}\dd\sigma + [s(\omega^\prime) \wedge \dd\omega]_5\right) \\
+											& + \left(\mathcal{L}_v \tau' + j \sigma' \wedge \dd\lambda + \lambda^\prime \otimes \dd\sigma + j s(\omega^\prime) \wedge \dd\omega \right) \\
+											& + \left(\mathcal{L}_v \omega' + \dd \lambda \wedge \omega' - (\iota_{v'}+ \lambda' \wedge)\dd\omega\right) \ .
+								\end{split}
+							\end{equation}
+						%
+					This can also be written in terms of natural derivative operators in $\rmO(d,d)$ generalised geometry, see~\cref{appsec:EGGodd}.
+					
+					The action of the generalised Lie derivative on the untwisted bundle can also by defined.
+					Let us denote $\mathbb{L}$ the \emph{twisted Dorfman derivative}\footnote{%
+						When the generalised tangent bundle is untwisted, the Dorfman derivative is twisted, and vice-versa.%
+						},
+					defined as follows,
+						%
+							\begin{equation}\label{eq:fromLtotildeL}
+								\mathbb{L}_{\tilde{V}} \tilde{V}^\prime = e^{-C}e^{B}e^{-\tilde{B}} \cdot L_{V}V^\prime \, .
+							\end{equation}
+						%
+					This is completely analogous to the \emph{twisted Courant bracket} defined in~\eqref{HCour}.
+					Operationally it is useful to get the twisted derivative by the untwisted one by replacing in the~\eqref{dorfIIA},
+						%
+							\begin{equation}
+								\begin{split}
+									\dd \tilde{\lambda} 	& \longrightarrow \dd \tilde{\lambda} - \iota_{\tilde{v}} H \, , \\
+									\dd \tilde{\sigma} 	& \longrightarrow \dd \tilde{\sigma} - \left[ s(\tilde{\omega}) \wedge F \right]_6 \, , \\
+									\dd \tilde{\omega}	& \longrightarrow \dd_H \tilde{\omega} - (\iota_{\tilde{v}} + \tilde{\lambda}\wedge ) F \, .
+								\end{split}
+							\end{equation}
+						%
+					where $H$ is the three-form $H = \dd B$ on $M$, $F = F_2 + F_4 + F_6$ is a polyform made out of field strengths of the potentials $C$ in~\eqref{section_adjoint}, and $\dd_H$ is the twisted exterior derivative defined by $\dd_H = \dd - H \wedge$.
+					These field strength forms transform in a generalised bundle which is a the $\mathbf{912}_{-1}$ irreducible representation of $\E_{7(7)} \times \RR^+$~\cite{Grana:2009im}.
+					
+					The element of the adjoint representation bundle acting on the fundamental corresponding to $\mathbb{L}_{\tilde{V}}$ is obtained by applying the projection $\mathbf{56}_{1} \otimes \mathbf{912}_{-1} \rightarrow \mathbf{133}_{0}$.
+					Then we get,
+						%
+							\begin{equation}
+								R_{\mathbb{L}_{\tilde{V}}} = - \iota_{\tilde v} H + \tilde \omega \wedge H - ( \iota_{ \tilde v} F + \tilde \lambda \wedge F) + \tilde \omega \wedge F \, ,
+							\end{equation}
+						%
+					where its action on $\tilde{V}^\prime$ gives the untwisted Lie derivative via,
+						%
+							\begin{equation}
+								\mathbb{L}_{\tilde{V}} \tilde{V}^\prime = \mathcal{L}_v + R_{\mathbb{L}_{\tilde{V}}} \cdot \tilde{V}' \, .
+							\end{equation}
+						%
+					
+					In view of the application of this formalism to supergravity theories, it is useful to stress again that the Dorfman derivative generates the infinitesimal generalised diffeomorphisms on the internal manifold $M$. 
+					Interpreting a generalised vector $V$ as a gauge parameter, the infinitesimal gauge transformation of any field is given by
+						%
+							\begin{equation*}
+								\delta_V = L_V \, .
+							\end{equation*}
+						%
+					The Leibniz property~\eqref{eq:Leibniz} then just expresses the gauge algebra $[\delta_V, \delta_{V'}] = \delta_{L_V V'}$. 
+					
+						%
+			\subsection{Type IIB}
+				%
+				For the review of this part we will closely follow~\cite{AshmoreECY}.
+				
+				First of all, we set the structure group.
+				It is not surprising that for type IIB the structure group of the principal frame bundle is the same as the type IIA case, $\E_{d+1(d+1)}\times \RR^+$ for a $d$-dimensional manifold $M$~\cite{waldram5, spheres}.
+					%
+				\subsubsection{Generalised tangent bundle}
+					%
+						On a $d$-dimensional manifold $M$, the generalised tangent bundle is
+							%
+								\begin{equation}\label{IIBtanbund}
+									\begin{split}
+										E & \cong TM\oplus T^{*}M\oplus(T^{*}M\oplus\Lambda^{3}T^{*}M\oplus\Lambda^{5}T^{*}M)\oplus\Lambda^{5}T^{*}M \\
+												& \phantom{\cong \oplus} \oplus(T^{*}M\otimes\Lambda^{6}T^{*}M) \\
+										 & \cong TM\oplus(T^{*}M\otimes S)\oplus\Lambda^{3}T^{*}M\oplus(\Lambda^{5}T^{*}M\otimes S)\oplus(T^{*}M\otimes\Lambda^{6}T^{*}M) \, ,
+									\end{split}
+								\end{equation}
+							%
+						where, as usual, $E$ is defined formally by an extension and it is isomorphic to the sum of spaces in~\eqref{IIBtanbund} by choosing the potential maps, \emph{i.e.} the connective structures on the gerbe.
+						In the ~\eqref{IIBtanbund} the $S$ transforms as a doublet of $\SL(2,\RR)$. 
+						We write sections of this bundle as
+							%
+								\begin{equation}\label{eq:V-IIB}
+									V=v+\lambda^{i}+\rho+\sigma^{i}+\tau \, ,
+								\end{equation}
+							%
+						where $v\in\Gamma(TM)$, $\lambda^{i}\in\Gamma(T^{*}M\otimes S)$, $\rho\in\Gamma(\Lambda^{3}T^{*}M)$, $\sigma\in\Gamma(\Lambda^{5}T^{*}M\otimes S)$ and $\tau\in\Gamma(T^{*}M\otimes\Lambda^{6}T^{*}M)$, the index $i =1, 2$ is the one labelling the fundamental representation of $\SL(2,\RR)$.
+						The adjoint bundle is
+							%
+								\begin{equation}
+									\begin{split}
+										\adj \tilde{F} = & \RR \oplus(TM\otimes T^{*}M) \oplus(S\otimes S^{*})_0 \oplus(S\otimes\Lambda^{2}TM) \oplus(S\otimes\Lambda^{2}T^{*}M) \\
+													& \oplus\Lambda^{4}TM\oplus\Lambda^{4}T^{*}M \oplus(S \otimes\Lambda^{6}TM)\oplus(S\otimes\Lambda^{6}T^{*}M) \, ,
+									\end{split}
+								\end{equation}
+							%
+						where the subscript on $(S\otimes S^*)_0$ denotes the traceless part. 
+						We write sections of the adjoint bundle as
+							%
+								\begin{equation}\label{eq:IIB-adj}
+									R=l+r+a+\beta^{i}+B^{i}+\gamma+C+\tilde{\alpha}^{i}+\tilde{a}^{i} \, ,
+								\end{equation}
+							%
+						where $l\in\mathbb{R}$, $r\in\Gamma(\mathrm{End}(TM))$, etc. 
+						The $B^{(i)}$ and $C$ satisfy the following patching conditions on $U_\alpha \cap U_\beta$, defining connective structures on the gerbe,
+							%
+								\begin{equation}
+									\begin{split}
+										B^{i}_{(\alpha)} 	& = B^{i}_{(\beta)} + \dd \Lambda^{(i)}_{(\alpha \beta)} \, , \\
+										C_{(\alpha)}	& = C_{(\beta)} + \dd \Omega_{(\alpha\beta)} + \frac{1}{2} \epsilon_{ij} \dd \Lambda^i_{(\alpha \beta)} \wedge B^i_{(\beta)} \, .
+									\end{split}
+								\end{equation}
+							%
+						where $\Lambda^{(i)}$ and $\Omega$ are locally a pair of one-forms and a three-form respectively.
+						We take $\{\hat{e}_{a}\}$ to be a basis for $TM$ with a dual basis $\{e^{a}\}$ on $T^{*}M$ so there is a natural $\mathfrak{gl}(d, \RR)$ action on tensors. 
+						
+						We relegate the action of the $\mathfrak{e}_{d+1(d+1)} \times \RR^+	$ algebra in the appendix~\ref{app:EGG}, while here we give the expression for the twisted vector
+							%
+								\begin{equation}\label{twistVecIIB}
+									V = e^{-B^i - C} \tilde{V} \, .
+								\end{equation}
+							%
+						Note that also in this case this defines the right patching conditions corresponding to type IIB supergravity gauge transformations.
+						In particular, given a cover $\{U_{\alpha}\}$ of $M$ on can define the generalised section $V_{(\alpha)}$ on $U_\alpha \cap U_\beta$ by the $V_{(\beta)}$ as follows,
+							%
+								\begin{equation}
+									V_{(\alpha)} = e^{\dd \Lambda^i_{(\alpha\beta)} + \dd \Omega_{(\alpha\beta)}} V_{(\beta)}\, .
+								\end{equation}
+						%
+				\subsubsection{Generalised Lie derivative}
+					%
+						Here we give the expression for the Dorfman derivative adapted for the type IIB case.
+						
+						The dual of the generalised tangent bundle is $E^{*}$. 
+						We embed the usual derivative operator in the one-form component of $E^{*}$ via the map $T^{*}M \rightarrow E^{*}$. 
+						In coordinate indices $M$, one defines
+							%
+								\begin{equation}
+									\partial_{M}=	\begin{cases}
+													\partial_{m} & \text{for }M=m,\\
+													0 & \text{otherwise}.
+												\end{cases}
+								\end{equation}
+							%
+						We then define a projection to the adjoint as
+							%
+								\begin{equation}
+									\times_\ad \colon E^{*} \otimes E \rightarrow \adj \tilde{F}.
+								\end{equation}
+							%
+						Explicitly, as a section of $\ad \tilde{F}$ we have
+							%
+								\begin{equation}\label{eq:del-ad-IIB}
+									\partial \times_\ad V =\partial \otimes v + \dd\lambda^{i}+\dd\rho+\dd\sigma^{i}.
+								\end{equation}
+							%
+						The generalised Lie (or Dorfman) derivative is defined as
+							%
+								\begin{equation}\label{eq:Dorf-def-IIB}
+									L_{V}W=V^{B}\partial_{B}W^{A}-(\partial\times_\ad V)_{\phantom{A}B}^{A}W^{B}.
+								\end{equation}
+							%
+						This can be extended to act on tensors by using the adjoint action of $\partial\times_\ad V\in\Gamma(\adj\tilde{F})$ in the second term. 
+						We will need explicit expressions for the Dorfman derivative of sections of $E$ and $\adj \tilde{F}$. 
+						The Dorfman derivative acting on a generalised vector is
+							%
+								\begin{equation}\label{eq:IIB_Dorf_vector}
+									\begin{split}
+										L_{V}V^{\prime} =& \mathcal{L}_{v}v^{\prime}+(\mathcal{L}_{v}\lambda^{\prime i}-\imath_{v^{\prime}}\dd\lambda^{i})+(\mathcal{L}_{v}\rho^{\prime}-\imath_{v^{\prime}}\dd\rho+\epsilon_{ij}\dd\lambda^{i}\wedge\lambda^{\prime j}) \\
+ 														& +(\mathcal{L}_{v}\sigma^{\prime i}-\imath_{v^{\prime}}\dd\sigma^{i}+\dd\rho\wedge\lambda^{\prime i}-\dd\lambda^{i}\wedge\rho^{\prime})\\
+ 														& +(\mathcal{L}_{v}\tau^{\prime}-\epsilon_{ij}j\lambda^{\prime i}\wedge\dd\sigma^{j}+j\rho^{\prime}\wedge\dd\rho+\epsilon_{ij}j\sigma^{\prime i}\wedge\dd\lambda^{j})\, .
+									\end{split}
+								\end{equation}
+							%
+						The expression for Dorfman derivative acting on a section of the adjoint bundle is given in the appendix~\ref{appsec:EGGIIB}.
+					
+						Also here one can give the \emph{twisted} Dorfman derivative $\mathbb{L}_{V}$ of an untwisted generalised tensor $\tilde{\mathcal{A}}$, defined by
+							%
+								\begin{equation}\label{eq:IIB_twisted_dorf}
+									\mathbb{L}_{\tilde{V}}\tilde{\mathcal{A}}=e^{-B^{i}-C}L_{e^{B^{i}+C}\tilde{V}}(e^{B^{i}+C}\tilde{\mathcal{A}}).
+								\end{equation}
+							%
+						The twisted Dorfman derivative $\mathbb{L}_{V}$ is given by the same expression as the usual Dorfman derivative but with the substitutions
+							%
+								\begin{equation}
+									\begin{split}
+										\dd\lambda^{i}	&\rightarrow	\dd\tilde{\lambda}^{i}-\imath_{\tilde{v}}F^{i} \, , \\
+										\dd\rho		&\rightarrow	\dd\tilde{\rho}-\imath_{\tilde{v}}F-\epsilon_{ij}\tilde{\lambda}^{i}\wedge F^{j} \, , \\
+										\dd\sigma^{i}	&\rightarrow	\dd\tilde{\sigma}^{i}+\tilde{\lambda}^{i}\wedge F-\tilde{\rho}\wedge F^{i} \, .
+									\end{split}
+								\end{equation}
+							%
+						We collect further details about the exceptional generalised geometry in~\cref{app:EGG}.
+					%
+				%
+			\subsection{Generalised metric}\label{gen_frame_metric}
+				%
+					In this section we briefly review some examples of generalised structures.
+					For concreteness we restrict ourself to type IIA, however we refer to~\cite{waldram4, AshmoreECY} for a detailed discussions of the other cases.
+					
+					We have seen how the ordinary metric $g$ and the $B$-field are encoded into a generalised object, the generalised metric $\mathcal{G}$ in the $\rmO(d,d)$ case.
+					In that section we have emphasised how this object can be seen as a $G$-structure on the generalised frame bundle, parametrising the coset $\rmO(d,d)/\rmO(d) \times \rmO(d)$.
+					
+					Here, in the same way as the ordinary metric on a manifold $M$ can be seen as an $\rmO(d)$ structure on $T M$ parameterising the coset $\GL(d.\RR)/\rmO(d)$, the generalised metric can be seen as an $\SU(8) / \mathbb{Z}_2$ structure on the generalised tangent bundle, and for a six-dimensional manifold it parameterises the coset $\E_{7(7)}/(\SU(8) / \mathbb{Z}_2)$. 
+					The construction of the generalised metric is a natural extension of the one we have described for the previous case in~\cref{genmetrOdd}.
+					
+					For instance, $\mathcal{G}$ can be defined by its action on two generalised twisted vectors $V$ and $V'$ as
+						%
+							\begin{equation}\label{GofVandV'}
+								\begin{split}
+									\mathcal{G}(V,V')&= \tilde{v} \lrcorner \tilde{v}' + \tilde{\lambda} \lrcorner \tilde{\lambda}' + \tilde{\sigma} \lrcorner \tilde{\sigma}' + \tilde{\tau} \lrcorner \tilde{\tau}'+ \sum_{k=0}^3\tilde{\omega}_{2k} \lrcorner \tilde{\omega}'_{2k} \\
+										&= \tilde{v}^m \tilde{v}'_m + \tilde{\lambda}^m \tilde{\lambda}'_m + \tfrac{1}{5!}\tilde{\sigma}^{m_1\ldots m_5} \tilde{\sigma}'_{m_1\ldots m_5} + \tfrac{1}{6!}\tilde{\tau}^{m,m_1\ldots m_6} \tilde{\tau}'_{m,m_1\ldots m_6} \\
+											& \phantom{= +} + \sum_{k=0}^3\tfrac{1}{(2k)!}\,\tilde{\omega}^{m_1 \ldots m_{2k}} \tilde{\omega}'_{m_1 \ldots m_{2k}} \, ,
+								\end{split}
+							\end{equation}
+						%
+					where the indices are lowered/raised using the ordinary metric $g_{mn}$ and its inverse $g^{mn}$.
+					
+					One can also define a generalised frame $\{\hat{E}_A\}$ on $E$ and then construct the inverse generalised metric as the tensor product of two such frames
+						%
+							\begin{equation}\label{genmetfor}
+								\mathcal{G}^{-1} = \delta^{AB} \hat{E}_A \otimes \hat{E}_B \,. 
+							\end{equation}
+						%
+					We will give below a precise definition of this product. 
+					To construct the generalised frame, we first consider the \emph{untwisted} generalised tangent bundle $\tilde{E}$, in an analogous way to the construction in $\rmO(d,d)$ geometry.
+					Let $\hat e_a$, with $a=1,\ldots,6$, be an ordinary frame, namely a basis for the tangent space at a point of $M_6$, and let $e^a$ be the dual basis for the cotangent space\footnote{%
+						We are using the hat symbol to distinguish frame vectors, $\hat{e}_a$, from co-frame one-forms, $e^a$. 
+						Similarly, the hat on $\hat E_A$ indicates that this is a generalised frame vector.%
+						}.
+					Then we can define a frame $\tilde{\hat E}_A$ for the untwisted generalised tangent space as the collection of bases for the subspaces that compose it
+						%
+							\begin{equation}\label{untframe}
+								\begin{split}
+									\{ \tilde{\hat{E}}_A\} = \{\hat e_a\} &\cup \{e^a\} \cup \{e^{a_1 \ldots a_5} \} \cup \{e^{a,a_1\ldots a_6}\} \cup \{1\} \\
+													&\cup \{e^{a_1a_2}\} \cup \{e^{a_1\ldots a_4}\} \cup \{e^{a_1 \ldots a_6}\}\, ,
+								\end{split}
+							\end{equation}
+						%
+					where $e^{a_1\ldots a_p}= e^{a_1}\wedge \cdots \wedge e^{a_p}$ and $e^{a,a_1\ldots a_6} = e^a\otimes e^{a_1\ldots a_6}$. 
+					A frame for the \emph{twisted} generalised tangent space is obtained by twisting~\eqref{untframe} by the local $\E_{7(7)}\times \RR^+$ transformation
+						%
+							\begin{equation}\label{twist_splitfr}
+								\hat{E}_A = e^{\tilde{B}}e^{-B}e^{C}e^{\Delta}e^{\phi}\cdot \tilde{\hat{E}}_A \, ,
+							\end{equation}
+						%
+					where in addition to the twist~\eqref{eq:twistC_short} we also include a rescaling by the dilaton $\phi$ and warp factor $\Delta$, acting as specified in~\eqref{IIAadjvecCompact}. 
+					Because of the rescaling by $\Delta$ the frame~\eqref{twist_splitfr} was called \emph{conformal split frame} in~\cite{Coimbra:2011ky}. 
+					Note that~\eqref{twist_splitfr} is just a particular choice of frame, not the most general one. 
+					Any other frame can be obtained from~\eqref{twist_splitfr} acting with an $\E_{7(7)} \times \RR^+$ transformation. 
+
+					We denote the components of $\hat{E}_A$ carrying different flat indices as
+						%
+							\begin{equation*}
+								\{\hat E_A\} = \{\hat{\mathcal{E}}_a\} \cup \{\mathcal{E}^a\} \cup \{\mathcal{E}^{a_1 \ldots a_5} \} \cup \{\mathcal{E}^{a,a_1\ldots a_6}\} \cup \{\mathcal{E}\} \cup \{\mathcal{E}^{ab}\} \cup \{\mathcal{E}^{a_1\ldots a_4}\} \cup \{\mathcal{E}^{a_1 \ldots a_6}\}\, . 
+							\end{equation*} 
+						%
+					Explicit expressions for each of these terms are given in appendix~\ref{splitfr_MtoIIA}.
+
+					Once we have the generalised frame, we can derive the expression for the inverse generalised metric $\mathcal{G}^{-1}$. 
+					Expanded in $\GL(6)$ components, the product~\eqref{genmetfor} becomes
+						%
+							\begin{equation*}
+								\begin{split}
+								\mathcal{G}^{-1} =& \delta^{aa'} \hat{\mathcal{E}}_a \otimes \hat{\mathcal{E}}_{a'} + \delta_{aa'} \mathcal{E}^a \otimes \mathcal{E}^{a'} + \mathcal{E} \otimes \mathcal{E} + \tfrac{1}{2}\delta_{a_1a'_1}\delta_{a_2a'_2} \mathcal{E}^{a_1a_2} \otimes \mathcal{E}^{a'_1a'_2} \\
+												& + \tfrac{1}{4!}\delta_{a_1a'_1}\cdots\delta_{a_4a'_4} \mathcal{E}^{a_1\ldots a_4} \otimes \mathcal{E}^{a'_1\ldots a'_4} + \tfrac{1}{5!}\delta_{a_1a'_1}\cdots\delta_{a_5a'_5} \mathcal{E}^{a_1\ldots a_5} \otimes \mathcal{E}^{a'_1\ldots a'_5} \\
+												& + \tfrac{1}{6!}\delta_{a_1a'_1}\cdots\delta_{a_6 a'_6} \mathcal{E}^{a_1\ldots a_6} \otimes \mathcal{E}^{a'_1\ldots a'_6} + \tfrac{1}{6!}\delta_{a a'}\delta_{a_1a'_1}\cdots\delta_{a_6a'_6} \mathcal{E}^{a,a_1\ldots a_6} \otimes \mathcal{E}^{a',a'_1\ldots a'_6}\, .
+								\end{split}
+							\end{equation*}
+						%
+					which is nothing else than the inverse of~\eqref{GofVandV'} calculated on frames.
+					The full expression for $\mathcal{G}^{-1}$ is long and ugly, so we only give the terms that will be relevant for the next discussion. 
+					Arranging them according to their curved index structure, we have
+						%
+							\begin{equation}\label{invG_comp_1}
+								\begin{split}
+									(\mathcal{G}^{-1})^{mn} &= e^{2\Delta}g^{mn}\, ,\\[1mm]
+									(\mathcal{G}^{-1})^{m} &= e^{2\Delta}g^{mn} C_n \, ,\\[1mm]
+									(\mathcal{G}^{-1})^{m}_{\phantom{m}n} &= - e^{2\Delta}g^{mp}B_{pn}\, , \\[1mm]
+									(\mathcal{G}^{-1})^{m}_{\phantom{m}np} &= e^{2\Delta}g^{mq}\left(C_{qnp} - C_{q}B_{np} \right) \, , \\[1mm]
+									(\mathcal{G}^{-1})^m{}_{npqr} &= {e}^{2\Delta}g^{ms}\left(C_{snpqr} -C_{s[np}B_{qr]} + \tfrac{1}{2}C_s B_{[np}B_{qr]}\right) \, , \\[1mm]
+									(\mathcal{G}^{-1}) &= e^{2\Delta}\left( e^{-2\phi} + g^{mn}C_m C_n\right)\, .
+								\end{split}
+							\end{equation}
+						%
+					These terms will be sufficient to read off all the supergravity physical fields from the generalised metric (we are omitting the formula determining $\tilde B_{m_1\ldots m_6}$).
+					Some other components of $\mathcal{G}^{-1}$ are
+						%
+							\begin{equation}\label{invG_comp_2}
+								\begin{split}
+									(\mathcal{G}^{-1})_{m} &= e^{2\Delta}g^{np}C_n B_{pm} \, , \\[1mm]
+									(\mathcal{G}^{-1})_{(mn)} &= e^{2\Delta}\left( g_{mn} + g^{pq}B_{pm}B_{qn}\right)\, , \\[1mm]
+									(\mathcal{G}^{-1})_{[mn]} &= - e^{2\Delta}\left( e^{-2\phi}B_{mn} - g^{pq}C_q\left( C_{pmn} - C_{p}B_{mn} \right) \right) \, , \\[1mm]
+									(\mathcal{G}^{-1})_{m,np} &= -e^{2\Delta}\left(g_{m[n}C_{p]} + g^{qr}B_{qm}\left( C_{rnp} - C_{r}B_{np} \right) \right) \, .
+								\end{split}
+							\end{equation}
+						%
+						
+					There is also a density associated to the generalised metric which trivialises the $\RR^+$ factor of the $\E_{d+1(d+1)} \times \RR^+$ structure group. 
+					In terms of the field content of type IIA it is given by
+						%
+							\begin{equation}\label{gen_density}
+								\Phi = (\det \mathcal{G})^{-(9-d)/ (\mathrm{dim} E)} = {g}^{1/2}\, e^{-2\phi} e^{(8-d)\Delta}\,,
+							\end{equation}
+						%
+					as can be seen by decomposing the corresponding M-theory density~\cite{Coimbra:2011ky}. 
+					This equation provides an easy way to solve relations such as~\eqref{invG_comp_1} explicitly for the supergravity fields. For example, to solve the first, second and last of equations in~\eqref{invG_comp_1}, one can begin by setting
+						%
+							\begin{equation}\label{fields_from_G_first}
+								(M^{-1})^{mn} := (\mathcal{G}^{-1})^{mn} = e^{2\Delta}g^{mn}\,.
+							\end{equation}
+						%
+					The second of equations~\eqref{invG_comp_1} then becomes
+						%
+							\begin{equation}
+								C_m = M_{mn} (\mathcal{G}^{-1})^{n}\,,
+							\end{equation}
+						%
+					which can be substituted into the last equation in~\eqref{invG_comp_1} to give
+						%
+							\begin{equation}
+								e^{2\Delta} e^{-2\phi} = (\mathcal{G}^{-1}) - M_{mn} (\mathcal{G}^{-1})^{m} (\mathcal{G}^{-1})^{n} := Q\,.
+							\end{equation}
+						%
+					One then easily obtains the expressions for $g_{mn}, C_m, e^\Delta$ and $e^{-2\phi}$ as
+						%
+							\begin{equation}\label{fields_from_G_last}
+								\begin{array}{l c c r}
+									e^\Delta = \bigg( \frac{\Phi}{Q \sqrt{\det M}} \bigg)^{1/6} \, ,		&	&	&	e^{-2\phi} = \bigg( \frac{Q^4 \sqrt{\det M}}{\Phi} \bigg)^{1/3} \, , \\
+									g_{mn} = M_{mn} \bigg( \frac{\Phi}{Q \sqrt{\det M}} \bigg)^{1/3}\,, 	&	&	&	C_m = M_{mn} (\mathcal{G}^{-1})^n \, ,
+								\end{array}
+							\end{equation}
+						%
+					where $M_{mn}, Q$ and $\Phi$ are given in terms of the generalised metric as above. 
+					In particular, we have expressions for $e^\Delta$ and $g_{mn}$, so that solving the remaining relations in~\eqref{invG_comp_1} becomes straightforward.
+
+					The above method to compute the warp factor from an arbitrary generalised metric involves evaluating $\det \mathcal{G}$, which is in general a slightly difficult computation. 
+					A simpler way to attain the same result is to evaluate the determinant of a subset of the components of the generalised metric, denoted $\mathcal{H}$, corresponding to the degrees of freedom in the coset
+						%
+							\begin{equation}
+								\mathcal{H} \in \frac{\SO(d,d)\times\RR^+}{\SO(d)\times\SO(d)}\,.
+							\end{equation}
+						%
+					Explicitly, we construct $\mathcal{H}^{-1}$ in components via
+						%
+							\begin{equation}\label{eq:GB-metric}
+									\mathcal{H}^{-1} = \begin{pmatrix} (\mathcal{G}^{-1})^{mn} & (\mathcal{G}^{-1})^m{}_n \\
+		 														(\mathcal{G}^{-1})_m{}^n & (\mathcal{G}^{-1})_{mn} \end{pmatrix}
+		 										= e^{2\Delta} \begin{pmatrix} g^{mn} & -(g^{-1} B)^m{}_n \\
+		 														(B g^{-1})_m{}^n & (g - B g^{-1} B)_{mn} \end{pmatrix}
+							\end{equation}
+						%
+					where in the second equality we have used~\eqref{invG_comp_1} and~\eqref{invG_comp_2}. 
+					We recognise the last matrix as the components of (the inverse of) the $O(d,d)$ generalised metric~\eqref{genmet}, which has unit determinant~\cite{gualtphd}. 
+					Therefore we can immediately write
+						%
+							\begin{equation}
+								e^{\Delta} = (\det \mathcal{H})^{-1/4d} \, .
+							\end{equation}
+						%
+					We comment on the appearance of the $O(d,d)$ generalised metric in appendix~\ref{appsec:EGGodd}.
+				%
+			\subsection{Generalised parallelisation}\label{secGenPar}
+				%
+					The goal of this section is to extend the definition of identity structure given in the previous chapter to the exceptional case.
+					This was firstly defined in~\cite{spheres}, and extended in~\cite{oscar1}.
+					
+					Namely, a generalised parallelisation $\{\hat{E}_A\}$ ($A = 1, \ldots , N$, where $N$ is the dimension of the generalised bundle) is a globally defined frame, or a set of $N$ globally defined vector fields defining a basis of $E\vert_p$ at each point $p$ of $M$.
+					
+					The latter is a topological condition.
+					In addition one can add a differential constraint on the frame $\{\hat{E}_A\}$, 
+						%
+							\begin{equation}\label{GLP}
+								L_{\hat{E}_A} \hat{E}_B = X_{AB}^{\phantom{AB}C} \hat{E}_C \, ,
+							\end{equation}
+						%
+					with constant coefficients $X_{AB}^{\phantom{AB}C}$.
+					Following~\cite{spheres}, we call this a \emph{generalised Leibniz parallelisation}.
+					The name comes from the fact that since the Dorfman derivative is not antisymmetric, the frame algebra~\eqref{GLP} is not a Lie algebra, but in general a Leibniz one.
+					
+					In~\cite{petrini3} using $\rmO(d,d)$ generalised geometry, it is proven that a necessary condition to admit a generalised Leibniz parallelisation is to be an homogeneous space, that is a coset space in the form $G/H$.
+					This result is extendable to the full $\E_{d(d)}$ bundle.
+					
+					An observation that will be useful in what follows is that we can think any sphere as an homeneous space: $S^d \cong SO(d+1)/SO(d)$. 
+					In this case, we have a natural action of $\SO(d+1)$ on the manifold, defined by the Killing vector fields (given a metric on the sphere), this is called the \emph{isometry group}. 
+					While, $H \equiv \SO(d)$ is the group that leaves points on the manifold invariant.
+					
+				%
+			\subsection{Generalised HV structures}\label{sec:ESE}
+				%	
+					Here we review briefly the results of~\cite{AshmoreESE}, in order to describe the so-called HV structures as generalised $G$-structures on the exceptional frame bundle.
+					These will describe AdS backgrounds of various supergravity theories.
+					
+					As for ordinary $G$-structures, the existence of globally defined generalised tensors reduces the structure group of $E$ and defines generalised $G$-structures in exceptional geometry.
+					
+					As shown in~\cite{AshmoreESE, AshmoreECY, Grana_Ntokos}, a supergravity solution with eight supercharges is characterised by the existence of the so-called \emph{hyper}- and \emph{vector-multiplet}structures, defining the relative generalised $G$-structure.
+					
+					A \emph{hypermultiplet structure}~\cite{AshmoreECY}, or \emph{H structure} for short, is a triplet of sections of the weighted adjoint bundle (one can see~\cref{app:EGG}) for details) 
+						%
+							\begin{equation}
+								J_a \in \Gamma (\mathrm{ad} \tilde{F} \otimes (\det T^*M)^{1/2})\, , 
+							\end{equation}
+						% 
+					such that
+						%
+							\begin{equation}
+								\begin{array}{ccccc}
+									\com{J_a}{J_{b}} = 2 \kappa \epsilon_{abc} J_{c}& & \mbox{and} & & \tr \left( J_{a} J_{b}\right) = - \kappa^2 \delta_{ab}\, .
+								\end{array}
+							\end{equation}
+						%
+					In the cases we are going to be interested in, \emph{i.e} $d = 6, 7$, the triplet $J_{a}$ realises a $\mathrm{Spin}^*(12) \subset \E_{7(7)} \times \RR^+$ structure and an $\SU^*(6) \subset \E_{6(6)} \times \RR^+$ respectively.
+	
+					A \emph{vector structure}, or \emph{V structure}, is given by a generalised vector
+						%
+							\begin{equation} 
+								K \in \Gamma \left( E\right) 
+							\end{equation}
+						%
+					that has positive norm 
+						%
+							\begin{equation}
+								\begin{array}{ccc}
+									q(K) >0 & \mbox{or} & c(K)>0\, , 
+								\end{array}
+							\end{equation}
+						%
+					where $q(K)$ denotes the $\E_{7(7)}$ quartic and $c(K)$ is the $\E_{6(6)}$ cubic invariant. 
+					The generalised vector $K$ defines an $\E_{6(2)}$ and $\mathrm{F}_{4(4)}$ structure in $D=4$ and $D=5$, respectively.
+
+					One can impose the following compatibility conditions on $J_a$ and $K$
+						%
+							\begin{equation}\label{compHV}
+								\begin{array}{ccc}
+									J_{a} \cdot K=0 & \mbox{and}& \mathrm{tr}\left( J_{a}J_{b}\right) =
+								%
+									\begin{cases}
+										-2 \sqrt{q(K)} \delta_{ab}&\phantom{\mbox{for}} D=4\\
+										-c(K) \delta_{ab}&\phantom{\mbox{for}} D=5 
+									\end{cases}
+								%
+								\end{array}
+							\end{equation}
+						% 
+					The pair $(J_{a}, K)$ is then called an \emph{HV structure} and defines an $\SU(6) = \mathrm{Spin}^*(12) \cap \E_{6(2)}$ structure and a $\USp(6) = \SU^*(6) \cap F_{4(4)} $ structure in $D=4$ and $D=5$, respectively (see~\cite{AshmoreECY}). 
+					The explicit form of the \emph{HV} structure depends on the theory and the dimension of the compactification manifold. 
+					For instance, the generalised vector $K$ is 
+						%
+							\begin{equation}\label{genvecs}
+								K = \left\{ \begin{array}{lcl} 
+										\xi + \omega + \sigma + \tau & \phantom{\mbox{for}} & \mbox{M theory} \\[1mm]
+										\xi + \lambda^i + \rho + \sigma^i + \tau & \phantom{\mbox{for}} & \mbox{type IIB}
+									\end{array} \right. \, .
+							\end{equation}
+						%
+						
+					As discussed in~\cite{AshmoreECY, AshmoreESE}, and analogously to other $G$-structures, the integrability of these structures is achieved by imposing a set of integrability conditions on $(J_a, K)$,
+						%
+							\begin{subequations}
+								\begin{align} 
+								%
+								\label{eq:moment_map}
+									&& &\mu_{a} (V) = \lambda_{a} \gamma(V) && \forall \, V \in \Gamma(E)\, , && \\
+								%
+								\label{eq:LK1}
+									&& &L_{K}K=0\, ,\\
+								%
+								\label{eq:LK2}
+									&& &L_K J_a = \epsilon_{a b c} \lambda_{b} J_{c} \, , && L_{\tilde K} J_{a} =0 \, , &&
+								%
+								\end{align}
+							\end{subequations}
+						%
+					where the second condition in~\eqref{eq:LK2} only applies for $D=4$.
+					
+					When $\lambda_a \neq 0$, this structure is called \emph{exceptional Sasaki-Einstein}~\cite{AshmoreESE}, while in the case of $\lambda_a = 0$ it takes the name of \emph{exceptional Calabi-Yau}~\cite{AshmoreECY}.
+					
+					We will see how these are equivalent to the Killing spinor equations for backgrounds preserving $\mathcal{N}=2$ supersymmetry.
+	
+					The functions $\mu_{a} (V)$ are a triplet of moment maps for the action of the generalised diffeomorphisms,
+						%
+							\begin{equation}
+								\mu_a(V) = - \frac{1}{2} \epsilon_{abc} \int_M \mathrm{tr}(J_b L_V J_c)\, .
+							\end{equation}	
+						%
+					We will see how the constants $\lambda_a$ depend on the theory: they are zero for Minkowski backgrounds, while for AdS are related to the inverse of the AdS radius $\lvert \lambda\rvert=2m$ for $D=4$ and $\lvert \lambda\rvert=3m$ for $D=5$, where $\lvert \lambda\rvert^2=\lambda_1^2+\lambda_2^2+\lambda_3^2$. 
+					Finally, the function $\gamma$ is defined as
+						%
+							\begin{equation}
+								\begin{array}{llc}
+									\gamma (V) = 2 \int_M q(K)^{-1/2} q(V,K,K,K) &{}& D=4\, , \\[1mm]
+									\gamma (V) =\int_M c(V,K,K) & {}& D=5 \, .
+								\end{array}
+							\end{equation}
+						%
+					
+					The integrability conditions have important consequence, that we are going to explore further in the next chapters. 
+					For instance, the generalised vector $K$ is a generalised Killing vector, that is
+						%
+							\begin{equation}
+								L_K \mathcal{G} = 0	\, ,
+							\end{equation}
+						%
+					where the generalised metric $\mathcal{G}$ in~\eqref{GofVandV'}. 
+					The generalised Killing vector condition for M-theory is equivalent to
+						%
+							\begin{equation}
+								\begin{array}{ccccc}
+									\mathcal{L}_\xi g = 0\, , &\phantom{and}& \mathcal{L}_\xi A - \dd \omega = 0\, , &\phantom{and}& \mathcal{L}_\xi \tilde{A} -\dd \sigma + \tfrac{1}{2} \dd \omega \wedge A = 0\, ,
+								\end{array}
+							\end{equation}
+						%
+					while in type IIB one has
+						%
+							\begin{equation}
+								\begin{array}{lcl}
+									\mathcal{L}_\xi g = 0\, , &\phantom{and}& \mathcal{L}_\xi C = \dd \rho - \tfrac{1}{2}\epsilon_{ij}\dd \lambda^i \wedge B^j \, , \\[1mm] 
+									\mathcal{L}_\xi B^i - \dd \lambda^i = 0\, , &\phantom{and}& \mathcal{L}_\xi \tilde{B}^i = \dd \sigma^i + \tfrac{1}{2} \dd \lambda^i \wedge C - \tfrac{1}{2} \dd \rho \wedge B^i + \tfrac{1}{12}\epsilon_{kl} B^i \wedge B^k \wedge \dd \lambda^l \, .
+								\end{array}
+							\end{equation}
+						%
+
+					The generalised Killing vector condition on $K$ means that the action of the generalised Lie derivative on the untwisted objects reduces to the usual one,
+						%
+							\begin{equation}\label{dorflie}
+								\hat{L}_{K} \cdot =\mathcal{L}_{\xi} \cdot \, , 
+							\end{equation}
+						%
+					where $\xi$ denotes the (necessarily non-vanishing) vector component of $K$. 
+					By virtue of~\eqref{eq:twisted_untwisted_lie_der} this is equivalent to the vanishing of the tensor $R_{\mathbb{L}_{\tilde{V}}}$ in~\eqref{eq:tensor_r}. 
+					We will refer to~\eqref{eq:moment_map} as \emph{moment map condition} while to~\eqref{eq:LK1},~\eqref{eq:LK2} and the vanishing of $R_{\mathbb{L}_{\tilde{V}}}$ in~\eqref{eq:tensor_r} as $L_K$ \emph{condition}.
+					$K$ is called \emph{generalised Reeb vector} because it naturally generalises the isometry described by the usual Reeb vector in Sasakian geometry. 
+	
+					We will analyse further these structures in the chapters~\ref{chapComp} and~\ref{chapbrane}.
+
+				%
+			%
+	%
+\end{document}

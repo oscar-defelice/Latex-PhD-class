@@ -1,0 +1,2380 @@
+\documentclass[debug]{phd}
+
+\begin{document}
+%%
+\ensurepagenumbering{arabic}
+%%
+	%
+	\chapter{Flux Compactifications}
+	\label{chapComp}
+		%
+		\section{Introduction and motivations}
+			%
+			The aim of this chapter is to discuss the general approach to supergravity compactifications with fluxes.
+						
+			This thesis is devoted to the study of supersymmetric compactifications with some non-trivial fluxes.
+			We will see in the first part of this chapter how requiring some amount of supersymmetry on the lower dimensional theory constrains the geometry of the internal manifold $M$, such that it must admit geometrical structures like the ones we described in~\cref{chap1}.
+			For the well-known case of fluxless compactification of a $10$-dimensional type II supergravity to a minimal supergravity in $4$ dimensions, the constraints on the internal manifold requires it to be a Calabi-Yau three-fold~\cite{CYcomp}.
+			When we allow fluxes to be turned on, the supersymmetry conditions can be cast in a compact and elegant form using \emph{Generalised Geometry} and generalised structures we introduced in~\cref{chapEGG}.
+			
+			We start by reviewing supersymmetric backgrounds.
+			In addition, after describing the standard Calabi-Yau $\mathcal{N}=2$ four-dimensional compactification of type II theories, we summarise how to include NSNS flux, and which problems would arise if one considers the whole set of fluxes.
+			Then, the discussion moves on parallelisable spaces and how this structure can be useful to define \emph{Generalised Scherk-Schwarz reductions}.
+			%
+		\section{Supergravity theories}
+			%
+			Supergravity theories are theories combining general relativity with supersymmetry (making this a local symmetry).
+			These can be seen as low-energy effective theories of the different string theories.
+			There exists also an eleven-dimensional maximally supersymmetric supergravity, which is not connected (as low-energy limit) to any string theory.
+			This has been interpreted to have its higher dimensional origin in $M$-theory.
+			
+			The aim of this section is to describe the main feature of type II and eleven-dimensional supergravity theories, with their effective actions and the gauge symmetries of their potentials.
+			%
+			\subsection{Eleven-dimensional supergravity}
+				%
+				This section is devoted to the description of the eleven-dimensional supergravity, \emph{i.e.} the low energy effective theory of M-theory.
+				Here we collect some definitions and we recall gauge transformations for the eleven-dimensional fields, without worrying of being complete. We refer to~\cite{polchinski, BeckerBeckerSchw} for further details.
+				
+				The maximal supergravity in eleven dimensions is $\mathcal{N}=1$.
+				Indeed, eleven is the maximal dimension where one can define a supersymmetric theory containing massless particles with maximum spin $2$.
+				
+				One can see (by building supersymmetric multiplets) that the fermionic degrees of freedom are completely captured by the gravitino $\Psi$. 
+				The bosonic field content has to transport the same number of physical degrees of freedom, then one can see that the spectrum is completed by the metric $g$ and a three-form $A$.
+				
+				The theory is invariant under the gauge transformations
+					%
+						\begin{equation}
+							A_3 \longrightarrow A_3 + \dd \Lambda_2 \, ,
+						\end{equation}
+					%
+				where $\Lambda_2$ is a two-form. 
+				The gauge invariant field strength is $G_4 = \dd A_3$.
+				Although it does not transport independent degrees of freedom, one often introduces the dual seven-form $\tilde G$, whose six-form potential is conventionally denoted by $\tilde A$.
+				
+				The equation of motion and Bianchi identity can be written (in a sourceless case) as
+					%
+						\begin{equation}
+							\begin{split}
+								\dd &\star G + \frac{1}{2} G \wedge G = 0 \, , \\
+								\dd &G = 0 \, .
+							\end{split}
+						\end{equation}
+					%
+				Note that the equation of motion for $G$ can be recast in term of $\tilde{G}$ and viceversa.
+				
+				In addition, the equation of motion for the metric $g$, \emph{i.e.} the Einstein equation, can be written as follows,
+					%
+						\begin{align}
+							R_{MN} - \dfrac{1}{12}\left( G_{MPQR}G_{N}^{\phantom{N}PQR} - \dfrac{1}{12}g_{MN} G^2 \right) &= 0 \, .
+						\end{align}
+					%
+				%%	
+				%
+			\subsection{Type II theories}\label{sec:IIsugra}
+				%
+				Here we discuss type II theories.
+				As said, these are the ten-dimensional effective theories for massless fields type II string theories.
+				The bosonic sector consists of two sets of fields: the Neveu-Schwarz Neveu-Schwarz (NSNS) and the Ramond-Ramond (RR).
+					%
+						\begin{table}[h!]
+						\centering
+							\begin{tabular}{c c c c}
+									\toprule
+%														&								&										\\
+%									\midrule
+														& 			$g$					&	metric (graviton)							\\[1.2mm]
+									NSNS 				&			$B$					&	Kalb-Ramond $2$-form						\\[1.2mm]
+											 			&			$\phi$				&	dilaton									\\[1.6mm]
+									RR		 			&			$A_p$				&	\begin{tabular}{@{\ }l@{}}
+ 																								$p$ odd for type IIA \\ 
+																								$p$ even for type IIB 
+ 																							\end{tabular}								\\[1.2mm]			
+									\bottomrule
+								\end{tabular}
+							\caption{Type II supergravities spectrum in ten dimensions.}
+							\label{tabspectr}
+						\end{table}
+					%			
+				
+				As one can see from~\cref{tabspectr}, the NSNS sector is the same for both type II theories.
+				It contains the metric $g$, the dilaton $\phi$ and the NSNS two-form $B$.
+				The latter is a gauge potential for $\U(1)$ with field strength $H = \dd B$.
+				
+				The RR sector depends on the theory.
+				Type IIA one is made up by odd forms, while for type IIB by even ones.
+				These are also $\U(1)$ gauge potentials.
+				We are going to present supergravity in what is called \emph{democratic formulation}~\cite{DemSugra}, since it is the most suitable to formulate supergravity in generalised geometry.
+				This formulation considers RR potentials of all ranks $C_p$, with $p = 1, 3, \ldots, 9$ for type IIA and $p = 0, 2, \ldots, 8$ for IIB. 
+				These are not all independent since their field strengths have to satisfy duality relations with respect to the Hodge dual.
+				The field strength\footnote{%
+					There exists another common choice for the RR potential, the so-called $A$-basis, which is related to the $C$-basis we use as $A = e^{-B} \wedge C$. 
+					In this basis the field strength~\eqref{Fform} reads $F = e^B \wedge (\dd A + m)$.%
+					}
+				are defined by,
+					%
+						\begin{equation}\label{Fform}
+							F_p = \dd C_{p-1} + H \wedge C_{p-3} + e^B F_0 \, ,
+						\end{equation}
+					%
+				where $F_0 = m$ is the Romans mass term which can be added only in type IIA~\cite{RomansMass}.
+				The $F$ also have their duality relations,
+					%
+						\begin{equation}\label{Fdual}
+							F_p = (-1)^{\left[\frac{p+3}{2}\right]} \star F_{10-p} \, .
+						\end{equation}
+					%
+				
+				It might be useful to collect all the RR field strengths and potentials into a single notation, making use of polyforms,
+					%
+						\begin{equation*}
+							\begin{array}{lr}
+								C = \sum_p C_p & p\ \text{odd/even for type IIA/IIB}\, , \\[3mm]
+								F = \sum_p F_p & p\ \text{even/odd for type IIA/IIB}\, .								 
+							\end{array}
+						\end{equation*}
+					%
+				In this notation, the~\eqref{Fform} and~\eqref{Fdual} take the following form,
+					%
+						\begin{align*}
+							F &= \dd_H C + e^B F_0\, , \\
+							F &= \star s (F) \, ,
+						\end{align*}
+					%
+				where we introduced the differential operator $\dd_h := \dd - H \wedge$ acting on polyforms, called \emph{$H$-twisted exterior derivative}, and the \emph{index reversal operator} $s$,
+					%
+						\begin{equation}
+							s(A_p) = (-1)^{\left[p/2\right]} A_p \, .
+						\end{equation}
+					%
+				The field strengths defined above enjoy the invariance under gauge transformations of potentials,
+					%
+						\begin{equation}\label{gaugetrans}
+							\begin{split}
+								\delta B &= - \dd \lambda \, , \\
+								\delta C &= - e^B \wedge \left(\dd \omega - m \lambda \right) \, , \\
+							\end{split}
+						\end{equation}
+					%
+				where $\lambda$ is a one-form, $\omega$ is a polyform made of even/odd forms for type IIA/IIB and the term proportional to the Romans mass $m$ is there only in the type IIA case.
+				 
+				 The fermionic sector of the two theories consists of two Majorana-Weyl spinors of spin $3/2$, the gravitinos $\psi_M^\alpha$, and two Majorana-Weyl spin 1/2 spinors $\lambda^\alpha$, the dilatinos.
+				 Gravitinos and dilatinos have opposite chirality.
+				 In type IIA the gravitinos have opposite chirality, while in type IIB they have the same chirality (chosen positive by convention).
+				 As a consequence, type IIB dilatinos will both have negative chirality.
+				 
+				 This is the difference between type IIA and IIB, the former is a non-chiral theory, while the latter is chiral.
+				 Nevertheless, they are both maximal supersymmetry in ten dimensions, \emph{i.e.} they are $\mathcal{N}=2$.
+				 An important fact is that type IIA supergravity can be obtained by the eleven-dimensional one by a compactifiation on a circle.
+				 We will analyse this reduction in a while.
+				 
+				 Here we give the bosonic massless fields actions. 
+				 We put ourself in string frame for this section\footnote{%
+				 	Einstein frame and string frame metric are related by a dilaton rescaling, \emph{i.e.}
+						%
+							\begin{equation*}
+								g = e^{\phi/2} g^E \, .
+							\end{equation*}
+						%
+					},
+					and we follow the conventions of~\cite{DemSugra}.
+				 
+				 For type IIA supergravity, we have
+				 	%
+						\begin{equation*}
+							\begin{split}
+								S_{IIA} = \frac{1}{2\kappa^2}& \int \dd^{10} x \ \underbrace{\sqrt{g} \left[ e^{-2\phi} \left(R + 4 \nabla \phi ^2 - \frac{1}{2} \lvert H \rvert^2 \right)\right]}_{S_{NS}} - \underbrace{\frac{\sqrt{g}}{2} \sum_{k=0}^2 \lvert F_{2k} \rvert^2}_{S_{R}} \\
+								&- \underbrace{\frac{1}{2} B \wedge \mathcal{F}_4 \wedge \mathcal{F}_4}_{S_{CS}} \, ,
+							\end{split}		
+						\end{equation*}
+					%
+				 where $\mathcal{F}_4 = \dd C_3$, while $F_p$ are the field strength defined above in~\eqref{Fform}.
+
+				The bosonic action for type IIB reads 
+					%
+						\begin{equation*}
+							\begin{split}
+							S_{IIB} = \frac{1}{2\kappa^2}& \int \dd^{10} x \ \underbrace{\sqrt{g} \left[ e^{-2\phi} \left(R + 4 \nabla \phi ^2 - \frac{1}{2} \lvert H \rvert^2 \right)\right]}_{S_{NS}} - \underbrace{\frac{\sqrt{g}}{2} \sum_{k=0}^2 \frac{1}{k!}\lvert F_{2k+1} \rvert^2}_{S_{R}} \\
+															& - \underbrace{\frac{1}{2} C_4 \wedge H_3 \wedge \mathcal{F}_3}_{S_{CS}} \, .
+							\end{split}							
+						\end{equation*}
+					%
+				Analogously to the type IIA case, we introduced $\mathcal{F}_n = \dd C_{n-1}$.
+				In this supergravity approximation, the type IIB theory has a constant shift symmetry $C_0 \rightarrow C_0 + c$, where $c$ is a constant. 
+				Hence, it is referred to as an \emph{axion}~\cite{BeckerBeckerSchw, Weinberg:1977ma}.
+				Furthermore, the five-form field strength $F_5$ satisfies the self-duality condition
+					%
+						\begin{equation}\label{F5dual}
+							F_5 = \star F_5 \, ,
+						\end{equation}
+					%
+				which has to be imposed as a further constraint together with the equations of motion.
+				
+				Type II RR field strengths are also subject to the following Bianchi identity (when there are no sources, like $\dd_p$ branes),
+					%
+						\begin{equation}
+							\dd F = H \wedge F \, ,
+						\end{equation}
+					%
+				while, for type IIA, the equation of motion for $B$,
+					%
+						\begin{equation}\label{Hstar}
+							\dd (e^{-2\phi} \star H) + \frac{1}{2} \left[ F \wedge \star F \right]_8 = 0 \, ,
+						\end{equation}
+					%
+				can be interpreted as the Bianchi identity for the dual seven-form field strength,
+					%
+						\begin{equation}
+							\tilde{H} = e^{-2\phi} \star H \, .
+						\end{equation}
+					%
+				We denoted by $[\ldots]_k$ the rank $k$ form of the polyform in the bracket.
+
+				Making use of the self-duality relation for $F$~\eqref{Fdual}, we can rewrite the~\eqref{Hstar} as,
+					%
+						\begin{equation}
+							\dd \left( \tilde H + \frac{1}{2} \left[ s(F) \wedge C + m e^{-B} \wedge C \right]_7 \right) = 0\, ,
+						\end{equation}
+					%
+				which is solved by,
+					%
+						\begin{equation}
+							\tilde H = \dd \tilde{B} - \frac{1}{2} \left[ s(F) \wedge C + m e^{-B} \wedge C \right]_7 \, .
+						\end{equation}
+					%
+				Thus we introduced a new potential $\tilde{B}$~\cite{Bergshoeff:1997ak, Bergshoeff:2006qw}, whose (linearised) gauge transformations are fixed by requiring the invariance of its field strength,
+					%
+						\begin{equation}
+							\delta \tilde{B} = -(\dd \sigma + m \omega_6) - \frac{1}{2} \left[ e^{B} \wedge (\dd \omega - m \lambda ) \wedge s(C) \right]_6 \, ,
+						\end{equation}
+					%
+				where $\sigma$ is a five-form, while $\omega$ and $\lambda$ are the parameters of the gauge transformations~\eqref{gaugetrans}.
+				
+				An interesting point to notice about the massive IIA theory~\cite{RomansMass} is that one can obtain it from the non-massive one by shifting the gauge parameters as,
+					%
+						\begin{equation}\label{gaugeshifts}
+							\begin{split}
+								\dd \omega_0 &\longrightarrow \dd \omega_0 - m \lambda \, , \\
+								\dd \sigma & \longrightarrow \dd \sigma + m \omega_6 \, .
+							\end{split}
+						\end{equation}
+					%
+				These relations will be the key of the construction of the exceptional generalised geometry for massive type IIA~\cite{oscar1}.
+				
+				Type IIB theory exhibits a non-compact global symmetry $\SL(2, \RR)$.
+				This is not evident in the formulation we gave above, so we want to make it explicit.
+				The two two-form potentials $B$ and $C_2$ can be organised into a doublet of $\SL(2, \RR)$,
+					%
+						\begin{equation}
+							B^i := \begin{pmatrix}
+									B \\
+									C_2
+							\end{pmatrix}^i \, .
+						\end{equation}
+					%
+				Similarly, we introduce $F^i = \dd B^i$.
+				Under an $\SL(2,\RR)$ transformations the $B$ fields transform linearly,
+					%
+						\begin{align}
+							& &	B^i \longrightarrow \Lambda_{ij} B^j \, ,	& &	\Lambda_{ij} = \begin{pmatrix}
+																					a & b \\
+																					c & d					
+																				\end{pmatrix} \in \SL(2, \RR) \, . 
+						\end{align}
+					%
+				One can also define a complex scalar field $\tau$ which is the complex combination of the axion and the dilaton field, for this reason this is called \emph{axion-dilaton field}.
+				This is useful since it transforms nicely under $\SL(2,\RR)$,
+					%
+						\begin{equation}
+							\tau \longrightarrow \frac{a \tau + b}{c \tau + d} \, .
+						\end{equation}
+					%
+				Then, type IIB action $S_{IIB}$ can be re-written in terms of $\SL(2,\RR)$ representations, like the symmetric matrix $h$,
+					%
+						\begin{equation}
+							h_{ij} = \begin{pmatrix}
+								\lvert \tau \rvert^2 & -C_0 \\
+								-C_0 & 1
+							\end{pmatrix}_{ij} \, ,
+						\end{equation} 
+					%
+				transforming under $\SL(2, \RR)$ as
+					%
+						\begin{equation}
+							h_{ij} \longrightarrow \Lambda^{ik} h_{kl} \Lambda^{lj} \, .
+						\end{equation}
+					%
+				Then the action $S_{IIB}$ in terms of $\SL(2, \RR)$ covariant objects can be recast as,
+					%
+						\begin{equation}
+							\begin{split}
+								S_{IIB} = \frac{1}{2\kappa^2}& \int \dd^{10} x \ \sqrt{g} \left[e^{-2\phi} \left(R - \frac{1}{12}F^i h_{ij} F^j + \frac{1}{4} \partial h_{ij} \partial h^{ji} \right)\right] \\
+											& - \frac{1}{8 \kappa^2}\int \dd^{10} x \ \left[ \sqrt{g} \lvert F_{5} \rvert^2 - \epsilon_{ij} C_4 \wedge F^i \wedge F^j \right] \, .
+							\end{split}
+						\end{equation}
+					%
+				The self duality condition on the $5$-form field strength~\eqref{F5dual} (which is a constraint in this formalism) is also $\SL(2,\RR)$ invariant.
+				Moreover, one can re-write its definition in an $\SL(2,\RR)$ invariant form,
+					%
+						\begin{equation}
+							F_5 = \dd C_4 + \frac{1}{2} \epsilon_{ij} B^i \wedge H^j \, .
+						\end{equation}
+					%
+				
+				%%%
+					\subsubsection{Generalised massive Lie derivative}\label{sec:massive_genLie}
+					%
+						As seen, type IIA supergravity has a flux of a zero-form called \emph{Romans mass} $F_0 = m$~\cite{RomansMass}.
+						In a string theory perspective this corresponds to a D$8$ brane filling the ten-dimensional spacetime.
+						One of the main results of this work is the description of a generalised geometry for type IIA accommodating also the Romans mass.
+						
+						We have seen in the previous chapter how exceptional generalised geometry can accomodate all the fluxes of type II supergravity and M-theory by twisting the exceptional tangent bundle by their potentials.
+					
+						The difficulty in incorporating the mass $m$ in the generalised geometry formalism is that the zero-form flux $m = F_0$ is not expressible as the derivative of a potential.
+						This means that it is not possible to introduce the mass term as an additional twist of the generalised bundle $E$, as for the other fluxes.
+						
+						The key point in solving this problem is to look at the way the gauge transformations of the NSNS and RR potentials are realised in exceptional generalised geometry.
+						
+						We saw in~\eqref{gaugeshifts} how the mass affects the gauge transformations of type IIA supergravity.
+						Since the gauge transformations of the supergravity potentials are encoded in the way the twisted generalised vectors patch, the introduction of the Romans mass requires a modification of the patching conditions~\eqref{patchingIIA} and~\eqref{eq:gauge-field-patchingmassless}.
+						Following a reasoning that schematically derives the patching conditions from gauge transformations (see~\cref{appsec:EGGgauge} for a more detailed discussion), we find the new patching conditions of the form
+ 							%
+								\begin{equation}\label{patching_m}
+									V_{(\alpha)} = e^{\dd \tilde \Lambda_{(\alpha \beta)}} e^{\dd \Omega_{(\alpha \beta)} + m \Omega_{6(\alpha\beta)} } e^{-\dd \Lambda_{(\alpha \beta)} - m\,\Lambda_{(\alpha\beta)}} \cdot V_{(\beta)} \, .
+								\end{equation}
+							%
+						This condition reproduces the massive supergravity gauge transformations on overlapping patches $U_\alpha \cap U_\beta$.
+						A first-principles derivation of this is also given in appendix~\ref{appsec:EGGgauge}.
+						
+						Although the structure of the exact sequences~\eqref{IIAexten} is left intact by this deformation, the precise details of the twisting~\eqref{patching_m} do change\footnote{%
+							A consequence of this is the following. In massless IIA we can project a generalised vector onto its vector and zero-form parts $v+\omega_0$, giving a well-defined section of a bundle with seven-dimensional fibre. This is the dimensional reduction of the M-theory tangent bundle $TM_7$. However, with the massive IIA patching rules~\eqref{patching_m}, this projection would no longer give a section of a bundle with seven-dimensional fibre. Hence, the massive patching rules do not arise from a seven-dimensional geometry.%
+							}.
+ 						An important feature of massive type IIA is that by virtue of the Bianchi identity we have (globally)
+							%
+								\begin{equation}\label{eq:H-exact}
+									H_3 = \tfrac{1}{m}\, \dd F_2 \, ,
+								\end{equation}
+							%
+						so that for $m\neq 0$, $H_3$ is trivial in cohomology.
+						Thus, the first extension in~\eqref{IIAexten} is naturally equivalent to the trivial one.
+						
+						Also, a pure NSNS gauge transformation no longer acts in the $\rmO(d,d)$ subgroup of $	E_{d+1(d+1)}\times\RR^+$, simply because it also generates a $C_1$ RR potential.
+						As such, there is no massive version of Hitchin's $\rmO(d,d)$ generalised geometry\footnote{%
+							Though see~\cite{Hohm:2011cp} for a double field theory approach to this, where the $F_0$ flux is generated by introducing a linear dependence on the additional non-geometric coordinates dual to the winding modes of the string.%
+							}.
+
+						The modification~\eqref{patching_m} of the patching condition also requires a deformation of the Dorfman derivative. 
+						Recall that the latter generates the infinitesimal gauge transformations, and that these are affected by the Romans mass via the shifts~\eqref{gaugeshifts}. 
+						It follows that the massive form of the Dorfman derivative is obtained implementing the same shift in the massless expression~\eqref{dorfIIA}
+							%
+								\begin{equation}\label{dorfIIAm}
+									\begin{split}
+										L_V V' =& \mathcal{L}_v v' + \left(\mathcal{L}_v \lambda' - \iota_{v^\prime} \dd\lambda\right) \\
+												& + \left( \mathcal{L}_v \sigma' - \iota_{v^\prime}(\dd\sigma+m\omega_6) + [s(\omega^\prime) \wedge (\dd\omega-m\lambda)]_5\right) \\
+												& + \left(\mathcal{L}_v \tau' + j \sigma' \wedge \dd\lambda + \lambda^\prime \otimes (\dd\sigma+m\omega_6) + j s(\omega^\prime) \wedge (\dd\omega-m\lambda) \right) \\
+												& + \left(\mathcal{L}_v \omega' + \dd \lambda \wedge \omega' - (\iota_{v'}+ \lambda' \wedge)(\dd\omega-m\lambda)\right)\, ,
+									\end{split}
+								\end{equation}
+							%
+						which contains the mass as a deformation parameter. 
+						
+						More formally,~\eqref{dorfIIAm} is related to the massless Dorfman derivative (here denoted by $L^{(m=0)}$) as
+							%
+								\begin{equation}\label{mdefDorf}
+									L_V V' = L^{(m=0)}_V V' + \underline{m}(V) \cdot V'\,,
+								\end{equation}
+							%
+						where, given a generalised vector $V$, we define the map $\underline{m}$ such that
+							%
+								\begin{equation}
+									\underline{m}(V) = m\lambda - m \omega_6 \, 
+								\end{equation}
+							%
+						is an object that acts in the adjoint of $\E_{7(7)}$ (see~\eqref{IIAadjvecCompact}) as
+							%
+								\begin{equation}\label{madj}
+									\begin{split}
+										\underline{m}(V)\cdot V' = m \left( - \iota_{v'} \omega_6 - \lambda \wedge \omega_4' + \lambda' \otimes \omega_6 - \lambda \otimes \omega'_6 + \iota_{v'} \lambda + \lambda' \wedge \lambda\right)\,.
+									\end{split}
+								\end{equation}
+							%
+						It is a tedious but straightforward computation to verify that~\eqref{dorfIIAm} satisfies the Leibniz property~\eqref{eq:Leibniz}\footnote{%
+							A very subtle point is that neither of the terms on the RHS of~\eqref{mdefDorf} transforms correctly as a generalised vector under~\eqref{patching_m}, and as a consequence $\underline{m}(V)$ does not transform as a section of the adjoint bundle. However, overall $L_V V'$ defines a good section of $E$.%
+							}.
+
+						To justify further our definition, we rewrite the massive Dorfman derivative in the untwisted picture.
+						Using~\eqref{eq:fromLtotildeL} we find 
+							%
+								\begin{equation}\label{eq:twistedDorfmanmassive}
+									\begin{split}
+										\mathbb{L}_{\tilde V} {\tilde V'} = & \mathcal{L}_{\tilde v} \tilde v' + (\mathcal{L}_{\tilde v}\tilde \lambda' - \iota_{\tilde v^\prime} \dd\tilde \lambda + \iota_{\tilde v'} \iota_{\tilde v} H ) \\
+																& + \mathcal{L}_{\tilde v} \tilde \sigma' - \iota_{\tilde v^\prime}\dd\tilde \sigma \\
+																 & \phantom{\mathcal{L}_{\tilde v} \tilde \sigma'} + \left[ \iota_{\tilde v'}(s(\tilde\omega) \wedge F)+ s(\tilde\omega^\prime) \wedge \big(\dd \tilde\omega - H\wedge \tilde\omega - (\iota_{\tilde v}+ \tilde \lambda \wedge)F\big) \right]_5 \\
+																& + \mathcal{L}_{\tilde v} \tilde\tau' + j \tilde\sigma' \wedge (\dd \tilde\lambda - \iota_{\tilde v}H) + \tilde\lambda' \otimes \big( \dd \tilde\sigma - [s(\tilde \omega)\wedge F]_6 \big) \\
+																&\phantom{\mathcal{L}_{\tilde v} \tilde\tau'} + j s(\tilde\omega') \wedge \big( \dd \tilde \omega - H\wedge\tilde \omega - (\iota_{\tilde v} + \tilde \lambda\wedge)F \big) \\ 
+																& + \mathcal{L}_{\tilde v}\tilde\omega' + (\dd\tilde \lambda - \iota_{\tilde v} H) \wedge\tilde\omega' \\
+																& \phantom{\mathcal{L}_{\tilde v}\tilde\omega'} - (\iota_{\tilde v^\prime}+ \tilde \lambda' \wedge) \big(\dd\tilde \omega - H \wedge\tilde \omega -(\iota_{\tilde v} +\tilde\lambda\wedge)F \big)\ ,
+									\end{split}
+								\end{equation}
+							%
+						where $F = F_0+F_2 +F_4+F_6$ is now the complete $O(6,6)$ spinor with $m\neq 0$. 
+						So the twisted version of the massive Dorfman derivative produces precisely the expected gauge transformations with flux terms including the Romans mass. 
+						Again, these are given by the action of~\eqref{gaugetrans}, now with $m\neq 0$. 
+
+						Note that of all the flux terms in~\eqref{eq:twistedDorfmanmassive}, the mass term is the only one which is diffeomorphism-invariant. 
+						It is also the only true deformation of the generalised Lie derivative, since it cannot be removed by twisting the generalised tangent bundle.
+
+					%
+
+				%%
+				%
+			\subsection{Supersymmetric backgrounds}
+				%
+				After describing the actions and the equations of motion of eleven- and ten-dimensional supergravities, we are interested in solutions.
+				
+				A supergravity background is a solution to the classical supergravity equations of motion.
+				Since we want to study compactifications, we look for solutions that are warped products of a maximally symmetric external spacetime (Minkowski, Anti-de Sitter, de Sitter) and an internal space $M$.
+				In order to preserve the external spacetime symmetry, we must set all fermionic fields to zero so the background is purely bosonic.
+				
+				We have outlined that supersymmetry is a crucial ingredient both for phenomenological purposes and for theoretical aspects. 
+				A background is supersymmetric if all the supergravity fields (and hence the solutions) are invariant under supersymmetry transformations.
+				Choosing $\epsilon$ as the quantity parameterising supersymmetry variations, one is allowed to write (schematically)
+					%
+						\begin{align}\label{susyvar}
+							& &	\delta(\text{boson}) = \epsilon (\text{fermion})\, ,	& &	\delta(\text{fermion}) = \epsilon (\text{boson})\, .	& &
+						\end{align}
+					%
+				The variations of the bosonic fields always contain a fermionic field, and since we have set these to zero the variations automatically vanish.
+				On the other hand, by the request of preserving spacetime symmetry, we get non-trivial conditions from the variations of the fermionic fields. 
+				Then, supersymmetry of the background is equivalent to the existence of a non-vanishing spinor $\varepsilon$ for which the supersymmetry variations vanish.
+				These can be recast into differential and algebraic equations, known as \emph{Killing spinor equations}.
+				The spinor $\epsilon$ solving these is then called \emph{Killing spinor}.
+				A background is supersymmetric if it admits Killing spinors.
+				
+				We will describe how to dimensionally reduce the theory and looking for backgrounds respecting this reduction in the next section, here we simply anticipate the metric and spinor ansatze to state some important facts as consequences of the reduction.
+				
+				We want a spacetime to be in a warped product form,
+					%
+						\begin{equation*}
+							\mathcal{M} \rightarrow \mathcal{X} \times M_d\, ,
+						\end{equation*}
+					%
+				Then, the metric ansatz reads
+					%
+						\begin{equation}\label{metrsplit}
+							\dd s^2_{\mathcal{M}} = e^{2A}\dd s^2_{\mathcal{X}} + \dd s^2_{M} \, ,
+						\end{equation}
+					%
+				and constrains the spinor parameter $\epsilon$ to take a form like,
+					%
+						\begin{equation}
+							\epsilon = \varepsilon \otimes \chi \, ,
+						\end{equation}
+					%
+				where $\varepsilon$ is the external anticommuting spinor and $\chi$ is the commuting spinor on the internal manifold.
+				This splitting induces also a splitting of the Killing spinor equations into distinct conditions for $\varepsilon$ and for $\chi$.
+				The quantity $A$ appearing in~\eqref{metrsplit} is a real function of the coordinates on $M$ and takes the name of \emph{warp factor}.
+				
+				Then, we say the background preserves a number of real supercharges equal to the real degrees of freedom of $\varepsilon$ times the number of independent Killing spinors.
+				The existence of Killing spinors (and the differential conditions they have to satisfy) on the internal manifold $M$ puts several constraints on the geometry of the manifold. 
+				Investigating how this happens and how this allows compactifications with fluxes is the goal of next sections.
+				
+				To conclude this section we give the Killing spinor equations for eleven-dimensional and type II supergravities discussed above.
+				
+				Supersymmetric static M-theory solutions have been studied in~\cite{GauntlettGeomKill}. 
+				A supersymmetric solution admits a Majorana-Killing spinor $\epsilon$ satisfying,
+					%
+						\begin{equation}
+							\nabla_M \epsilon + \frac{1}{288} \left[ \Gamma_M^{\phantom{M}NPQR} - 8 \delta_M^{\phantom{M}N} \Gamma^{PQR} \right] G_{NPQR}\ \epsilon =0 \, ,
+						\end{equation}
+					%
+				where $M,N, \ldots = 0,1, \dots, 10$ and the Gamma matrices are the Clifford algebra elements in $11$ dimensions. 
+				
+				Type IIA Killing spinor equation can be derived by the previous one by a compactification, so we do not give it explicitly.
+				
+				Finally, for type IIB the Killing spinor equations, given in terms of ten-dimensional Gamma matrices are
+					%
+						\begin{subequations}
+							\begin{align}
+								\nabla_M \epsilon - \frac{1}{96} \left[ \Gamma_M^{\phantom{M}PQR} - 9 \Gamma^{PQ} \right] G_{MPQ}\ \epsilon^c + \frac{1}{192}\Gamma^{PQRS}F_{MPQRS} \epsilon =0 \, , \\
+								i \Gamma^M P_M \epsilon^c + \frac{i}{24} \Gamma^{PQR} G_{PQR} \epsilon = 0 \, .
+							\end{align}
+						\end{subequations}
+					%
+				where, following~\cite{Gauntlett:2005ww}, we defined $P = \tfrac{i}{2}e^\phi \dd C_0 + \tfrac{1}{2}\dd \phi$ and $G = i e^{\phi/2}(\tau \dd B - \dd C_2)$, and here $M,N = 0,1, \dots, 9$.
+				%
+				\subsection{Large symmetries in string theory}
+				%		
+					The fact that string theories considers finite length objects rather than point particles as fundamental objects introduce new interesting features.
+					In particular, the low energy limit of the theory, \emph{i.e.} supergravity admits further than the metric, other fields which are defined by local potentials admitting a gauge symmetry.
+					Because of this, supergravity theories enjoy not only diffeomorphism, but also gauge symmetry.
+					
+					This inspired the development of a language treating these two kinds of symmetry on an equal footing. 
+					This language is generalised geometry.
+					As differential geometry is the right environment to describe general relativity and diffeomorphism invariance of gravity, generalised geometry has been shown to be the most suitable language to describe generalised diffeomorphism (diffeomorphisms together with gauge transformations) symmetry of supergravity.
+					
+					We will see how generalised complex geometry describes the structures of the generalised tangent bundle $TM \oplus T^*M$.
+					This implies the structure group of this bundle is $\rmO(d,d) \times \RR^+$ and captures the geometry of compactifications with the NSNS $H$ flux.
+					The fact of having a natural $\rmO(d,d)$ metric reflects that this approach makes the T-duality symmetry manifest.
+					In order to include the Ramond-Ramond fields one has to take into a bundle on which an action of $\E_{d(d)} \times \RR^+$, giving origin to what is known as \emph{Exceptional generalised geometry}.
+						%
+							\begin{table}[h!]
+								\centering
+								\begin{tabular}{l c c }
+%									\toprule
+										$d$	&	$\E_{d(d)}$				&	$H_{d}$							\\
+										\midrule
+										7	& 	$\E_{7(7)}$				&	$\SU(8)/\ZZ_2$						\\[1.2mm]	
+										6 	&	$\E_{6(6)}$				&	$\Sp(4)/\ZZ_2$						\\[1.2mm]	
+										5 	&	$\mathrm{Spin}(5,5)$		&	$(\Sp(2) \times \Sp(2))/\ZZ_2$			\\[1.2mm]	
+										4	&	$\SL(5, \RR)$				&	$\SO(5)$							\\[1.2mm]
+										3	&	$\SL(3,\RR) \times \SL(2,\RR)$	&	$\SO(3) \times \SO(2)$				\\[1.2mm]
+									\bottomrule
+								\end{tabular}
+								\caption{Structure groups of the exceptional bundles in various dimensions and their maximally compact subgroups.}
+								\label{tab:Eddgroups}
+							\end{table}
+						%
+					
+					A common result shared by all M/string theories compactified on toric manifolds $T^d$ is that the lower dimensional supergravity exhibits a global symmetry $\E_{d(d)}$ called U-duality.
+					
+					Here we do not want to face the description of the fascinating topic of dualities in string theory, for this purpose we refer to~\cite{polchinski, BlumLustThe}, rather we aim to describe the U-duality heuristically and how this makes emerge global symmetries in supergravity tori compactifications.
+					
+					Consider the type IIA/B theories compactified on a torus $T^d$.
+					
+					For simplicity let us consider $d=1$, one can show that the resulting theory has a simple discrete global symmetry called \emph{T-duality}, that exchanges the two theories NSNS spectra.
+					In other words, compactifying the type IIA theory on a circle of radius $R$ is the same theory as compactifying the type IIB theory on a circle of radius $R' \propto 1/R$.
+					For compactification on higher dimensional tori there are more general T-duality symmetries and they act on the whole spectrum, including the RR fields.
+					Furthermore, since type IIB supergravity, as seen, has an extra global $\SL(2, \RR)$, that becomes $\SL(2,\ZZ)$ in the strong coupling string theory limit, one expects that the compatifications inherit such a symmetry.
+					A famous conjecture about string theory states that the combination of these symmetries gives rise to the large global symmetry called U-duality.
+					These are discrete groups, but the continuous versions of these symmetry groups arise as isometries of the scalar manifolds of higher-dimensional supergravity reduced to $D=10-d$ dimensions. 
+					We collected the relevant groups in~\cref{tab:Eddgroups}.
+					
+					The appearance of exceptional groups can be understood also from an example, like the case of the maximal $\mathcal{N}=8$, four-dimensional supergravity.
+					This can be obtained by compactifying the eleven-dimensional theory~\cite{CremmerJulia}, and a global $\E_{7(7)}$ and a local $\SU(8)$ symmetry appears.
+					One can realise these symmetries even in eleven dimensions, by taking into account the splitting $\mathcal{M}_{11} \rightarrow X_4 \times M_7$ that yields the decomposition
+						%
+							\begin{equation*}
+								\mathrm{Spin}(10,1) \rightarrow \mathrm{Spin}(3,1) \times \mathrm{Spin}(7)\, ,
+							\end{equation*}
+						%
+					 and one can enhance $\mathrm{Spin}(7)$ to the local $\SU(8)$, since the latter is the maximally compact subrgroup of $\E_{7(7)}$.
+										 
+					 There are various works where this has been generalised to other dimensions, with groups $\E_{d(d)}$~\cite{NicolaiSamt, deWitNicolHidden, NicolaiN16, NicolaiSO16}, and exceptional generalised geometry can be seen as an approach where the action of these exceptional groups is made geometric.
+					 
+					 Thus, the idea is to develop a formalism making these symmetries manifest, \emph{i.e.} finding a way to pack the supergravity degrees of freedom into tensors transforming in some representation of $\E_{d(d)}\times \RR^+$.
+				
+					Generalised complex geometry, as originally proposed by Hitchin~\cite{hitch1, gualtphd}, geometrises the NSNS sector of type II supergravity. 
+					As described in the previous chapter, Hitchin's generalised tangent bundle is isomorphic to the sum $T \oplus T^*$ of the tangent and cotangent bundle to the $d$-dimensional compactification manifold $M_d$, and is patched by $\GL(d,\RR)$ transformations and gauge shifts of the NSNS two-form $B$. 
+					The structure group of this extended bundle is $\rmO(d,d)$, \emph{i.e.} the T-duality group of the compactification on a $d$-dimensional torus.
+					From a string theory perspective, $T$ and $T^*$ parameterise the quantum number of the string, that is momentum and winding charge.
+					Extending this construction to include the RR potentials in type II supergravity~\cite{hull1, Grana:2009im, waldram4}, or adapting it to M-theory compactifications~\cite{hull1, waldram5, Coimbra:2011ky}, leads to exceptional generalised geometry. 
+					In this case the structure group of the generalised tangent bundle is the U-duality group, and the bundle parameterises all the charges of the theory under study, that is momenta and winding, as well as NS- and D-brane (or M-brane) charges.
+					
+					These approach of making the symmetry group manifest allows us to describe in a geometric fashion the flux compactifications of supergravity theories.
+					
+					In the next we are going to analyse in detail the topic of dimensional reductions.
+				%
+			%
+		\section{Kaluza-Klein dimensional reductions}
+			%
+			As seen in the introduction, there are various reasons to be eager to find a proper way to dimensionally reduce the supergravity theories on lower-dimensional space times.
+			Then in this section, we are going to introduce the topic of dimensional reductions, starting by the first one from a chronological point of view, since it is simple enough to not be distracted by technicalities, but at the same time rich enough to have the many properties, common to all the compactifications we are interested in.
+			
+			The idea of introducing extra-dimension to get some sort of unification of different phenomena is not recent.
+			It dates back to the works of Kaluza and Klein~\cite{Kaluza, Klein} who studied a purely gravity theory in five dimensions in order to incorporate the Maxwell's electromagnetism into Einstein's gravity.
+			The idea is to add a $4$-th spatial dimension and then to operate a dimensional reduction. In this way one recovers the effective field theory of electromagnetism coupled to gravity on the usual $4$-dimensional spacetime.
+			Nowadays, we indicate as \emph{Kaluza-Klein dimensional reduction} generically the compactification on a $n$-circle.
+			
+			We want to briefly review the Kaluza-Klein reduction in arbitrary dimension.
+			We will follow and refer to these works for more details~\cite{stellereview, popeKK}.
+			Firstly, we aim to reduce a $(d+1)$-dimensional purely gravitational theory down to $d$-dimensions, by a reduction on a circle $S^1_R$ of radius $R$.
+			For simplicity, we suppose the $d$-th spatial coordinate is the periodic one, and we call it $y$, \emph{i.e.} for any integer $k$, $y + 2\pi k R \simeq y$.
+			The $(d+1)$-dimensional vector of coordinate is $z^M \equiv (x^\mu , y)$, where $M = 0,\ldots, d$ and $\mu = 0, \ldots d-1$.
+			
+			Let us take into account the usual Einstein-Hilbert action for $(d+1)$-dimensional gravity,
+				%
+					\begin{equation*}
+						\mathcal{S} = \frac{1}{2 \mathrm{k}^2} \int \dd^{d+1}z\ \sqrt{-\mathfrak{g}}\ \mathcal{R} \, .
+					\end{equation*}
+				%
+			The periodicity of the $d$-th spatial dimension allows us to write the expansion in Fourier modes of the metric along that direction
+				%
+					\begin{equation*}
+						\mathfrak{g} (x, y) = \sum_{k} g^{(k)}(x) e^{i k y / R} \, .
+					\end{equation*}
+				%
+			At this point we can substitute the Fourier expansion in the action and integrate $y$ away over the $S^1$.
+			However, doing this one would have a $d$-dimensional theory with an infinite tower of states, labeled by $k$.
+			In order to find an effective lower dimensional theory with a finite number of degrees of freedom, we have to define a so-called \emph{truncation ansatz}, namely a prescription telling us which modes (in this case of the metric expansion) we keep and which ones are to set to zero.
+			In this toy-model the criterium to truncate the spectrum is readable by the equation of motion (the Einstein equation $\mathcal{R}_{MN} = 0$).
+			Precisely, linearising this for small fluctuations around the flat Minkowski solution $\mathbb{M}_{d} \times S^1$, we get
+				%
+					\begin{equation*}
+						\langle \mathfrak{g}_{MN} \rangle \dd z^M \dd z^N = \eta_{\mu\nu} \dd x^\mu \dd x^\nu + \dd y^2 \, , 
+					\end{equation*}
+				%
+			where we assumed the v.e.v. of the last component to be $\langle \mathfrak{g}_{dd} \rangle = 1$.
+			Taking the circle radius $R$ small enough, we can make all the states with $n\neq 0$ very massive, thus we can neglect them in a low energy approximation of the theory.
+			To conclude, we can define a truncation to lower dimensional massless modes by keeping all the $d+1$-dimensional fields that are $y$-independent.
+			For instance, we can reduce the higher dimensional metric as follows,
+				%
+					\begin{equation*}
+						\mathfrak{g}_{MN} \dd z^M \dd z^N = e^{2\alpha \phi(x)} g_{\mu\nu} \dd x^\mu \dd x^\nu + e^{2\beta \phi(x)} (\dd y + A )^2\, ,
+					\end{equation*}
+				%
+			where $\alpha$ and $\beta$ are real parameters and $\phi(x)$ is a real function of the $x$ coordinates only. 
+			Lastly, $A$ is a one form $A_{\mu}(x) \dd x^\mu$.
+			Explicitly, this ansatz gives the prescriptions,
+				%
+					\begin{align*}
+						&& \mathfrak{g}_{\mu\nu} = e^{2\alpha \phi} g_{\mu\nu} + e^{2\beta \phi} A_{\mu} A_{\nu} \, , && \mathfrak{g}_{\mu d} = e^{2\beta \phi} A_{\mu} \, , & & \mathfrak{g}_{dd} = e^{2\beta\phi} \, . & &
+					\end{align*}
+				%
+			
+			Substituting the quantities in the higher dimensional action functional, and integrating over $S^1$, allows us to write
+				%
+					\begin{equation*}
+						S = \frac{1}{2 \kappa^2} \int \dd^{d}x\ \sqrt{-g}\ \left(R - \frac{1}{2} (\partial \phi)^2 - \frac{1}{4} e^{-2(d-1) \alpha \phi} F_{\mu\nu}F^{\mu\nu} \right)\, ,
+					\end{equation*}
+				%
+			where $F_{\mu\nu} = 2 \partial_{[\mu} A_{\nu]}$ and $\kappa^2 = \mathrm{k}^2/ 2\pi R$.
+			We imposed also a the following normalisations for $\alpha$ and $\beta$,
+				%
+					\begin{align*}
+						&& \alpha^2 = \frac{1}{2(d-2)(d-3)} \, , & & \beta = - (d-3) \alpha \, ,& &
+					\end{align*}
+				%
+			in order to get a correctly normalised kinetic term for the scalar field~\cite{popeKK}.
+			
+			To conclude, we obtained the Maxwell-Einstein action -- with an additional scalar $\phi$ called \emph{modulus}, on which we will come back shortly -- by reducing a purely gravitational theory on a circle.
+			The gauge symmetry $A \rightarrow A + \dd \lambda$ is a consequence of the metric ansatz, when one ($x$-dependently) reparametrises the circle.
+				%
+			\subsection{Consistent truncation ansatze}
+				%
+				The reduction exposed above is a useful toy-model of reduction.
+				However, in string and supergravity compactifications one has to cope with much more involved techniques.
+				This because the action is not just gravity and also because the compactification manifold is usually more complicated than a circle.
+				Despite this, there are some main points we can highlight since they are common to a large number of compactification procedures.
+			
+				As previously mentioned, we want a lower dimensional theory with a finite number of degrees of freedom.
+				In order to achieve this, we have to give a prescription indicating which fields we keep and which ones we have to ``truncate out''.
+				In other words a truncation of the higher dimensional modes on the internal manifold is necessary.
+				We call this prescription \emph{truncation ansatz}.
+				In our toy-example, the truncation ansatz was readable explicitly, but in general life is much harder.
+			
+				One way to procede is to focus on a vacuum state in low dimension and study the perturbations about this vacuum.
+				The truncation prescription is given by the so-called \emph{Kaluza-Klein ansatz}.
+				A nice review about this topic is given in~\cite{duffKK}.
+			
+				Briefly speaking, the procedure to get the truncation ansatz can be described schematically as follows.
+				Firstly, one considers a vacuum of the higher dimensional theory that exhibits a spacetime solution structure as a product of spaces, the lower-dimensional spacetime and the internal space.
+				Secondly, the equations of motion are linearised around vacuum.
+				This produces some massive operators from the lower-dimensional perspective.
+				Expanding the higher-dimensional degrees of freedom into the eigenstates of these massive operators, and keeping only the massless modes concludes the procedure.
+			
+				It is noteworthy that in general the ansatz gives a good way to study linear fluctuations about the chosen vacuum, but the theory coming out of this might not capture the whole information the higher-dimensional theory had originally.
+				In the previous example the expansion to all-order of the ansatz was achieved by truncating out all the fields depending on the coordinate on the circle.
+				However, already taking into account slightly more complicated spaces this extension will be highly non-trivial, often not possible at all.
+				Therefore, Kaluza-Klein anstaze are limited to describe the physics around a chosen vacuum.
+			
+				One can chose to follow another approach.
+				This consists of defining a truncation ansatz based on a given symmetry, that is keeping the modes which are invariant under some group of transformations.
+				The typical group of transformations one takes into account is a subgroup of the isometry group of the internal manifold.
+				This approach can be applied with fruitful results to the cases where the internal manifold is a group manifold or a coset space, since the isometry group is manifest~\cite{Cvetic:2003jy, schschw}.
+				The simplest example to consider is the $\U(1)$ reduction.
+				Notice that since $S^1 \cong \U(1)$, our toy example describes this second approach as well.
+				Keeping only the higher dimensional fields independent on $y$ is equivalent to take only the invariant fields (\emph{i.e.} the singlets) under the $\U(1)$ action.
+			
+				At this stage, it is useful to make some remark about this second approach.
+				A first point to raise, the truncated theory is not always physically relevant, since the lower dimensional physics may not be captured completely by the compactified theory.
+				However, it is mathematically well-defined and independent from the choice of a specific vacuum.
+				The second noteworthy aspect -- crucially important in this thesis -- is that the dimensional reduction based on the use of a symmetry is able to give ansatze that are \emph{consistent}.
+				A \emph{consistent truncation} is a choice of a finite set of modes, where the omitted ones are not sourced by the subset chosen. 
+				This is equivalent to say that the set of truncated modes has a dynamics which is not affected by the others.
+				This fact allows us to say that a solution to equations of motion in the lower dimensional theory, which is a linear combination of only truncated modes, always lift to a solution also on the higher dimensional theory.
+				It might be useful to consider a simple example to understand what we mean for consistent truncations.
+				Given a theory of two scalars with Lagrangian,
+					%
+						\begin{equation*}
+							\mathcal{L} = \frac{1}{2}\left(\partial \varphi_1 \right)^2 + \frac{1}{2}\left(\partial \varphi_2 \right)^2 - \frac{m_1^2}{2}\varphi_1^2 - \frac{m_2^2}{2}\varphi_2^2 - g \varphi_1^2\varphi_2 \, .
+						\end{equation*}
+					%
+				It generates the following equations of motion,
+					%
+						\begin{equation*}
+							\begin{split}
+								\partial_\mu \partial^\mu \varphi_1 + m_1^2 \varphi_1 &= -2g\varphi_1\varphi_2 \, , \\
+								\partial_\mu \partial^\mu \varphi_2 + m_2^2 \varphi_2 &= -g\varphi_1^2 \, .
+							\end{split}
+						\end{equation*}
+					%
+				Therefore, we can observe how $\varphi_1 = 0$ is a consistent truncation, \emph{i.e.} the evolution of $\varphi_2$ is given by a consistent (with the choice of suppressing $\varphi_1$) equation of motion, and fixed $\varphi_1 = 0$ at the initial time, it will remain fixed at all times. 
+				In other words, $\varphi_1 = 0$ is both a solution of the theory reduced to the only field $\varphi_1$, and of the full theory of the two scalar fields $\varphi_1,\varphi_2$. 
+				On the other hand, dropping $\varphi_2 = 0$ is not consistent, since the dynamics of $\varphi_1$ will affect $\varphi_2$, due to the fact $\varphi_1$ acts as a source term for $\varphi_2$.
+			
+				In this very simple example, the truncation it is easy to find by simply playing with the equations of motion.
+				Not surprisingly, in the case of dimensional reductions things are not so simple and in order to have the hope of finding a consistent truncation we have to rely on symmetry.
+				
+				Let us reconsider our toy-model of reduction again.
+				We have seen how by dimensionally reducing a theory of gravity over a circle we get a theory of gravity coupled with electromagnetism and a free massless scalar (at linear order). 
+				This field is related to the radius of the compactification circle and how it varies along the $d$-dimensional spacetime.
+				There is not a procedure that tells us which value $R$ has to take dynamically during the compactification and this reflects in the presence a free scalar, \emph{i.e.} with no fixed (by some potential) \emph{vacuum expectation value}, vev from now on.
+				This is a characteristics that is often present in compactifications: the background exhibits a continuous degeneracy related to the variations in size and shape of the compact space.
+				The fields parametrising this degeneracy are called \emph{moduli} and when the compactification does not produce any scalar potential (which constrains their vevs), one says moduli are not \emph{stabilised}.
+				In our example we just have one massless scalar field, but typically Calabi-Yau compactifications produce a large number of moduli.
+				This goes under the name of \emph{moduli problem}.
+			
+				One wants moduli to be stabilised for various reasons.
+				First of all, the observables of the lower-dimensional theory depends on the moduli, so, if their vevs can be shifted arbitrarily the theory loses predictivity.
+				One may be thinking that this situation is similar to handle Goldstone bosons.
+				Spontaneous symmetry breaking is the reason of the origin of the Goldstone modes, indeed the physics in any vacuum connected by a Goldstone mode is the same, since all these vacua are equivalent due to symmetry.
+				Moduli, however, do not need a symmetry to arise and hence in general physics will depend on their values.
+				Then one finds a space of physically inequivalent vacua (the notorious \emph{moduli space}) related by varying the vev of the moduli.
+				Furthermore, phenomenologically massless scalar fields should mediate long range interactions, but this contradicts the observations.
+				Finally, a more formal point of view is to answer to the question ``how can the masses of particles in Standard Model come from a theory with no free parameters?''~\cite{moduliLect, fluxcomp1}.
+				
+					%
+						\begin{figure}[h!]
+							\centering
+							\input{./Resources/ImagesTikZ/Fluxes}
+							\caption{A schematic representation of a compactification in the presence of fluxes.}
+							\label{fluxcomp}
+						\end{figure}
+					%
+				A possible path to follow in order to solve the moduli problem is to find a mechanism to generate a scalar potential in the lower-dimensional action.
+				This would have the effect of stabilise the moduli (giving them a mass and a fixed vev).
+				A great number of results in this direction have been reached in the last twenty years, realising that it is possible to generate a non-trivial scalar potential in a compactification through \emph{fluxes}~\cite{fluxcomp1, fluxcomp2, fluxcomp3}.
+				One can find some nice reviews of the subject in~\cite{DuffReviewComp, MarianaFluxReview, LustReviewComp, henlect}.
+			
+				Fluxes are higher rank objects generalisation of the electromagnetic field strength.
+				They are associated with a non-zero background value of the supergravity $p$-form field strength.
+				To be precise, let $F_p$ be a $p$-form field strength whose Bianchi identity is
+					%
+						\begin{equation*}
+							\dd F_p = 0\, ,
+						\end{equation*}
+					%
+				locally, one can always associate a potential $C_{p-1}$ such that $F_p = \dd C_{p-1}$. 
+				When sources are present it is not possible to have a globally well-defined potential, and the integral over a a $p$-cycle $\Sigma_p$ on the internal compact manifold $M$ it is not automatically zero. 
+				Then we say there is a flux of $F_p$ on $M$ supported by $\Sigma_p$,
+					%
+						\begin{equation*}
+							\frac{1}{(2\pi \ell_s)^{p-1}}\int_{\Sigma_p}\!\! F_p = k \neq 0\, .
+						\end{equation*}
+					%
+				As for the familiar Dirac's monopole, one can impose quantisation conditions on fluxes so that $k$ can take only discrete values.
+				Roughly speaking, this number corresponds to how many times the extended object associated to the flux wraps around the cycle $\Sigma_p$, see~\cref{fluxcomp}.
+				Requiring the presence of these quantities in the dimensional reduction we can generate a potential $V$ for the scalars in the lower dimensional theory, that will come from the kinetic term of the internal components of the fluxes.
+				This can be seen from the higher dimensiona action. 
+				Schematically,
+					%
+						\begin{equation*}
+							S= \int_{\mathcal{X}} \ldots \underbrace{\int_{M} F \wedge \star F}_{V(\phi)} \, .
+						\end{equation*}
+					%
+				
+				Moduli stabilisation is not the only reason to study flux compactifications.
+				For example, the presence of fluxes removes the necessity of a Ricci-flat internal space, then Calabi-Yau are no more available spaces.
+				This open interesting perspectives in studying the geometry of string theory vacua and a classification of flux compactifications may be very useful in order to understand better the structure of the theory.
+				
+					%
+						\begin{figure}[h!]
+							\centering
+							\input{./Resources/ImagesTikZ/gaugedsugra}
+							\caption{A representation of how fluxes are a way to get gauged supergravity from higher dimensional supergravity theory.
+									This gives an higher dimensional origin to gauge symmetry.}
+							\label{gaugedsugra}
+						\end{figure}
+					%
+				
+				Furthermore, fluxless compactifications will produce only theories in lower dimension whose gauge groups are products of $\U(1)$'s\footnote{%
+					This statement holds for M- and type II theories.
+					For the heterotic string theories things work a bit differently, since there gauge groups appear as a perturbative effect and they connects to type II through dualities.
+					However, in this thesis we are not going to work with heterotic string theory (for more details one can look~\cite{polchinski}), so we can focus only on type II and M-theory and take the statement as true.}.
+				Since we have the hope of reproducing non-Abelian gauge theories (like Standard Model), we want a compactification mechanism that also explains the higher dimensional origin of the gauge symmetry.
+				Flux compactifications give us the right framework, since non-Abelian gauge groups are connected to (non-Abelian) field strength (precisely the fluxes).
+				As in electrodynamics, the electromagnetic field is generated by a dynamical object, the electric charge, the $p$-form field strengths are sourced by non-perturbative dynamical objects, the \emph{D-branes} wrapping homology cycles inside the internal manifold~\cite{PolchinskiBranes}.
+				
+				For all these reasons a systematic study of flux compactification is useful and interesting.
+				In order to achieve this, new mathematical techniques have been being introduced, and precisely the ones described in the previous chapters are an important example.
+				A first inspirational remark is that through flux compactifications, we are able to explain the higher dimensional origin of the gauge symmetry.
+				A subgroup of the gauge group comes from the isometries of the internal manifold -- as in Kaluza-Klein reductions-- but higher-dimensional supergravities come with form potentials, which carry their own gauge symmetry and also contribute to the gauging of the truncated theory.
+				Thus, an approach treating at the same level diffeomorphisms and gauge transformation can be a promising way to better understand the structure of the theory. 
+				Another interesting fact is that the supergravity theories when compactified on a torus exhibit an abelian gauge group and a large global symmetry\footnote{
+					Notice that, as far as one sets the compactification scale well below the string one $\ell_s$, it is justified to work in the supergravity limit of string theory.}.
+				Tori compactifications give rise to theories called \emph{ungauged supergravities}, see~\cref{gaugedsugra}.
+				As seen, the global symmetry group is known under the name of $\U$-duality and it corresponds to the exceptional non-compact group $\E_{d(d)}$.
+				In the mid 1990's the discrete subgroup $E_{d(d)}/\mathbb{Z}$ has been reinterpreted as part of the duality group of M-theory~\cite{hulldualities}. 
+				The $\E_{d(d)}$ group relevant in our discussion depends on the dimension, we collected the various possibilities in~\cref{Udualtab}.
+					%
+							\begin{table}[h!]
+							\centering
+								\begin{tabular}{c c c c c c}
+%									\toprule
+									$d$					&		$3$			&		$4$			&		$5$		&		$6$		&		$7$		\\
+										\midrule
+									Global Symmetry		&	$\SL(5)$	& 	$\SO(5,5)$	&	$\E_{6(6)}$	&	$\E_{7(7)}$	&	$\E_{8(8)}$	
+								\end{tabular}
+								\caption{The $\U$-duality groups for the different compactifications on the tori $T^d$.}
+								\label{Udualtab}
+							\end{table}
+						%
+				
+				The way to get \emph{gauged supergravities}, \emph{i.e.} supergravity theories with non-abelian gauge group, is twofold.
+				One can promote some subgroup of the $\U$-duality group to a local symmetry, this adds some term in the Lagrangian called \emph{gaugings}.
+				It turns out that this is equivalent to consider more complicated internal manifold admitting fluxes.
+				This can be inserted in a wider picture, indeed, nowadays it is a common believing that any gauged supergravity theory comes from an higher dimensional string theory compactified on some manifold supporting fluxes.
+				
+				The presence of these large groups of symmetry is difficult to understand from the \emph{democratic} formulation of supergravity theories~\cite{DemSugra}.
+				Thus, a certain amount of effort has been made to build $\U$-duality covariant approach to supergravity: Exceptional/Double Field Theory~\cite{hull2, samt1, samt2} and (Exceptional) Generalised Geometry~\cite{Gualtieri:2003dx, hull1, waldram1, waldram2, waldram3, waldram4}.
+				
+				Exceptional field theory enlarges the space, such that one completes the fundamental representation of $\E_{d(d)}$ with this extra-coordinates.
+				Then one gets rid of them by applying a \emph{section condition}, projecting out the unphysical degrees of freedom~\cite{samt1, samt2}.
+				One can prove, once the section condition has been imposed, the two approaches are equivalent.
+				
+				In this thesis we have already described generalised geometry, and we are going to focus on its applications to flux compactifications.
+				
+				Until so far our discussion has been quite general, now in order to proceed with our analysis, we move our attention to some more technical aspects, specifying the properties our truncation ansatze must have.
+				%
+			%
+%		\section{Compactification ansatz}
+%			%
+%			In this thesis, we are interested in compactifications where the lower-dimensional spacetime is a maximally symmetric space, \emph{i.e.} Minkowski ($\mathbb{M}$), Anti-de Sitter (AdS) or de Sitter (dS) space.
+%			This maximal symmetry allows to put constraints on the form of the higher-dimensional solutions we are looking for.
+%			
+%			As stated, we look for solutions where the higher-dimensional spacetime is a warped product of the lower-dimensional one and of an internal (usually compact) manifold.
+%			Under these conditions, the metric takes the form~\eqref{metrsplit}
+%				%
+%					\begin{equation}
+%						\dd s^2_{\mathcal{M}} = e^{2A(y)}\dd s^2_{\mathcal{X}}(x)+ \dd s^2_M(y) \, .
+%					\end{equation}
+%				%
+%			where $A$ is a real function of the coordinates on $M$ and takes the name of \emph{warp factor}.
+%			The metric on the external spacetime preserves the maximal symmetry of the space.
+%			
+%			For concreteness, let us take the spacetime dimension to be $4$ and let us put in type II theories, one can easily recover the general case, by properly adjust the conditions on spacetime quantities.
+%			The solutions are characterised by non-trivial background values for some of the fluxes, whose form is also constrained by the requirement of maximal symmetry in four dimensions:
+%			the NS $H$-field can have only internal indices and the RR fields must split as follows,
+%				%
+%					\begin{equation}
+%						F^{(10)}_p = \mathrm{vol}_4 \wedge e^{4A} \tilde{F}_{p-4} + F_p \, ,
+%					\end{equation}
+%				%
+%			where $\mathrm{vol}_4$ is the four-dimensional volume form and $\tilde{F}$ is the Hodge dual of $s(F)$.
+%			Here we used again the polyform notation for RR forms.
+			%
+		\section{Calabi-Yau backgrounds}
+			%
+				Let us start by a famous example of compactification: we consider a purely geometric situation, where the only non-trivial field is the metric.
+				We are going to see how supersymmetry conditions constrain the internal geometry to be Calabi-Yau.
+				We will not discuss Calabi-Yau compactifications in detail, since they are a well-known and established topic, for instance see~\cite{BlumLustThe} for a detailed discussion of the topic.
+				Here we will only recall the main properties of Calabi-Yau compactifications in the optics to generalise to flux compactifications.
+				
+				We said we put ourself in a situations where all the fluxes are zero.
+				This means we have to worry about the equations for supersymmetry variations and in order to not break the spacetime symmetry we have to put the fermions variations to zero in~\eqref{susyvar}.
+				In our example of a type II theory, this means
+					%
+						\begin{equation}
+							\begin{array}{lcr}
+								\delta \lambda_1 = \partial_M \phi \Gamma^M \epsilon_1 = 0 \, , & & \delta \lambda_2 = \partial_M \phi \Gamma^M \epsilon_2 = 0 \, ,
+							\end{array}
+						\end{equation}
+					%
+				for the dilatino variations, while for gravitinos,
+					%
+						\begin{equation}
+							\begin{array}{lcr}
+								\delta \psi^1_{M} = \nabla_M \epsilon_1 = 0 \, , & & \delta \psi^2_{M} = \nabla_M \epsilon_2 = 0 \, .
+							\end{array}
+						\end{equation}
+					%
+				Using the spinorial ansatz for the decomposition of $\epsilon_i$\footnote{%
+					In this equation $\chi$ is the four-dimensional spinor, while $\varepsilon_i$ are two six-dimensional chiral spinors, whose chirality is the same in IIB and opposite in type IIA.}
+					%
+						\begin{equation}
+							\epsilon_i = \chi \otimes \varepsilon_{i} + \text{c.c.} \, ,
+						\end{equation}
+					%
+				we get the following conditions in six dimensions
+					%
+						\begin{equation}
+							\slashed{\partial} \phi \varepsilon_i = 0 \, .
+						\end{equation}
+					%
+				Since the $\varepsilon_i$ are unit normed spinors, this implies the dilaton must be constant
+					%
+						\begin{equation}
+							\partial \phi = 0\, .
+						\end{equation}
+					%
+				
+				The gravitino variations, on the other hand, are equivalent to the condition of having covariantly constant spinors.
+				Reducing these ten-dimensional conditions $4 + 6$, one gets the following conditions,
+					%
+						\begin{align}
+							\label{MinkCond}	&\nabla_\mu \chi = 0 \, , \\
+							\label{CYCond}		&\nabla_m \varepsilon_i = 0 \, .
+						\end{align}
+					%
+				The first of the two constrains the spacetime to be Minkowski, since the commutator of two covariant derivatives is proportional to the cosmological constant.
+				On the other hand,~\eqref{CYCond} is a condition in the internal manifold.
+				First of all it must be Ricci-flat, for the same argument used for the external spacetime.
+				Furthermore, we have (at least one) covariantly constant spinors on our Riemannian manifold, this implies that the holonomy group reduces to $\SU(3)$, as seen in~\cref{chap1}.
+				A six-dimensional Ricci flat manifold of $\SU(3)$ holonomy is a Calabi-Yau.
+				
+				In terms of $G$-structures, we get an $\SU(3)$ structure.
+				In addition, the closure of the spinor translates into differential conditions for the forms defining the $\SU(3)$ structure.
+				This because, making use of~\eqref{spinorSUn}, we can write the forms $\omega$ and $\Omega$ as spinors bilinears.
+				As a consequence, the~\eqref{CYCond} implies the closure of these forms and so the integrability of the $\SU(3)$ structure,
+					%
+						\begin{equation}
+							\begin{array}{lcr}
+								\dd \omega = 0\, , & & \dd \Omega = 0 \, .
+							\end{array}
+						\end{equation}
+					%
+				
+				Thus, we got an important result: in absence of fluxes, looking for a supersymmetric vacuum requires to consider a Calabi-Yau three-fold as internal manifold.
+				
+				By reducing the type II actions on the Calabi-Yau will give an $\mathcal{N} = 2$ effective theory in four-dimensions.
+				We are not going to analyse this effective theory -- one can refer to~\cite{CeresoleN2, Bodner:1990zm} for details -- however, there are a couple of remarks that we would like to raise.
+				The first one, as mentioned above, is the fact that the geometry of the internal manifold is crucial to determine the field content and symmetries of four-dimensional theory.
+				We also already anticipated that the effective theories constructed by reducing on a Calabi-Yau manifold are affected by the so-called moduli problem, that is the presence of massless fields which are not constrained by any potential.
+				In supersymmetric theories massless scalar fields are not a problem, the trouble is if some of them stay massless after SUSY breaking: massless scalar fields would provide long range interactions which should be observed.
+				Thus the idea is to generate dynamically a potential, however, Calabi-Yau compactifications are not able to generate a potential for scalars.
+				We have already analysed how the solution to this problem can be found in compactifications admitting non-trivial fluxes.
+			%	
+		\section{Backgrounds with fluxes}
+			%
+				Generic flux solutions of the $\mathcal{N} = 2$ Killing spinor equations can be thought of as string theory generalisations of the conventional notion of a Calabi-Yau manifold to backgrounds including both NS-NS and R-R fluxes. 
+				The simplest extension is to consider generic NS-NS backgrounds by including the dilaton and three-form flux $H = \dd B$.
+				
+				The solution can be described by two spinors, each of them invariant under a different $\SU(3)$ subgroup of $\mathrm{Spin}(6) \cong \SU(4)$.
+				The presence of two (linearly independent) spinors $\varepsilon_i$ is a sign that we have a more complicated structure than a Calabi-Yau.
+				
+				We construct two polyforms by bilinears~\cite{petrini1},
+					%
+						\begin{equation}
+							\begin{split}
+								\Phi^{+} & = e^{-\phi} e^{-B} \left(\varepsilon_1^+ \otimes \overline{\varepsilon}_2^+\right) \in \Gamma (\Lambda^{\mathrm{even}} T^*M) \, , \\
+								\Phi^{-} & = e^{-\phi} e^{-B} \left(\varepsilon_1^+ \otimes \overline{\varepsilon}_2^-\right) \in \Gamma (\Lambda^{\mathrm{odd}} T^*M) \, ,
+							\end{split}
+						\end{equation}
+					%
+				where we defined $\varepsilon^\pm$ as the spinors with positive/negative chirality.
+				We also assumed that $\varepsilon_i$ are Weyl spinors, such that $\varepsilon_i^-$ are the conjugates of $\varepsilon_i^+$.
+				
+				As the authors of~\cite{petrini1} showed, these polyforms satisfy a set of differential conditions
+					%
+						\begin{equation}
+								\dd \Phi^{\pm} = 0\, ,
+						\end{equation}
+					%
+				and define an integrable structure known as \emph{generalised Calabi-Yau metric}.
+				We can see how these can be interpreted in generalised geometry~\cite{petrini1, petrini2}.
+				
+				Indeed, they define a torsion-free generalised structure.
+				
+				The generalised tangent bundle $E \cong T \oplus T^*$ has a natural $\rmO(d,d)$ metric $\eta$.
+				The two polyforms $\Phi^{\pm}$ can be seen as sections of the positive and negative helicity $\mathrm{Spin}(6, 6)$ spinor bundles associated to $E$ through the Clifford map.
+				Each of them is stabilised by a different $\SU(3,3)$ subrgroup of $\mathrm{Spin}(6, 6)$.
+				Hence, each of them defines a different $\SU(3,3)$ generalised structure. The compatibility condition implies that the group leaving both invariant has to be the intersection of the two $\SU(3,3)$ subgroups, then $\SU(3) \times \SU(3)$.
+				Thus, we end up with an $\SU(3) \times \SU(3)$ structure.
+				The integrability conditions are equivalent to the existence of a torsion-free generalised connection and structure-compatible.
+				By this formalism one can recast the Killing spinor equations in conditions on geometric objects when it has non-trivial fluxes of the three-form $H$, as shown in~\cite{petrini1,petrini2}.
+				
+				The ordinary Calabi-Yau case can be retrieved as a particular choice of the $\Phi^{\pm}$, 
+					%
+						\begin{equation}
+							\begin{array}{l c c r}
+								\Phi^+ = e^{-\phi} e^{-B} e^{i\omega} \, , & & \Phi^- = i e^{-\phi} e^{-B} \Omega \, ,
+							\end{array}
+						\end{equation}
+					%
+				with $B$ closed (eventually it can be made zero by a gauge transformation) and $\phi$ constant.
+				From this particular case we can see that $\Phi^+$ is a generalisation of the symplectic structure, while $\Phi^-$ captures the generalisation of the complex structure.
+				
+				Since $\rmO(d,d)\times \RR^+$ geometry encodes just the NSNS $H$-flux, on order to include the RR fields one has to consider exceptional generalised geometry.
+			%
+		\section{Scherk-Schwarz reductions}
+			%
+				As analysed in the example of Kaluza-Klein truncations, that method provides a good way to study linear fluctuations about a given vacuum, but the complete effective theory might be not completely captured.
+				Further more in Kaluza-Klein reductions, there is no warranty for the truncation ansatz to be consistent.
+				In order to have a construction producing a consistent truncation of the higher-dimensional theory we have to be protected by some symmetry.
+				One of the first method to achieve a consistent truncation is the so-called \emph{Scherk-Schwarz reduction}~\cite{Scherk:1979zr}.
+				This procedure prescribes to choose the internal manifold to be a Lie group.
+				The truncation ansatz is chosen in such a way that dependence of fields on the internal coordinates is through the left-invariant objects of the Lie group.
+				The consistency of this ansatz is related to this fact.
+				Indeed, there is no way the singlet modes can source the truncated non-singlet ones in the equations of motion.
+				
+				We will present a generalisation in the context of exceptional generalised geometry to include fluxes, called \emph{Generalised Scherk-Schwarz reduction} in the next section. 
+				This will be the key ingredient to find consistent truncations on spheres of massive type IIA supergravity.
+				
+				Before coming to the generalised Scherk-Schwarz reduction, we recall how a conventional Scherk-Schwarz reduction~\cite{Scherk:1979zr} is defined.
+				For concreteness, we take the case of a type IIA supergravity, but this is not a relevant choice, since the line of reasoning is the same in any case.
+				
+				As said, in Scherk-Schwarz reductions, the internal manifold is chosen to be a $d$-dimensional Lie group, $M_d = G$. 
+				It follows that $M_d$ is parallelisable, namely there exists a global frame $\{\hat{e}_a\}$, $a=1,\ldots,d$, trivialising the frame bundle and thus the tangent bundle $TM_d$.
+				In terms of $G$-structures of~\cref{chap1}, we have an identity structure on the manifold. 
+				The frame is constructed by considering a basis of vectors that are invariant under the (say) left-action of the group $G$ on itself. 
+				Under the Lie derivative, the left-invariant frame satisfies the algebra
+					%
+						\begin{equation}
+							\mathcal{L}_{\hat{e}_a}\hat{e}_b = f_{ab}^{\phantom{ab}c} \hat{e}_c\, ,
+						\end{equation}
+					%
+				where $f_{ab}^{\phantom{ab}c}$ are the structure constants of $G$.
+				
+				The vectors $\{\hat{e}_a\}$ generate the right-isometries of the bi-invariant metric on the group manifold. 
+				A truncation ansatz for the internal metric is defined by ``twisting'' the original frame on $M_d$ by a $\GL(d)$ matrix $U_a^{\phantom{a}b}$ depending on the external spacetime coordinates $x^\mu$,
+					%
+						\begin{equation}
+							\hat{e}'_a{}^m(x,z) = U_a{}^b(x)\, \hat{e}_b{}^m(z)\ ,
+						\end{equation}
+					%
+				and setting
+					%
+						\begin{equation}
+							g^{mn}(x,z) = \delta^{ab}\, \hat{e}'_a{}^m(x,z) \,\hat{e}'_b{}^n(x,z) = \mathcal{M}^{ab}(x) \,\hat{e}_a{}^m(z) \,\hat{e}_b{}^n(z)\ ,
+						\end{equation}
+					%
+				where $\mathcal{M}^{ab} = \delta^{cd} U_c{}^a U_d{}^b$. 
+				As we are free to redefine the frame by $x$-dependent $\SO(d)$ transformations, the $\mathcal{M}^{ab}$ matrix parameterises the coset $\GL(d)/\SO(d)$; hence it defines $\frac{1}{2}d(d+1)$ scalars on the external spacetime. 
+				It follows that $g_{mn} =\mathcal{M}_{ab} e_m{}^a e_n{}^b$, where $\mathcal{M}_{ab}$ is the inverse of $\mathcal{M}^{ab}$, and, as before, the one-forms $e^a$ are dual to the vectors $\hat{e}_a$. 
+				The full ten-dimensional metric is given by
+					%
+						\begin{equation}
+							\dd \hat{s}^2\, = \, g_{\mu\nu}\dd{x}^\mu\dd{x}^\nu + \mathcal{M}_{ab} (e^a - \mathcal{A}^a)(e^b - \mathcal{A}^b)\,.
+						\end{equation}
+					%
+				The $d$ one-forms $\mathcal{A}^a=\mathcal{A}_\mu{}^a(x)\dd{x}^\mu$ gauge the right-isometries on the group manifold, and are therefore $G$ gauge fields on the external spacetime.
+				For the RR one-form one takes
+					%
+						\begin{equation}
+							\hat{C}_1(x) = C_\mu(x) \dd{x}^\mu + C_a(x) (e^a - \mathcal{A}^a) + \rg{C_1}\ ,
+						\end{equation}
+					%
+				where $\rg{C_1}$ is the potential for a background, left-invariant two-form flux. 
+				This gives an additional one-form and $d$ more scalars. 
+				A similar ansatz is taken for the other form potentials.
+ 
+				The reduction defined in this way is consistent by symmetry reasons: the dependence of the type IIA fields on the internal coordinates is fully encoded in the left-invariant tensors $\hat{e}_a$ and $e^a$, and there is no way the singlet modes can source the truncated non-singlet modes in the equations of motion.
+				The gauge group of the lower-dimensional, truncated theory arises from the interplay between the right-Killing symmetries generated by the left-invariant vectors $\hat{e}_a$ and the gauge transformations of the form potentials with flux, and corresponds to a semi-direct product of $G$ with a non-compact factor. 
+				The full supersymmetry of the original theory is preserved in the truncation.
+				
+				We refer to e.g.~\cite{Kaloper:1999yr,Dall'Agata:2005ff,D'Auria:2005er,Hull:2005hk,Hull:2006tp} for a detailed account of conventional Scherk-Schwarz reductions in a context related to the one of this thesis.
+			%
+			
+		\section{Generalised Scherk-Schwarz reductions}\label{genScherkSchw}
+			%				
+				In~\cite{spheres}, it was observed that consistent truncations with maximal supersymmetry are related to the existence of a \emph{generalised Leibniz parallelisation}, $\{\hat{E}_A\}$ as defined in the previous chapter, by the condition~\eqref{GLP}. 
+				Such a frame defines a Leibniz algebra, hence the qualification ``Leibniz'' attributed to the parallelisation. 
+				Starting from a generalised Leibniz parallelisation, one can define a \emph{generalised Scherk-Schwarz reduction}. 
+				As the name suggests, this is a generalisation of conventional Scherk-Schwarz reductions on local group manifolds~\cite{Scherk:1979zr} to a larger class of manifolds, which preserves the same amount of supersymmetry as the original higher-dimensional theory. 
+				We will see how the constants in~\eqref{GLP}, $(X_A)_{B}{}^C$ correspond to the generators of the lower-dimensional gauge group, and are tantamount to the embedding tensor that fully determines the gauged maximal supergravity.
+				For more details about the embedding tensor formalism we refer to~\cite{henlect}. 
+				The truncation defined by the generalised Scherk-Schwarz procedure is conjectured to be consistent. 
+				Although it has not been proved in full generality, this expectation is supported by a number of examples.
+			
+				A similar approach has been adopted for studying generalised Scherk-Schwarz reductions using exceptional field theory, see~e.g.~\cite{samt1,SamtExcReview,Baguet:2015sma,InversoGenSchSchw}.
+			
+				In particular the generalised parallelisation has been used to define, in addition, the gauge and higher-tensor fields in the truncation. 
+				Formally, as mentioned earlier, under the section condition, the equations of exceptional field theory and exceptional generalised geometry are the same.
+				
+				We are now ready to define \emph{Generalised Scherk-Schwarz reductions}.
+				
+				Extensions of conventional Scherk-Schwarz reductions to reformulations (or extensions) of high-dimensional supergravity theories with larger structure groups have been considered by several authors, see~e.g.~\cite{Riccioni:2007au,Berman:2012uy,Aldazabal:2013mya,Godazgar:2013dma,spheres,Hohm:2014qga,Ciceri:2014wya,SamtExcReview,
+Baguet:2015sma,Malek:2015hma}. 
+				Here we will follow~\cite{spheres} and define a \emph{generalised Scherk-Schwarz reduction} on a $d$-dimensional manifold $M_d$ (not necessarily a Lie group) as the direct analogue of an ordinary Scherk-Schwarz reduction, with the ordinary frame on the tangent bundle replaced by a frame on the generalised tangent bundle.
+				In particular we will this will allow us to derive an explicit ansatz for the fields with one or two external legs for type IIA (in analogy to the exceptional field theory expressions for eleven-dimensional and type IIB supergravity given in~\cite{Hohm:2014qga,SamtExcReview,Baguet:2015sma}).
+				
+				As in any Kaluza--Klein reduction, we start by decomposing the type IIA fields according to the $\SO(1,9) \to \SO(1,9-d)\times \SO(d)$ splitting of the Lorentz group. 
+				We will use coordinates $x^\mu$, $\mu = 0,\ldots, 9-d$ for the external spacetime and $z^m$, $m=1,\ldots,d$ for the internal manifold $M_d$, of dimension $d \leq 6$. Then the ten-dimensional metric can be written as
+					%
+						 \begin{equation}\label{KK_decomp_metr}
+							\hat{g} \,= \, e^{2\Delta}g_{\mu\nu}\dd{x}^\mu\dd{x}^\nu + g_{mn} Dz^m Dz^n\ ,
+						\end{equation}
+					%
+				where 
+					%
+						\begin{equation}
+							Dz^m = \dd{z}^m - h_\mu{}^m \dd{x}^\mu \ ,
+						\end{equation} 
+					%
+				and the scalar $\Delta$ is the warp factor of the external metric $g_{\mu\nu}$. 
+				In this section the symbol hat denotes the original ten-dimensional fields. 
+				The form fields are decomposed as
+					%
+						\begin{equation}\label{expand_10dfields}
+							\begin{split}
+								\hat{B} &= \tfrac{1}{2} B_{m_1m_2} Dz^{m_1m_2} + \overline{B}_{\mu m} \dd{x}^\mu \wedge Dz^m + \tfrac{1}{2}\overline{B}_{\mu\nu} \dd{x}^{\mu\nu} \, , \\[1.5mm]
+								\hat{\tilde{B}} &= \tfrac{1}{6!} \tilde{B}_{m_1\ldots m_6} Dz^{m_1\ldots m_6} + \tfrac{1}{5!} \overline{\tilde B}_{\mu m_1\ldots m_5} \dd{x}^\mu \!\wedge\! Dz^{m_1\ldots m_5} \\
+											& \phantom{= + } + \tfrac{1}{2\cdot 4!} \overline{\tilde B}_{\mu\nu m_1\ldots m_4} \dd{x}^{\mu\nu} \!\wedge\! Dz^{m_1\ldots m_4} + \ldots \, , \\[1.5mm]
+								\hat{C}_1 &= C_m Dz^m + \overline{C}_{\mu,0} \,\dd{x}^\mu \, , \\[1.5mm]
+								\hat{C}_3 &= \tfrac{1}{3!} C_{m_1m_2m_3} D{z}^{m_1m_2m_3} + \tfrac{1}{2}\overline{C}_{\mu m_1m_2} \dd{x}^\mu\wedge D{z}^{m_1m_2} \\
+											& \phantom{= + } + \tfrac{1}{2}\overline{C}_{\mu\nu m}\dd{x}^{\mu\nu} \wedge Dz^m + \ldots \, , \\[1.5mm]
+								\hat{C}_5 &= \tfrac{1}{5!} C_{m_1\ldots m_5} D{z}^{m_1\ldots m_5} + \tfrac{1}{4!}\overline{C}_{\mu m_1\ldots m_4} \dd{x}^\mu\!\wedge\! D{z}^{m_1\ldots m_4} \\
+											& \phantom{= + } +\tfrac{1}{2\cdot 3!} \overline{C}_{\mu\nu m_1m_2m_3}\dd{x}^{\mu\nu} \!\wedge\! Dz^{m_1m_2m_3}+\ldots \, , \\[1.5mm]
+								\hat{C}_7 &= \tfrac{1}{6!}\overline{C}_{\mu m_1\ldots m_6} \dd{x}^\mu\wedge D{z}^{m_1\ldots m_6} +\tfrac{1}{2\cdot 5!} \overline{C}_{\mu\nu m_1\ldots m_5}\dd{x}^{\mu\nu} \wedge Dz^{m_1 \ldots m_5} + \ldots \, ,
+							\end{split}
+						\end{equation}
+					%
+			where $\dd{x}^{\mu\nu} = \dd x^\mu\wedge \dd x^\nu$ and $Dz^{m_1\ldots m_p} = Dz^{m_1}\wedge \cdots \wedge Dz^{m_p}$.
+			The ellipsis denote forms with more than two external indices, that we will not need. 
+			The expansion in $Dz$ instead of $\dd z$ is standard in Kaluza--Klein reductions, and ensures that the components transform covariantly under internal diffeomorphisms. 
+			We stress that at this stage the field components still depend on all the coordinates $\{x^\mu,z^m\}$: we are decomposing the various tensors according to their external or internal legs but we have not specified their dependence on the internal space yet. 
+			The only exception is the external metric, which is assumed to depend just on the external coordinates: $g_{\mu\nu} = g_{\mu\nu}(x)$.
+			
+			The barred fields appearing in~\eqref{expand_10dfields} can also be identified by introducing the vector 
+				%
+					\begin{equation}
+						\partial_\mu + h_\mu = \frac{\partial}{\partial x^\mu} + h_\mu{}^m \frac{\partial}{\partial z^m}\,,
+					\end{equation} 
+				%
+			which satisfies $\iota_{(\partial_\mu + h_\mu)}Dz^m =0$. 
+			For the the fields with one external leg we have 
+				%
+					\begin{equation}
+						\begin{split}
+							\overline{B}_{\mu} &= \iota_{(\partial_\mu + h_\mu)} \hat B \, \big| \,, \\[1mm]
+							\overline{\tilde B}_{\mu} &= \iota_{(\partial_\mu + h_\mu)} \hat{\tilde{B}} \, \big| \,, \\[1mm]
+							\overline{C}_{\mu} &= \iota_{(\partial_\mu + h_\mu)} \hat C \, \big| \,,
+						\end{split}
+					\end{equation}
+				%
+			where by the symbol ``$|$'' we mean that after having taken the contraction $\iota_{(\partial_\mu + h_\mu)}$, the forms on the right hand side are restricted to have just internal legs. 
+			In other words, we set $\dd x \equiv 0$. 
+			Similarly, for the fields with two external legs we find
+				%
+					\begin{equation}\label{redef_one_forms_2}
+						\begin{split}
+							\overline{B}_{\mu\nu} &= \iota_{(\partial_\nu + h_\nu)} \iota_{(\partial_\mu + h_\mu)} \hat{B} \, , \\
+							\overline{\tilde B}_{\mu\nu} &= \iota_{(\partial_\nu + h_\nu)} \iota_{(\partial_\mu + h_\mu)} \hat{\tilde B} \big|\, , \\
+							\overline{C}_{\mu\nu} &= \iota_{(\partial_\nu + h_\nu)}\iota_{(\partial_\mu + h_\mu)} \hat{C} \big| \, .
+						\end{split}
+					\end{equation}
+				%
+			Moreover, we are arrange the RR potentials in the poly-forms 
+				%
+					\begin{equation}
+						\begin{split}
+							\overline{C}_\mu &= \overline{C}_{\mu,0} + \overline{C}_{\mu,2} + \overline{C}_{\mu,4} + \overline{C}_{\mu,6}\,, \\
+							\overline{C}_{\mu\nu} &= \overline{C}_{\mu\nu,1} + \overline{C}_{\mu\nu,3} + \overline{C}_{\mu\nu,5}\,.
+						\end{split}
+					\end{equation}
+				%
+			These barred fields need a field redefinition. 
+			This can be seen by decomposing the gauge transformations of the ten-dimensional fields and imposing that they are covariant under the generalised diffeomorphisms so that they will eventually reproduce the gauge transformation of the lower-dimensional supergravity theory after the truncation is done. 
+			Here we just provide the correct redefinitions, postponing their full justification to the next section. 
+			We introduce the new fields
+				%
+					\begin{equation}\label{redef_one_forms}
+						\begin{split}
+							B_{\mu} &= \overline{B}_\mu \, , \\
+							C_\mu &= e^{-B}\wedge \overline{C}_\mu \, , \\
+							\tilde{B}_\mu &= \overline{\tilde{B}}_\mu - \tfrac{1}{2} [ \overline{C}_\mu \wedge s(C)]_5 \, ,
+						\end{split}
+					\end{equation}
+				%
+			where $B$, $C$ are just internal, and
+				%
+					\begin{equation}\label{redef_two_forms}
+						\begin{split}
+							B_{\mu\nu}&= \overline{B}_{\mu\nu} + \iota_{h_{[\mu}}B_{\nu]} \,, \\
+							\tilde B_{\mu\nu}&= \overline{\tilde B}_{\mu\nu} - \tfrac{1}{2} \big[ \,\overline{C}_{\mu\nu} \wedge s(C)\, \big]_4 + \iota_{h_{[\mu}} \tilde{B}_{\nu]} \,, \\
+							C_{\mu\nu} &= e^{-B} \wedge \overline{C}_{\mu\nu} + \iota_{h_{[\mu}} C_{\nu]} + B_{[\mu}\wedge C_{\nu]} \,.
+						\end{split}
+					\end{equation}
+				%
+			Note that we are using a notation where the various tensors are treated as differential forms on the internal manifold, while we explicitly display their external indices.
+
+			Having decomposed the higher-dimensional fields in a suitable way, we are now ready to construct our truncation ansatz. 
+			As a first thing we rearrange the type IIA fields with zero, one or two external indices in terms of generalised geometry objects. The fields with purely internal legs, i.e. 
+				%
+					\begin{equation}
+						\left\{g_{mn},\, B_{m_1m_2},\, \tilde B_{m_1\ldots m_6} ,\, C_m,\, C_{m_1m_2m_3},\, C_{m_1 \ldots m_5} \right\} \, ,
+					\end{equation}
+				%
+			together with the warp factor $\Delta$ and the dilaton $\phi$, parameterise a generalised metric $\mathcal{G}^{MN}$.
+			The (redefined) fields with one external index are collected in the generalised vector $\mathcal{A}_\mu{}^M$,
+				%
+					\begin{equation}\label{def_calA_mu^M}
+						 \{ h_\mu{}^m ,\, B_{\mu m} ,\, \tilde B_{\mu m_1\ldots m_5},\, \tilde{g}_{\mu m_1\ldots m_6,m} ,\, C_{\mu,0},\, C_{\mu m_1m_2},\, C_{\mu m_1\ldots m_4},\, C_{\mu m_1\ldots m_6} \} \, ,
+					\end{equation}
+				%
+			Here, $\tilde{g}$ is a tensor belonging to $ \Lambda^7T^*M_{10}\otimes T^*M_{10}$, related to the dual graviton. 
+			This is not part of type IIA supergravity in its standard form and we will thus ignore it by projecting $\mathcal{A}_\mu$ on the $E'''$ bundle introduced in~\eqref{IIAexten},
+				%
+					\begin{equation}
+						\mathcal{A}_\mu{}^M \eqs \{ h_\mu{}^m ,\, B_{\mu m} ,\, \tilde B_{\mu m_1\ldots m_5},\, C_{\mu,0},\, C_{\mu m_1m_2},\, C_{\mu m_1\ldots m_4},\, C_{\mu m_1\ldots m_6} \} \, .
+					\end{equation}
+				%
+			Here and below, the $\eqs$ symbol in an equation involving generalised vectors means that the equality holds after projecting on the bundle $E'''$ using the natural mappings~\eqref{IIAexten}, namely after dropping the $T^*\otimes \Lambda^{6}T^*$ component.
+
+			The fields with $\mu\nu$ indices defined in~\eqref{redef_two_forms} are components of a generalised tensor $\mathcal{B}_{\mu\nu}{}^{MN}$, which is a two-form in the external spacetime and a section of the bundle $N$ on $M_6$ defined in~\eqref{Nbundle}. 
+			They actually correspond to the components of this object living on the bundle $N'$ given in~\eqref{NprimeBundle}, that is
+				%
+					\begin{equation}
+						\mathcal{B}_{\mu\nu}{}^{MN} \,\eqs\, \{ B_{\mu\nu},\, \tilde{B}_{\mu\nu m_1\ldots m_4} ,\, C_{\mu\nu m},\, C_{\mu\nu m_1m_2m_3} ,\, C_{\mu\nu m_1\ldots m_5}\}\,.
+					\end{equation}
+				%
+			For the equations involving sections of the bundle $N$, by the $\eqs$ symbol we mean that the equality holds after having projected on the bundle $N'$, see~\cref{app:EGG} for details.
+
+			Suppressing the internal indices, the objects introduced above read
+				%
+					\begin{equation}
+						\begin{split}
+							\mathcal{A}_\mu \,&\eqs\, h_\mu + B_{\mu} + \tilde B_{\mu} + C_{\mu,0}+ C_{\mu,2}+ C_{\mu ,4} + C_{\mu,6} \, , \\
+							\mathcal{B}_{\mu\nu} \,&\eqs\, B_{\mu\nu} + \tilde{B}_{\mu\nu} + C_{\mu\nu,1}+ C_{\mu\nu ,3} + C_{\mu\nu,5} \, .
+						\end{split}
+					\end{equation}
+				%
+			
+			The construction of a (bosonic) truncation ansatz leading to a $(10-d)$-dimensional theory preserving maximal supersymmetry is then specified by the following steps:
+				%
+					\begin{itemize}
+					\item[\textit{1.}] 	One should find a generalised parallelisation $\{\hat E_A\}$, namely a globally-defined frame for the $\E_{d+1(d+1)}\times \RR^+$ generalised tangent bundle on $M_d$.
+									This means that the frame $\{\hat E_A\}$ must be an $E_{d+1(d+1)}$ frame, namely that it is given by an $E_{d+1(d+1)}$ transformation of the coordinate frame\footnote{%
+										By coordinate frame we mean
+											%
+												\begin{equation*}
+													\{ \tilde{\hat{E}}_A\} = \{\partial_m\} \cup \{\dd x^m\} \cup \{\dd x^{m_1 \ldots m_5} \} \cup \{\dd x^{m,m_1\ldots m_6}\} \cup \{1\} \cup \{\dd x^{m_1m_2}\} \cup \{\dd x^{m_1\ldots m_4}\} \cup \{\dd x^{m_1 \ldots ,_6}\} \, . 
+ 												\end{equation*}
+											%
+										}.
+									%
+									We will see how this condition applies in the examples below. 
+									In addition, the frame must satisfy the algebra~\eqref{GLP},
+										%
+											\begin{equation}\label{LeibnizParall}
+												L_{\hat E_A}\hat E_B = X_{AB}{}^C \hat E_C\ ,
+											\end{equation}
+										%
+									with constant coefficients $X_{AB}{}^C$. 
+									It is then a \emph{generalised Leibniz parallelisation}, as seen in~\cref{secGenPar}. 
+									The constants $X_{AB}{}^C$ correspond to the generators of the gauge group: in gauged supergravity they are defined by contracting the \emph{embedding tensor} $\Theta_A{}^\alpha$ encoding the gauging of the theory with the generators $(t_\alpha)_B{}^C$ of the U-duality group, $X_{AB}{}^C = \Theta_A{}^\alpha (t_\alpha)_B{}^C$ (we refer to e.g.~\cite{henlect} for a review of the embedding tensor formalism). 
+									Using the Leibniz property of the Dorfman derivative together with~\eqref{LeibnizParall}, we see that indeed the constants $X_{AB}{}^C$ realise the gauge algebra
+										%
+											\begin{equation}\label{eq:gauge-alg-X}
+												[X_A,X_B] \ = \ -X_{AB}{}^C X_C\ .
+											\end{equation}
+										%
+									We emphasise that, provided the dimensional reduction goes through consistently, the knowledge of $X_{AB}{}^C$ alone is sufficient to completely determine the resulting gauged maximal supergravity.
+						%
+					\item[\textit{2.}] One twists the parallelising frame by an $\E_{d+1(d+1)}$ matrix $U_A{}^B$ depending on the external spacetime coordinates $x^\mu$:
+										%
+											\begin{equation}
+												\hat E'_A{}^M(x,z) = U_A{}^B(x)\hat E_B{}^M(z)\ ,
+											\end{equation}
+										%
+									and use this to construct a generalised inverse metric:
+										%
+											\begin{equation}\label{invG_from_parall}
+												\mathcal{G}^{MN}(x,z) = \delta^{AB}\hat E'_A{}^M (x,z) \hat E'_B{}^N (x,z) = \mathcal{M}^{AB}(x) \hat E_A{}^M(z) \hat E_B{}^N(z)\ .
+											\end{equation}
+										%
+									The matrix 
+										%
+											\begin{equation}
+												\mathcal{M}^{AB} = \delta^{CD}U_C{}^A U_D{}^B
+											\end{equation}
+										% 
+									parameterises the coset $\E_{d+1(d+1)}/K$, where $K$ is the maximal compact subgroup of $\E_{d+1(d+1)}$ (indeed, we are free to redefine the generalised frame by $x$-dependent $K$ transformations). 
+									Hence it accommodates all the scalars of the lower-dimensional theory.
+
+									Now one equates~\eqref{invG_from_parall} to the generic form of the generalised inverse metric $\mathcal{G}^{-1}$ introduced in section~\ref{gen_frame_metric}, whose relevant components are given in~\eqref{invG_comp_1} and~\eqref{invG_comp_2}. 
+									In this way we obtain the truncation ansatz for the full set of higher-dimensional degrees of freedom with purely internal components, which gives the scalar fields in the lower-dimensional theory. 
+									This also provides the expression for the warp factor $\Delta$. 
+									Concretely, these can be extracted following eqs.~\eqref{fields_from_G_first}--\eqref{fields_from_G_last}. 
+									Note that, since the generalised density $\Phi$ appearing in~\eqref{fields_from_G_last} is independent of the twist matrix $U_A{}^B$, it can be advantageously computed at the origin of the scalar manifold, where $\mathcal{M}^{AB}=\delta^{AB}$. 
+									So at any point on the scalar manifold the density is given by
+										%
+											\begin{equation}\label{gen_density_background}
+												\Phi = \rg{g}{}^{1/2} e^{ -2 \rg\phi} \ e^{(8-d)\rg\Delta} \, ,
+											\end{equation}
+										%
+									where the {\large${\rg{\,}}$} symbol denotes the ``reference'' values of the corresponding fields, namely the values for trivial twist matrix.
+						%
+					\item[\textit{3.}]	Finally, the full set of vector fields in the lower-dimensional theory is specified by taking the following ansatz for the generalised vector $\mathcal{A}_\mu{}^M$ introduced in~\eqref{def_calA_mu^M},
+										%
+											\begin{equation}\label{trunc_ansatz_vec}
+												\mathcal{A}_\mu{}^M(x,z) = \mathcal{A}_\mu{}^A(x) \hat{E}_A{}^M(z) \, .
+											\end{equation}
+										%
+									The ansatz for the two-forms is
+										%
+											\begin{equation}\label{ansatz_two-forms}
+												\mathcal{B}_{\mu\nu}{}^{MN}(x,z) \eqs \tfrac{1}{2}\,\mathcal{B}_{\mu\nu}{}^{AB}(x) (\hat{E}_A \otimes_{N'} \!\hat{E}_B)^{MN}(z)\,, 
+											\end{equation}
+										%
+									where $\mathcal{B}_{\mu\nu}{}^{AB} = \mathcal{B}_{\mu\nu}{}^{(AB)}$, and the product $\otimes_{N'}$ is defined in~\eqref{N'prod_IIA}.
+					
+					\end{itemize}
+				%
+			A few comments in order. 
+			Although the conditions in \emph{Step~1} above are definitely non-trivial to satisfy, they are not as constraining as requiring that $M_d$ is a Lie group as needed in ordinary Scherk-Schwarz reductions. 
+			Indeed, one can see that a necessary condition for the existence of a generalised parallelisation satisfying~\eqref{LeibnizParall} is that $M_d$ is a coset manifold, $M_d = G/H$ for some $G$ and $H\subset G$~\cite{spheres, petrini3}.
+			In the particular case that $M_d$ is a Lie group, a generalised Scherk-Schwarz reduction coincides with an ordinary Scherk-Schwarz reduction if the chosen generalised parallelisation uses just left-invariant tensors\footnote{%
+				See~\cite[app. C]{spheres} for a discussion.
+				In this case, adopting a generalised geometry approach still has some advantage in that~\eqref{LeibnizParall} directly provides the full embedding tensor.}.
+			However, when reducing the NSNS sector, it is possible to obtain a generalised parallelisation which realises a $G\times G$ gauge group rather than just $G$~\cite{Baguet:2015iou}. 
+			In the next section we will provide a frame for the full type IIA generalised geometry on $S^3$ which gives rise to an $\SU(2)\times\SU(2)$ gauging (this has also appeared in~\cite{Malek:2015hma}).
+			
+			The spheres $S^d = \SO(d+1)/SO(d)$ provide examples of generalised parallelisations that are not based on Lie groups.
+			In~\cite{spheres}, the ideas above were applied to give evidence that the sphere consistent truncations based on eleven-dimensional supergravity on $S^7$~\cite{deWit:1986oxb}, eleven-dimensional supergravity on $S^4$~\cite{Nastase:1999kf}, type IIB supergravity on $S^5$ and the NSNS sector of type II supergravity on $S^3$, can be interpreted as generalised Scherk-Schwarz reductions. 
+			In section~\ref{sec:examples} we will provide additional examples.
+				%
+			\subsection{Consistent reduction of gauge transformations}
+				%
+					In this section we provide a partial proof of the consistency of our generalised Scherk-Schwarz truncation ansatz by showing that the internal diffeomorphisms together with the NSNS and RR gauge transformations consistently reduce to the appropriate gauge variations in lower-dimensional maximal supergravity\footnote{%
+						A more thorough proof would require studying the reduction of the supersymmetry variations or the equations of motion.}.
+					This will also justify the field redefinitions performed in~\eqref{redef_one_forms} and~\eqref{redef_two_forms}. 
+					The reader not interested in the details of this computation, which is rather technical, can safely skip to the next section.
+					
+					The gauge transformations of the ten-dimensional fields were given in section~\ref{sec:IIsugra}. Including also the diffeomorphisms, they read
+						%
+							\begin{equation}\label{gauge_var_full}
+								\begin{split}
+									\delta \hat{g} &= \mathcal{L}_{\hat{v}} \hat{g} \,, \\
+									\delta \hat{B} &= \mathcal{L}_{\hat{v}} \hat{B} - \dd \hat{\lambda} \ , \\
+									\delta \hat{C} &= \mathcal{L}_{\hat{v}} \hat{C} -e^{\hat{B}}\wedge(\dd \hat{\omega} - m \hat{\lambda}) \ , \\
+									\delta \hat{\tilde{B}} &= \mathcal{L}_{\hat{v}} \hat{\tilde{B}} - (\dd \hat{\sigma} + m \hat{\omega}_6) - \tfrac{1}{2} [e^{\hat{B}} \wedge (\dd\hat{\omega} - m \hat{\lambda}) \wedge s(\hat{C})]_6 \ .
+								\end{split}
+							\end{equation}
+						%
+
+					We can immediately see why the redefinition of the RR potentials in~\eqref{redef_one_forms} is needed: for the gauge transformation of $C_\mu$ to start with $\partial_\mu \omega$ (as required for a gauge field in supergravity), we need to remove the $B$-terms with internal legs appearing in front of $\dd \omega$. 
+					The same argument determines the redefinition of the six-form NSNS potential in~\eqref{redef_one_forms}.
+
+					In order to decompose the gauge transformations, we express the gauge parameters as
+						%
+							\begin{equation}\label{10d_gauge_param}
+								\begin{split}
+									{\hat{v}} &= v = v^m \frac{\partial}{\partial z^m}\,, \\[1mm]
+									\hat{\lambda} &= \lambda + \overline{\lambda}_\mu = \lambda_m \dd{z}^m + \overline{\lambda}_\mu \dd{x}^\mu \, , \\
+\hat\sigma &= \sigma + \overline{\sigma}_\mu + \overline{\sigma}_{\mu\nu} \, =\, \tfrac{1}{5!}\sigma_{m_1\ldots m_5}\dd z^{m_1\ldots m_5} + \tfrac{1}{4!}\,\overline{\sigma}_{\mu m_1\ldots m_4}\dd x^\mu\wedge \dd z^{m_1\ldots m_4}
+ \\
+\,&\qquad \qquad \qquad \qquad\,\ + \tfrac{1}{2\cdot3!}\,\overline{\sigma}_{\mu\nu m_1\ldots m_3}\dd x^{\mu\nu}\wedge \dd z^{m_1\ldots m_3} + \ldots \, ,
+								\end{split}
+							\end{equation}
+						%
+					where the ellipsis denote terms with more than two external indices, that we will ignore. 
+					Note that the vector $\hat v$ is purely internal, that is the diffeomorphisms we consider are just the internal ones. Similarly for the RR poly-form gauge parameter we find
+						%
+							\begin{equation}
+								\begin{split}
+									\hat\omega = \omega + \overline{\omega}_\mu + \overline\omega_{\mu\nu} & = (\omega_0+\omega_2+\omega_4+\omega_6) + (\overline{\omega}_{\mu,1}+ \overline{\omega}_{\mu,3}+\overline{\omega}_{\mu,5}) \\
+															& \phantom{=} + (\overline{\omega}_{\mu\nu,0}+\overline{\omega}_{\mu\nu,2}+\overline{\omega}_{\mu\nu,4}+\overline{\omega}_{\mu\nu,6}) + \ldots \, .
+								\end{split}
+							\end{equation}
+						%
+					As in~\eqref{expand_10dfields}, initially we impose no restriction on the dependence of the components of the gauge parameters on the coordinates $\{x^\mu,z^m\}$. 
+					However, differently from~\eqref{expand_10dfields}, note that the expansion of the gauge parameters is made in $\dd{z}^m$ and not in $Dz^m=\dd z^m - h_\mu{}^m \dd x^\mu$. 
+					The fields marked with a bar require a redefinition, which will be introduced below.
+
+					The gauge transformations of the fields with purely internal legs maintain precisely the same form as in~\eqref{gauge_var_full}. 
+					As for the fields with one external leg, redefined as in~\eqref{redef_one_forms}, after some computation we find that their variations are
+						%
+							\begin{equation}\label{var_one_ext_index}
+								\begin{split}
+									\delta h_\mu &= -\partial_\mu v + \mathcal{L}_v h_\mu \, , \\
+									\delta B_\mu &= -\partial_\mu \lambda + \din \overline{\lambda}_\mu + \mathcal{L}_v B_\mu - \iota_{h_\mu} \din\lambda\, , \\
+									\delta \tilde B_\mu &= -\partial_\mu \sigma + \din{\overline{\sigma}_{\mu}} - m\,\overline{\omega}_{\mu,5} + \mathcal{L}_v \tilde{B}_{\mu} \\
+												& \phantom{=} - \iota_{h_\mu}(\din\sigma+m\omega_6) + \left[ C_\mu \wedge s(\din \omega - m\lambda) \right]_5 \, , \\
+									\delta C_\mu &= - \partial_\mu \omega + \din \overline{\omega}_\mu + m \overline{\lambda}_\mu + \mathcal{L}_v C_\mu + C_{\mu} \wedge \din \lambda \\
+												& \phantom{=} - (\iota_{h_\mu}+ B_\mu \wedge)(\din\omega -m\lambda)\,,
+								\end{split}
+							\end{equation}
+						%
+					where the exterior derivative $\din := \dd z^m \partial_m$ and $\mathcal{L}$ act on the internal coordinates only.
+					The fields with two external legs have the following gauge variations
+						%
+							\begin{equation}\label{transf_2form_BtildeB}
+								\begin{split}
+									\delta B_{\mu\nu} &= -2 \partial_{[\mu} \overline{\lambda}_{\nu]} +\iota_{h_{[\mu}}\partial_{\nu]} \lambda - \iota_{h_{[\mu}}\din \overline{\lambda}_{\nu]} + \mathcal{L}_v B_{\mu\nu} - \iota_{\partial_{[\mu}v} B_{\nu]}\, , \\[2mm]
+									\delta \tilde B_{\mu\nu} &= - 2 \partial_{[\mu}\overline{\sigma}_{\nu]} -\din \overline{\sigma}_{\mu\nu} -m\, \overline{\omega}_{\mu\nu,4} + \iota_{h_{[\mu}}\big(\partial_{\nu]}\sigma - \din \overline{\sigma}_{\nu]} + m \,\overline{\omega}_{\nu],5} \big) \\
+														&\phantom{= \, } + \mathcal{L}_v \tilde B_{\mu\nu}- \iota_{\partial_{[\mu}v}\tilde{B}_{\nu]} \\
+														&\phantom{= \, } + \big[C_{\mu\nu} \wedge s(\din\omega-m\lambda) + ( -\partial_{[\mu}\omega + \din \overline{\omega}_{[\mu} + m\overline{\lambda}_{[\mu} ) \wedge s(C_{\nu]}) \big]_4 \, ,
+								\end{split}
+							\end{equation}
+						%
+					and (we give the transformations for the barred fields, as those of the unbarred field $C_{\mu\nu}$ are more cumbersome)
+						%
+							\begin{equation}\label{Cbar_transf}
+								\begin{split}
+									\delta (e^{-B} \wedge \overline{C}_{\mu\nu}) &= - 2\partial_{[\mu} \overline{\omega}_{\nu]} - 2\iota_{h_{[\mu}}\din \overline{\omega}_{\nu]} +2\iota_{h_{[\mu}}\partial_{\nu]}\omega -\iota_{h_{\nu}} \iota_{h_\mu} \din \omega - \din \overline{\omega}_{\mu\nu} \\
+																		&\phantom{= \,} + \mathcal{L}_v (e^{-B}\wedge\overline{C}_{\mu\nu}) +\din\lambda \wedge (e^{-B}\wedge\overline{C}_{\mu\nu}) - \overline{B}_{\mu\nu} (\din \omega -m\lambda) \\
+																		&\phantom{= \, } + 2 B_{[\mu} \wedge \iota_{h_{\nu]}}(\din \omega -m\lambda) + 2 B_{[\mu}\wedge ( \partial_{\nu]} \omega - \din\overline{\omega}_{\nu]} -m\overline{\lambda}_{\nu]}) \\
+																		&\phantom{= \, } + B_{\mu} \wedge B_\nu \wedge \left(\din\omega - m \lambda\right) \,.
+								\end{split}
+							\end{equation}
+						%
+					The gauge parameters with purely internal indices can be arranged into a generalised vector with the $T^*\otimes \Lambda^6T^*$ component projected out,
+						%
+							\begin{equation}
+								\Lambda^M \eqs \{ v^m,\, \lambda_m,\, \sigma_{m_1\ldots m_5},\, \omega_0,\, \omega_{m_1m_2} ,\,\omega_{m_1\ldots m_4},\,\omega_{m_1\ldots m_6} \} \, ,
+							\end{equation}
+						%
+					while the gauge parameters with one external leg form a section of the bundle $N'$,
+						%
+							\begin{equation}
+								\overline{\Xi}_\mu^{\phantom{\mu}(MN)} \eqs \{ \overline{\lambda}_\mu ,\, \overline{\sigma}_{\mu n_1\ldots n_4} ,\, \overline{\omega}_{\mu n},\, \overline{\omega}_{\mu n_1n_2n_3} ,\, \overline{\omega}_{\mu n_1\ldots n_5} \} \, .
+							\end{equation}
+						%
+					The transformations for the fields with two external legs will be discussed below.
+ 
+					The gauge transformation of the fields with purely internal indices is given by the compact expression
+						%
+							\begin{equation}\label{gauge_var_G}
+								\delta_\Lambda \mathcal{G}^{-1} = L_\Lambda \mathcal{G}^{-1}\,,
+							\end{equation}
+						%
+					where $L_\Lambda$ is the massive Dorfman derivative~\eqref{dorfIIAm}.
+					The gauge variation~\eqref{var_one_ext_index} of fields with one external leg can be repackaged into
+						%
+							\begin{equation}\label{Avaria0}
+								\delta \mathcal{A}_\mu \, \eqs\, -\partial_\mu \Lambda + L_\Lambda \mathcal{A}_\mu + \dd_{\mathrm{m}} \overline{\Xi}_\mu \, ,
+							\end{equation}
+						%
+					where it is understood that the differentials in the generalised Lie derivative act on the internal coordinates only. The operator $\dd_{\mathrm{m}}$ is defined on any element $W = W_0 + W_4 + W_{\rm odd}$ of the bundle $N'$ as
+						%
+							\begin{equation}\label{m_twist_ext_der}
+								\dd_{\mathrm{m}} W = \dd W + m(W_0 - W_5)\,,
+							\end{equation}
+						%
+					and can be seen as an exterior derivative twisted by the Romans mass. Then in the present case we have
+						%
+							\begin{equation}
+								\dd_{\mathrm{m}} \overline{\Xi}_\mu =\din \overline{\Xi}_\mu + m (\overline{\lambda}_\mu - \overline{\omega}_{\mu,5})\,.
+							\end{equation}
+						%
+					It is easy to verify that for $W = V \otimes_{N'} V' $,
+						%
+							\begin{equation}\label{eq:symmetricL}
+								\dd_{\mathrm{m}} W \,\eqs\, L_V V' + L_{V'}V \,\,.
+							\end{equation}
+						%
+					If we now redefine the gauge parameter with one external leg as
+						%
+							\begin{equation}\label{redefXi}
+								\overline{\Xi}_\mu\, =\, \Xi_\mu - \mathcal{A}_\mu \xN \Lambda\,,
+							\end{equation}
+						%
+					and use the property~\eqref{eq:symmetricL}, we obtain 
+						%
+							\begin{equation}
+								\dd_{\mathrm{m}} \overline{\Xi}_\mu \,\eqs\, \dd_{\mathrm{m}} \Xi_\mu - L_{\mathcal{A}_\mu} \Lambda - L_\Lambda \mathcal{A}_\mu\, . 
+							\end{equation}
+						%
+					This redefinition allows to cast~\eqref{Avaria0} in the form
+						%
+							\begin{equation} \label{Avaria}
+								\delta \mathcal{A}_\mu \, \eqs\, -\partial_\mu \Lambda - L_{\mathcal{A}_\mu} \Lambda + \dd_{\mathrm{m}} \Xi_\mu \,,
+							\end{equation}
+						%
+					where one recognise the derivative $(\partial_\mu + L_{\mathcal A_\mu})\Lambda$, covariant under generalised diffeomorphisms. 
+					This is the appropriate form for matching the gauged supergravity covariant derivative after Scherk-Schwarz reduction.
+
+					We need to express the gauge transformations~\eqref{transf_2form_BtildeB} and~\eqref{Cbar_transf} of the external two-form fields in generalised geometry terms. 
+					This requires a rather complicated redefinition of the gauge parameters $\overline{\omega}_{\mu\nu}= \overline{\omega}_{\mu\nu,0}+\overline{\omega}_{\mu\nu,2}+\overline{\omega}_{\mu\nu,4}$ and $\overline{\sigma}_{\mu\nu}$:
+						%
+							\begin{equation}\label{expr_2form_gauge_par}
+								\begin{split}
+									\overline{\omega}_{\mu\nu} &= \omega_{\mu\nu} + (\iota_v+\lambda\wedge) C_{\mu\nu} - \omega\,B_{\mu\nu} + (2\lambda_{[\mu} + \iota_{h_{[\mu}}\lambda + \iota_v B_{[\mu})C_{\nu]} \\
+														&\phantom{=} + (\iota_{h_{[\mu}} + B_{[\mu}\wedge\, )( 2\omega_{\nu]}+\iota_v C_{\nu]} + \lambda\wedge C_{\nu]} + \iota_{h_{\nu]}}\omega + B_{\nu]}\wedge \omega) \\[2mm]
+									\overline{\sigma}_{\mu\nu} &= \sigma_{\mu\nu} + 2\iota_{h_{[\mu}}\sigma_{\nu]} +\iota_{h_\mu}\iota_{h_\nu}\sigma + \iota_v(\tilde{B}_{\mu\nu} - \iota_{h_{[\mu}}\tilde{B}_{\nu]}) + \iota_v C_{[\mu,4}C_{\nu],0} \\
+														&\phantom{=} -\iota_v C_{[\mu,2}\wedge C_{\nu],2} + 2\lambda\wedge (C_{[\mu,2}C_{\nu],0}) \\
+														&\phantom{=} - \big[(C_{\mu\nu} - \iota_{h_{[\mu}}C_{\nu]} + B_{[\mu}\wedge C_{\nu]})\wedge s(\omega) - 2C_{[\mu}\wedge s(\omega_{\nu]})\big]_3\,.
+								\end{split}
+							\end{equation}
+						%
+					We repackage the new parameters $\sigma_{\mu\nu}$ and $\omega_{\mu\nu} = \omega_{\mu\nu,0} +\omega_{\mu\nu,2}+\omega_{\mu\nu,4}$ into
+						%
+							\begin{equation}
+								\Phi_{\mu\nu}= \sigma_{\mu\nu} + \omega_{\mu\nu}\,.
+							\end{equation}
+						%
+					This object lives in a sub-bundle of a bundle transforming in the $\mathbf{912}$ representation of $\E_{7(7)}$ (see~\cref{tab:EddRep}), and collects the gauge parameters of the potentials that are three-forms in the external spacetime. 
+					One can then show that, with the identifications~\eqref{expr_2form_gauge_par}, the gauge transformations for $B_{\mu, \nu}$, $\tilde B_{\mu \nu}$,~\eqref{transf_2form_BtildeB}, and $C_{\mu\nu}$ (these follow from~\eqref{Cbar_transf} and the last in~\eqref{redef_two_forms}) can be expressed as
+						%
+							\begin{equation}\label{delta_calB_munu}
+								\begin{split}
+									\delta \mathcal{B}_{\mu\nu} =& -2\partial_{[\mu} \overline{\Xi}_{\nu]} - 2 L_{\mathcal A_{[\mu}} \overline{\Xi}_{\nu]} - \dd_{\mathrm{m}} \overline{\Xi}_{[\mu} \xN \mathcal{A}_{\nu]} - \partial_{[\mu} \Lambda \xN \mathcal{A}_{\nu]} \\
+															& + \dd_{\mathrm{m}} \mathcal{B}_{\mu\nu}\xN \Lambda - Y_{\mu\nu} - \dd_{\mathrm{m}}\Phi_{\mu\nu}\,,
+								\end{split}
+							\end{equation}
+						%
+					where the action of $\dd_{\mathrm{m}}$ on an element of $N'$ is given in~\eqref{m_twist_ext_der}, and we define 
+						%
+							\begin{equation}\label{dmOnPhimunu}
+								\dd_{\mathrm{m}}\Phi_{\mu\nu} = \din (\sigma_{\mu\nu} + \omega_{\mu\nu}) + m \omega_{\mu\nu,4} \,.
+							\end{equation}
+						% 
+					The tensor $Y_{\mu\nu}$ is given in terms of $W_\nu \equiv \mathcal{A}_\nu \xN \Lambda$ by
+						%
+							\begin{equation}
+								\begin{split}
+									Y_{\mu\nu} =	& \dd \big( \iota_{h_{[\mu}} W_{\nu]} + B_{[\mu}\wedge W_{\nu],{\rm odd}} - C_{[\mu}W_{\nu],0} - C_{[\mu,0} W_{\nu],3} + C_{[\mu,2}W_{\nu],1} \big) \\
+												& + m\big(\iota_{h_{[\mu}} W_{\nu],5} + B_{[\mu}\wedge W_{\nu],3} -C_{\mu,4}W_{\nu,0} \big) \, .
+								\end{split}
+							\end{equation}
+						%
+					After some manipulations, this can be re-expressed as
+						%
+							\begin{equation}
+								Y_{\mu\nu}= L_{\mathcal{A_{[\mu}}}\mathcal{A}_{\nu]} \xN \Lambda + 2 L_{\mathcal{A_{[\mu}}}\Lambda \xN \mathcal{A}_{\nu]} + L_\Lambda \mathcal{A}_{[\mu} \xN \mathcal{A}_{\nu]}\,,
+							\end{equation}
+						%
+					which in turn allows to rewrite~\eqref{delta_calB_munu} as
+						%
+							\begin{equation}
+								\begin{split}
+									\delta \mathcal{B}_{\mu\nu} =	& -2\partial_{[\mu} \overline{\Xi}_{\nu]} - 2 L_{\mathcal A_{[\mu}} \overline{\Xi}_{\nu]} - \dd_{\mathrm{m}} \overline{\Xi}_{[\mu} \xN \mathcal{A}_{\nu]} - \partial_{[\mu} \Lambda \xN \mathcal{A}_{\nu]} \\
+															&+ \dd_{\mathrm{m}} \mathcal{B}_{\mu\nu}\xN \Lambda - L_{\mathcal{A_{[\mu}}}\mathcal{A}_{\nu]} \xN \Lambda - 2 L_{\mathcal{A_{[\mu}}}\Lambda \xN \mathcal{A}_{\nu]} \\
+															& - L_\Lambda \mathcal{A}_{[\mu} \xN \mathcal{A}_{\nu]} - \dd_{\mathrm{m}}\Phi_{\mu\nu} \, .
+								\end{split}
+							\end{equation}
+						%
+					Introducing the gauge field strength
+						%
+							\begin{equation}\label{eq:defHmunu}
+								\mathcal{H}_{\mu\nu} = 2 \partial_{[\mu}\mathcal{A}_{\nu]} + L_{\mathcal{A}_{[\mu}}\mathcal A_{\nu]} + \dd_{\mathrm{m}} \mathcal{B}_{\mu\nu}\,,
+							\end{equation}
+						%
+					and recalling the expression for $\delta{\mathcal A}_\mu$ given in~\eqref{Avaria} and the redefinition of the gauge parameter $\overline \Xi_\mu$ in~\eqref{redefXi}, the variation of $\mathcal{B}_{\mu\nu}$ eventually takes the compact form
+						%
+							\begin{equation}\label{var_Bmunu}
+								\delta \mathcal{B}_{\mu\nu} = -2\partial_{[\mu} \Xi_{\nu]} - 2 L_{\mathcal A_{[\mu}} \Xi_{\nu]} + \Lambda\xN \mathcal{H}_{\mu\nu} + \mathcal{A}_{[\mu} \xN \delta\mathcal{A}_{\nu]} - \dd_{\mathrm{m}}\Phi_{\mu\nu} \, .
+							\end{equation}
+						%
+
+					We can now plug in our truncation ansatz and show that it reproduces the correct lower-dimensional gauge-transformations. 
+					For the gauge parameters we take an ansatz similar to the one for the physical fields, that is
+						%
+							\begin{equation}
+								\begin{split}
+									\Lambda^M(x,z) &= -\Lambda^A(x) \hat{E}_A{}^M(z)\ , \\
+									\widetilde{\Xi}_\mu{}^{MN}(x,z) &= -\tfrac{1}{2}\,\widetilde{\Xi}_\mu{}^{AB}(x)\, (\hat{E}_A{} \otimes_N \!\hat{E}_B)^{MN}(z)\,.
+								\end{split}
+							\end{equation}
+						%
+
+					Plugging the ansatz into the variation~\eqref{gauge_var_G} of the generalised metric, and using the action~\eqref{LeibnizParall} of the generalised Lie derivative on the parallelisation, we obtain
+						%
+							\begin{equation}
+								\delta_{\Lambda} \mathcal{M}^{AB} = -\Lambda^C (X_{CD}{}^A \mathcal{M}^{DB} + X_{CD}{}^B\mathcal{M}^{AD}) \, ,
+							\end{equation}
+						%
+					which is the correct variation of the scalar fields in gauged maximal supergravity, see e.g.~\cite{henlect}.
+
+					In order to write the variation of $\mathcal A_\mu$, let us first observe that the ansatz together with the property~\eqref{eq:symmetricL} implies
+						%
+							\begin{equation}
+								\dd_{\mathrm{m}} \Xi_\mu \eqs -\tfrac{1}{2}(L_{\hat{E}_B}\hat{E}_C + L_{\hat{E}_C}\hat{E}_B)\, \Xi_\mu{}^{BC} = - Z^A{}_{BC}\, \Xi_\mu{}^{BC}\hat{E}_A \, ,
+							\end{equation}
+						%
+					where we introduced the symmetrised structure constants $Z^A{}_{BC}=X_{(BC)}{}^A$.
+					Then, interpreting the variation of $\mathcal A_\mu$ in the~\eqref{Avaria} as $(\delta \mathcal{A}_\mu{}^A) \hat{E}_A $ and plugging the ansatz in, we get
+						%
+							\begin{equation}
+								\delta \mathcal{A}_\mu{}^A = \partial_\mu \Lambda^A + \mathcal{A}_\mu^B X_{BC}{}^A \Lambda^C - Z^A{}_{BC}\, \Xi_\mu{}^{BC} \, .
+							\end{equation}
+						%
+					This is the correct gauge variation of the gauge fields in maximal supergravity (see again~\cite{henlect}).
+ 
+
+					Finally, we need to consider the transformation of $\mathcal{B}_{\mu\nu}$.
+					Equation~\eqref{eq:defHmunu} yields
+						%
+							\begin{equation}
+								\mathcal{H}_{\mu\nu} = \mathcal{H}_{\mu\nu}^A \hat{E}_A \,,
+							\end{equation}
+						%
+					with
+						%
+							\begin{equation}\label{eq:defHmunu_comp}
+								\mathcal{H}_{\mu\nu}^{A} = 2 \partial_{[\mu} \mathcal{A}_{\nu]}{}^A + X_{BC}{}^A \mathcal{A}_{[\mu}{}^B\mathcal{A}_{\nu]}{}^C + Z^{A}{}_{BC} \, \mathcal{B}_{\mu\nu}{}^{BC}\,.
+							\end{equation}
+						%
+					This is the expression for the covariant field strengths used in gauged supergravity.
+					We also obtain
+						%
+							\begin{equation}
+								\begin{split}
+									L_{\mathcal{A}_\mu} \Xi_\nu &= -\tfrac{1}{2}\mathcal{A}_\mu{}^C\, \Xi_\nu{}^{AB} L_{\hat{E}_C}( \hat{E}_A\otimes_{N'}\!\hat{E}_B) \\
+														&= - \mathcal{A}_\mu{}^C \,\Xi_\nu{}^{(DA)} X_{CD}{}^B \hat{E}_A\otimes_{N'}\!\hat{E}_B\, ,
+								\end{split}
+							\end{equation}
+						%
+					where to pass from the first to the second line we distributed the Lie derivative on the factors of the $\otimes_{N'}$ product and used the Leibniz property of the generalised frame. Therefore:
+						%
+							\begin{equation}
+								-2\partial_{[\mu} \Xi_{\nu]} - 2 L_{\mathcal A_{[\mu}} \Xi_{\nu]} = D_{[\mu} \Xi_{\nu]}{}^{AB} \hat{E}_A \xN \hat{E}_B\,,
+							\end{equation}
+						%
+					where
+						%
+							\begin{equation}
+								D_{[\mu} \Xi_{\nu]}{}^{AB} = \partial_{[\mu} \Xi_{\nu]}{}^{AB} + 2\mathcal{A}_{[\mu}{}^C \,\Xi_{\nu]}{}^{(DA)} X_{CD}{}^B \,.
+							\end{equation}
+						%
+
+
+					Putting everything together,~\eqref{var_Bmunu} eventually takes the appropriate form to describe the two-form gauge transformations in gauged supergravity:
+						%
+							\begin{equation}
+								\delta \mathcal{B}_{\mu\nu}{}^{AB} = 2 \,D_{[\mu} \Xi_{\nu]}{}^{AB} - 2\, \Lambda^{(A} \mathcal{H}_{\mu\nu}{}^{B)} + 2\,\mathcal{A}_{[\mu}{}^{(A} \delta\mathcal{A}_{\nu]}{}^{B)} + \ldots\,,
+							\end{equation}
+						%
+					where $\mathcal{H}_{\mu\nu}^{A}$ was given in~\eqref{eq:defHmunu_comp}. 
+					The ellipsis denote a term coming from expressing $\dd_{\mathrm{m}}\Phi_{\mu\nu}$ in~\eqref{var_Bmunu} by means of the parallelisation that we will not discuss in detail. 
+					This eventually gives the two-form gauge parameters in the lower-dimensional supergravity theory, contracted with the gauge group generators $X$. 
+					In four-dimensional supergravity, this term drops from all relevant equations, because the two-forms $\mathcal{B}_{\mu\nu}{}^{AB}$ always appear contracted with the embedding tensor, namely as $Z^A{}_{BC}\mathcal{B}_{\mu\nu}{}^{BC}$~\cite{deWit:2007kvg}, which implies that the term in the ellipsis is projected out due to the quadratic constraint. 
+					From a generalised geometry perspective, the corresponding statement is that in a reduction to four dimensions~\eqref{var_Bmunu} always appears under the action of the exterior derivative twisted by the Romans mass, $\dd_{\mathrm{m}}$; given the definitions~\eqref{dmOnPhimunu} and~\eqref{m_twist_ext_der}, it is immediate to check that $\dd_{\mathrm{m}}(\dd_{\mathrm{m}}\Phi_{\mu\nu})=0$, hence the gauge parameters with two external indices drop from all relevant equations. 
+					This is no longer the case in reductions to supergravities in dimension six or higher, where the tensor hierarchy stops at one form degree higher, so that the three-form gauge potentials, as well as their two-form gauge parameters, also play a role. 
+
+					In conclusion, we have shown that under the generalised Scherk--Schwarz ansatz, the (massive) type IIA gauge transformations consistently reduce to the correct gauge transformation in lower-dimensional supergravity.	
+				%
+			%
+			\subsection{Examples of consistent sphere truncations}\label{sec:examples}
+				%
+					In this section, we apply the generalised Scherk-Schwarz procedure to study consistent reductions of massless and massive type IIA supergravity on the spheres $S^6$, $S^4$, $S^3$ and $S^2$, as well as on six-dimensional hyperboloids. 
+					While for the massless case it is always possible to find generalised parallelisations that reproduce the known reductions to maximal gauged supergravities in lower-dimensions, for the massive theory we could only find a suitable generalised parallelisation on $S^6$. 
+					We propose a general argument of why this is the case.
+					The analysis closely follows the one given in~\cite{oscar1}.
+					
+					%
+				\subsubsection{\texorpdfstring{$S^6$ parallelisation and $D=4$, $\ISO(7)_m$ supergravity}{S6 parallelisation and D=4, ISO(7)m supergravity}}
+					%
+						We start our series of examples by revisiting the consistent reduction of type IIA supergravity on the six-sphere $S^6$ down to $D=4$ maximal supergravity with $\ISO(7)$ gauge group that was recently studied in detail in~\cite{Guarino:2015jca,Guarino:2015qaa,Guarino:2015vca}. 
+						For vanishing Romans mass, this reduction can be understood as a limit of the consistent truncation of eleven-dimensional supergravity on $S^7$ (or on a seven-dimensional hyperboloid), where the seven-dimensional manifold degenerates into the cylinder $S^6 \times \mathbb {R}$~\cite{Hull:1988jw,Boonstra:1998mp}. 
+						In that case the group $\ISO(7)$ is gauged purely electrically. 
+						This means that only the $28$ electric vector fields participate in the gauging, while the $28$ magnetic duals do not appear in the Lagrangian. 
+						When the Romans mass $m$ is switched on, the truncation ansatz remains consistent with no modifications required. 
+						However one finds that the magnetic vectors now also enter in the gauge covariant derivatives~\cite{Guarino:2015vca}, thus providing a \emph{dyonic} gauging. 
+						The resulting four-dimensional supergravity is not equivalent to the theory with purely electric $\ISO(7)$ gauging~\cite{Dall'Agata:2014ita}; for this reason, we will denote it as the $\ISO(7)_m$ theory.
+						This is an example of \emph{symplectic deformation} of maximal supergravity of the type first discovered for the $D=4$, $\SO(8)$ theory in~\cite{Dall'Agata:2012bb}. 
+						The $\ISO(7)_m$ theory admits several supersymmetric and non-supersymmetric AdS$_4$ solutions~\cite{DallAgata:2011aa,Gallerati:2014xra,Guarino:2015qaa}, which all disappear when the parameter $m$ is sent to zero\footnote{%
+							Specific formulae uplifting these AdS$_4$ vacua to massive type IIA supergravity were given in~\cite{Guarino:2015jca,Guarino:2015vca,Varela:2015uca}. 
+							Three of them are $G_2$-invariant and also included in the truncation of massive IIA supergravity on $S^6\simeq G_2/\SU(3)$ of~\cite{Cassani:2009ck}.%
+							}.
+						The structure of the $\ISO(7)_m$ theory was analysed in detail in~\cite{Guarino:2015qaa}.
+						
+						In the following, we introduce a parallelisation of the $\E_{7(7)}\times \RR^+$ tangent bundle on $S^6$. 
+						Then, evaluating our massive generalised Lie derivative on the frame we obtain precisely the embedding tensor characterising the dyonic $\ISO(7)_m$ gauging. 
+						We also re-derive the truncation ansatz for the four-dimensional bosonic fields from generalised geometry.
+						
+						A generalised parallelisation on $S^6$ is defined as follows. 
+						Let $y^i, i = 1, \dots , 7$, with $\delta_{ij} y^i y^j = 1$, be the constrained coordinates on $S^6$, describing its embedding in $\RR^7$ (see appendix~\ref{app:constrcoo} for some useful details about spheres in constrained coordinates). 
+						Let $v_{ij}$ be the $\SO(7)$ Killing vectors and define the following forms
+							%
+						%
+							\begin{equation}\label{deflof}
+								\begin{array}{l c r}
+									\omega^{ij} = R^2 \dd y^i \wedge \dd y^j					& \phantom{T^*\otimes \Lambda^6T^*} 	& \in \Lambda^2 T^*\, , \\
+									\rho_{ij} = \rg{*}(R^2 \dd y_i \wedge \dd y_j)				& \phantom{T^*\otimes \Lambda^6T^*} 	& \in \Lambda^4 T^*\, , \\
+									\kappa_i = -\rg{*}(R \dd y_i) 							& \phantom{T^*\otimes \Lambda^6T^*} 	& \in \Lambda^5 T^*\, , \\
+									\tau^{ij} = R (y^i \dd y^j - y^j \dd y^i)\otimes \rg{\rm vol}_6 & \phantom{T^*\otimes \Lambda^6T^*} 		& \in T^*\otimes \Lambda^6T^*\, .
+								\end{array}
+							\end{equation}
+						%
+
+					Here and in the rest of this section, the symbol $\rg{}$ means that the corresponding quantity is computed using the reference round metric of radius $R$. 
+					The index on the coordinates $y^i$ is lowered with the $\RR^7$ metric $\delta_{ij}$.
+					We also twist the generalised tangent bundle with a five-form RR potential $\rg{C_5}$ such that 
+						%
+							\begin{equation}\label{F6onS6}
+								\rg{F_6} =\dd \rg{C_5} = \frac{5}{R} \rg{\rm vol}_6 \, ,
+							\end{equation} 
+						%
+					with all other $p$-form potentials vanishing; the reason for this choice will become clear soon.
+
+					The generalised frame can be split according to the decomposition 
+						%
+							\begin{equation}\label{decomp_E7}
+								\begin{split}
+									\E_{7(7)} &\supset\; \SL(8,\mathbb R) \supset \SL(7,\mathbb R) \\
+											\mathbf{56}\, &\to\, \mathbf{28} + \mathbf{28'} \mapsto \mathbf{21} + \mathbf{7} + \mathbf{21'}+ \mathbf{7'} \, .
+								\end{split}
+							\end{equation}
+						%
+					as
+						%
+							\begin{equation}
+								\{\hat{E}_A\} = \{\hat{E}_{IJ}, \hat{E}^{IJ}\} = \{\hat{E}_{ij},\hat{E}_{i8},\hat{E}^{ij},\hat{E}^{i8}\}\ .
+							\end{equation}
+						%
+					We will call ``electric'' the $\hat{E}_{IJ}$ frame elements, transforming in the $\mathbf{28}$ of $\SL(8)$, and ``magnetic'' the $\hat{E}^{IJ}$, transforming in the $\mathbf{28'}$.
+
+					A generalised parallelisation is given by
+						%
+							\begin{equation}\label{s6frame}
+								\hat{E}_{A} = \begin{cases}
+											\hat{E}_{ij} = v_{ij} + \rho_{ij} + \iota_{v_{ij}}\!\rg{C_5}\ , \\
+											\hat{E}_{i8} = y_i + \kappa_i - y_i \rg{C_5}\ , \\
+											\hat{E}^{ij} = -\omega^{ij} - \tau^{ij} + j \!\rg{C_5} \wedge \omega^{ij}\ , \\
+											\hat{E}^{i8} = R\,\dd y^i - y^i \rg{\rm vol}_6 + R\,\dd y^i \wedge \rg{C_5} \ .
+										\end{cases}
+							\end{equation}
+						%
+					It is not hard to see that this is globally defined. 
+					For instance, $\hat{E}_{ij}$ is nowhere vanishing as the Killing vectors $v_{ij}$ vanish at $y_i = y_j =0$, while the four-forms $\rho_{ij}$ vanish at $y_i^2+y_j^2=1$. 
+					Moreover, $\hat{E}_{i8}$ never vanishes as the locus $\kappa_i = 0$ does not overlap with $y_i =0$; similar considerations hold for the magnetic part of the frame.
+					The frame is also orthonormal with respect to the generalised metric~\eqref{GofVandV'}. 
+					Indeed, invoking the contraction formulae in~\eqref{contractions_sphere}, we have
+						%
+							\begin{equation}
+								\begin{split}
+									\mathcal{G}(\hat{E}_{ij} , \hat{E}_{kl}) &= v_{ij}\lrcorner v_{kl} + \rho_{ij} \lrcorner \rho_{kl} = \delta_{ik}\delta_{jl} - \delta_{il}\delta_{jk} \, , \\
+									\mathcal{G}(\hat{E}_{i8} , \hat{E}_{k8}) &= y_i \, y_k + \kappa_i\lrcorner \kappa_k = \delta_{ik}\ , \\
+									\mathcal{G}(\hat{E}^{ij} , \hat{E}^{kl}) &= \omega^{ij}\lrcorner \omega^{kl} + \tau^{ij} \lrcorner \tau^{kl} = \delta^{ik}\delta^{jl} - \delta^{il}\delta^{jk} \, , \\
+									\mathcal{G}(\hat{E}^{i8} , \hat{E}^{k8}) &= R^2 \dd y^i \lrcorner\dd y^k + y^iy^k \rg{\vol}_6\lrcorner \rg{\vol}_6 = \delta^{ik} \ ,
+								\end{split}
+							\end{equation}
+						%
+					with all other pairings vanishing.
+
+					We now evaluate the massive Dorfman derivative~\eqref{dorfIIAm} between two arbitrary frame elements, making use of various properties of the round spheres given in appendix~\ref{app:constrcoo}.
+					In particular, we need identity~\eqref{eq:contrvol}, which together with our choice~\eqref{F6onS6} for $\rg{C_5}$ implies
+						%
+							\begin{equation}
+								\iota_{v_{ij}}\rg{F_6}= \dd \rho_{ij} \, .
+							\end{equation}
+						%
+					We find that the electric-electric pairings give
+						%
+							\begin{equation}
+								\begin{split}
+									L_{\hat{E}_{ij}} \hat{E}_{kl} &= \tfrac{2}{R}\big( \delta_{i[k}\hat{E}_{l]j} - \delta_{j[k}\hat{E}_{l]i} \big) \, ,\\
+									L_{\hat{E}_{ij}}\hat{E}_{k8} &= -\tfrac{2}{R} \delta_{k[i}\hat{E}_{j]8} \, ,\\
+									L_{\hat{E}_{i8}} \hat{E}_{kl} &= \tfrac{2}{R} \delta_{i[k}\hat{E}_{l]8} \, ,\\
+									L_{\hat{E}_{i8}}\hat{E}_{k8} &= 0\ ,
+								\end{split}
+							\end{equation}
+						%
+					while for the electric-magnetic ones we have
+						%
+							\begin{equation}
+								\begin{split}
+									L_{\hat{E}_{ij}}\hat{E}^{kl} &= \tfrac{4}{R} \delta_{[i}^{[k} \delta_{j]j'} \hat{E}^{l]j'}\, , \\
+									L_{\hat{E}_{ij}}\hat{E}^{k8} &= - \tfrac{2}{R} \delta^k_{[i} \delta_{j]j'} \hat{E}^{j'8} \, ,\\
+									L_{\hat{E}_{i8}}\hat{E}^{kl} &= 0 \, ,\\
+									L_{\hat{E}_{i8}}\hat{E}^{k8} &= -\tfrac{1}{R}\delta_{ij} \hat{E}^{jk}\, ,
+								\end{split}
+							\end{equation}
+						%
+					for the magnetic-electric 
+						%
+							\begin{equation}
+								\begin{split}
+									L_{\hat{E}^{ij}}\hat{E}_{kl} &= L_{\hat{E}^{ij}}\hat{E}_{k8} = L_{\hat{E}^{i8}}\hat{E}_{k8} = 0\, , \\
+									L_{\hat{E}^{i8}}\hat{E}_{kl} &= -2\, m \,\delta^i_{[k} \hat{E}_{l]8}\, ,
+								\end{split}
+							\end{equation}
+						%
+					and for the magnetic-magnetic
+						%
+							\begin{equation}
+								\begin{split}
+									L_{\hat{E}^{ij}}\hat{E}^{kl} &= L_{\hat{E}^{ij}}\hat{E}^{k8} \, =\, L_{\hat{E}^{i8}}\hat{E}^{kl} = 0 \ ,\\
+									L_{\hat{E}^{i8}}\hat{E}^{k8} &= m\, \hat{E}^{ik}\ .
+								\end{split}
+							\end{equation}
+						%
+					We thus obtain that condition~\eqref{LeibnizParall} is satisfied, namely the frame defines a Leibniz algebra under the massive Dorfman derivative. 
+					The non-vanishing constants $X_{AB}{}^C$ read in $\SL(8)$ indices
+						%
+							\begin{equation}\label{ISO7m_emb_tens}
+								\begin{split}
+									X_{[II'][JJ']}{}^{[KK']} 		&= - X_{[II']}{}^{[KK']}{}_{[JJ']} = 8 \, \delta_{[I}^{[K} \, \theta_{I'][J} \ \delta_{J']}^{K']}\ , \\[2mm]
+									X^{[II']}{}_{[JJ']}{}^{[KK']} 	&= - X^{[II'][KK']}{}_{[JJ']} = 8\, \delta^{[I}_{[J} \, \xi^{I'][K} \ \delta^{K']}_{J']}\ ,
+								\end{split}
+							\end{equation}
+						%
+					with
+						%
+							\begin{align}
+								& &\theta_{IJ} = \frac{1}{2R} \mathrm{diag}\big(\underbrace{1,\ldots,1}_{7},0\big)\, ,& & \xi^{IJ} = \frac{m}{2} \,{\rm diag}\big(\underbrace{0,\ldots,0}_{7},1\big)\, . & & 
+							\end{align}
+						%
+					These match precisely the embedding tensor given in~\cite{Guarino:2015qaa} (modulo renormalising the generators by a $-1/2$ factor, see appendix C therein). 
+					The latter determines a dyonic $ISO(7)_m$ gauging of maximal $D=4$ supergravity, where the $\SO(7)$ rotations are gauged electrically while the seven translations are gauged dyonically. 
+					When $m=0$, we have $\xi^{IJ} =0$ and the $\ISO(7)$ gauging becomes purely electric.
+					
+					Following the procedure for a generalised Scherk-Schwarz reduction described in the previous section, we can use our generalised parallelisation to deduce the truncation ansatz for the bosonic supergravity fields. 
+					We start from the scalar ansatz. 
+					In four-dimensional maximal supergravity, the scalar matrix $\mathcal{M}^{AB}$ parameterises the coset $\E_{7(7)}/\SU(8)$. 
+					Under the decomposition~\eqref{decomp_E7}, this splits as 
+						%
+							\begin{equation}
+								\begin{split}
+									\mathcal{M}^{AB} &= \{ \mathcal{M}^{II',JJ'}, \, \mathcal{M}^{II'}{}_{JJ'} ,\,\mathcal{M}_{II'}{}^{JJ'} ,\,\mathcal{M}_{II',JJ'}\} \\
+												& = \{ \mathcal{M}^{ii',jj'}, \, \mathcal{M}^{ii',j8},\, \ldots ,\,\mathcal{M}_{i8,j8}\}\ .
+								\end{split}
+							\end{equation}
+						%
+					Equating the components~\eqref{invG_comp_1} of the inverse generalised metric to those constructed from the parallelisation as in~\eqref{invG_from_parall}, we obtain
+						%
+							\begin{equation}\label{scalar_ansatz_S6}
+								\begin{aligned}{l}
+									e^{2\Delta} g^{mn} &= \tfrac{1}{4}\mathcal{M}^{ii',jj'} v^m_{ii'}\, v^n_{jj'}\ , \\
+									e^{2\Delta} g^{mn}C_n &= \tfrac{1}{2}\mathcal{M}^{ii',j8}\, v^m_{ii'}\,y_{j}\ , \\
+									-e^{2\Delta} g^{mp}B_{pn} &= \tfrac{1}{2} \mathcal{M}^{ii'}{}_{j8}\, v^m_{ii'}\,R\, \partial_n y^{j}\ , \\
+									e^{2\Delta}g^{mq}\left(C_{qnp} - C_{q}B_{np} \right) &= - \tfrac{1}{4}\mathcal{M}^{ii'}{}_{jj'}\, v^{m}_{ii'}\, \omega^{jj'}_{np}\ , \\
+									e^{2\Delta}\left( e^{-2\phi} + g^{mn}C_m C_n\right) &= \mathcal{M}^{i8,j8}\, y_i\, y_j \ ,\\
+									{e}^{2\Delta}g^{ms}\big(C_{snpqr} - \rg{C}_{snpqr} -C_{s[np}B_{qr]} + \tfrac{1}{2}C_s B_{[np}B_{qr]}\big) &=\tfrac{1}{4} \mathcal{M}^{ii',jj'} v^{m}_{ii'}\, (\rho_{jj'})_{npqr} \ ,
+								\end{aligned}
+							\end{equation}
+						%
+					where we recall that the indices $i,i',j,j' =1\ldots, 7$ label the constrained coordinates while $m,n,\ldots=1,\ldots,6$ are curved indices on $S^6$.
+					The scalar ansatz obtained in this way agrees with the formulae given in~\cite{Guarino:2015vca} (cf. eqs.~(3.14)--(3.18) therein). 
+					The additional relations appearing in eqs.~(3.19)--(3.22) of~\cite{Guarino:2015vca} can also be retrieved in the same way. 
+					The last equation in~\eqref{scalar_ansatz_S6} does not appear in~\cite{Guarino:2015vca}, and determines how the four-dimensional scalars enter in $C_{m_1\ldots m_5}$. 
+					Dualising its field strength $F_{m_1\ldots m_6}$ it should be possible to derive the expression of the Freund-Rubin term.
+
+					One can disentangle the different supergravity fields in~\eqref{scalar_ansatz_S6} by following the procedure in eqs.~\eqref{fields_from_G_first}--\eqref{fields_from_G_last}. 
+					We recall that the generalised density $\Phi$ appearing in~\eqref{fields_from_G_last} can be computed at the origin of the scalar manifold, where $\mathcal{M}^{AB}=\delta^{AB}$, and is given by eq.~\eqref{gen_density_background}. 
+					Evaluating the first, second and second-last line of~\eqref{scalar_ansatz_S6} with $\mathcal{M}^{ii',jj'}=\delta^{i[j}\delta^{j']i'}$, $\mathcal{M}^{ii',j8}=0$, $\mathcal{M}^{i8,j8}=\delta^{ij}$, we find that $\rg{\Delta}=\rg{\phi} = 0$. Hence for the present truncation the generalised density is simply $\Phi = \rg{g}{}^{1/2}$.
+
+					We can also provide the ansatz for the vector fields as explained in section~\ref{genScherkSchw}. Separating the components of eq.~\eqref{trunc_ansatz_vec}, we obtain
+						%
+							\begin{align*}
+								h_\mu &= \tfrac{1}{2}\mathcal{A}_\mu{}^{ii'} v_{ii'} \ ,\\
+								B_{\mu} &= \mathcal{A}_{\mu\,i8} \,R \,\dd y^i\ ,\\
+								C_{\mu,0} &= \mathcal{A}_\mu{}^{i8} \,y_i \ ,\\
+								C_{\mu,2} &= -\tfrac{1}{2}\mathcal{A}_{\mu\,ii'}\,R^2 \dd y^i \wedge \dd y^{i'} \, ,
+							\end{align*}
+						%
+					which again agrees with~\cite{Guarino:2015vca}. 
+					Here, $\mathcal{A}^{IJ} = \{\mathcal{A}^{ij}, \mathcal{A}^{i8} \}$ are the electric one-form fields in the four-dimensional theory while $\mathcal{A}_{IJ} = \{\mathcal{A}_{ij}, \mathcal{A}_{i8} \}$ are their magnetic duals.
+					We can also provide an ansatz for the type IIA dual fields with one external leg
+						%
+							\begin{equation}
+								\begin{split}
+									C_{\mu ,4} &= \tfrac{1}{2}\mathcal{A}_\mu{}^{ii'} \big(\rho_{ii'} + \iota_{v_{ii'}}\! \rg{C_5} \!\big)\ ,\\
+									C_{\mu ,6} &= \mathcal{A}_{\mu\,i8} \big(-y^i \rg{\rm vol}_6 + R\, \dd y^i\wedge \rg{C_5}\big) \ ,\\
+									\tilde{B}_{\mu} &= \mathcal{A}_\mu{}^{i8} \, \big(\kappa_i -y_i \!\rg{C_5}\big) \, .
+								\end{split}
+							\end{equation}
+						%
+
+					Finally, the ansatz for the fields with two external legs follows from the general formula~\eqref{ansatz_two-forms} 
+						%
+							\begin{equation}
+								\begin{split}
+									B_{\mu\nu}&= \mathcal{B}_{\mu\nu}{}^{ij}{}_{j8}\, y_i \,,\\
+									\tilde{B}_{\mu\nu} &= \tfrac{1}{8}\big(\tfrac 12 \mathcal{B}_{\mu\nu}{}^{i_1i_2,i_38} y^j y_{[i_1}\epsilon_{i_2i_3]j k_1\ldots k_4} - \mathcal{B}_{\mu\nu\,k_1k_2,k_3k_4}\big) R^4 \dd y^{k_1} \wedge \dd y^{k_2} \wedge\dd y^{k_3} \wedge\dd y^{k_4} \,,\\
+									C_{\mu\nu ,1}&= \big(\mathcal{B}_{\mu\nu\,ij}{}^{kj}+ \mathcal{B}_{\mu\nu\,i8}{}^{k8} \big) y_k R\, \dd y^i \,,\\
+									C_{\mu\nu ,3}&= \big(\tfrac{1}{12} \mathcal{B}_{\mu\nu}{}^{ii',jj'} y_{[i}\epsilon_{i']jj' k_1\ldots k_4} y^{k_4} - \tfrac12 \mathcal{B}_{\mu\nu\,k_1k_2,k_38} \big)R^3 \dd y^{k_1}\wedge \dd y^{k_2}\wedge \dd y^{k_3} \,,\\
+									C_{\mu\nu,5}&= \mathcal{B}_{\mu\nu}{}^{ij}{}_{j8}\big(-\kappa_i + y_i\! \rg{C_5}\big) \,.
+								\end{split}
+							\end{equation}
+						%
+					%
+				%
+			\subsubsection{\texorpdfstring{Hyperboloids and $D=4$, $\ISO(p,7-p)_m$ supergravity}{Hyperboloids and D=4, ISO(p,7-p)m supergravity}}\label{Hpq}
+				%
+					The generalised Leibniz parallelisation on $S^6$ presented above can be adapted to construct a similar one on the six-dimensional hyperboloids $H^{p,7-p}$. 
+					This leads to a consistent truncation of massive type IIA supergravity to four-dimensional $\ISO(p,7-p)_m$ maximal supergravity.
+
+					The hyperboloid $H^{p,q}$ is the homogeneous space
+						%
+							\begin{equation}
+								H^{p,q} = \frac{\SO(p,q)}{\SO(p-1,q)}\ ,
+							\end{equation}
+						%
+					and can be seen as the hypersurface in the Euclidean space $\RR^{p+q}$ defined by the equation
+						%
+							\begin{equation}\label{embH}
+									\eta_{ij}\, y^i y^j = 1\, ,
+							\end{equation}
+						%
+					where $i,j=1,\ldots,p+q$ and
+						%
+							\begin{equation}
+									\eta_{ij} = \mathrm{diag}\big( \underbrace{+1,\ldots, +1}_{p}, \underbrace{-1,\ldots, -1}_{q}\big)\, .
+							\end{equation}
+						%
+					Clearly, taking $q=0$ yields the sphere $S^{p-1}$.
+
+					Let us focus on the six-dimensional hyperboloids $H^{p,7-p}$, with $1\leq p < 7$.
+					A parallelisation on these manifolds can be introduced following the same path as for $S^6$, replacing the Kronecker $\delta_{ij}$ by $\eta_{ij}$ where appropriate.
+					In particular, the Killing vectors $v_{ij}$, that for the six-sphere satisfy the $\mathfrak{so}(7)$ algebra~\eqref{algebra_Killing_v}, now respect the $\mathfrak{so}(p,7-p)$ algebra,
+						%
+							\begin{equation}
+								\mathcal{L}_{v_{ij}} v_{kl} = 2R^{-1}\left(\eta_{i[k}v_{l]j} - \eta_{j[k}v_{l]i}\right)\ .
+							\end{equation}
+						%
+					The equations~\eqref{Lie_on_y}-\eqref{Lie_on_omega} also need to be modified by replacing $\delta_{ij}$ with $\eta_{ij}$ everywhere. 
+					We can keep the definitions~\eqref{deflof}, noting however that they now transform in representations of $\SO(p,7-p)$ instead of $\SO(7)$.
+					Then~\eqref{s6frame} defines a generalised parallelisation on $H^{p,7-p}$. 
+					The Dorfman derivative between two frame elements satisfies~\eqref{LeibnizParall}, with the non-vanishing embedding tensor components being still given by~\eqref{ISO7m_emb_tens}, where however now
+						%
+							\begin{equation}
+								\theta_{IJ} = \frac{1}{2R} \,{\rm diag}\big(\underbrace{1,\ldots,1}_{p },\underbrace{-1,\ldots,-1}_{7-p },0\big)\ ,
+							\end{equation}
+						%
+					while $\xi^{IJ}$ remains unchanged.
+					
+					 This corresponds to an $\ISO(p,7-p)\simeq \CSO(p,7-p,1)$ frame algebra, where the seven translational symmetries are gauged dyonically.
+
+					The truncation ansatz remains formally the same as for the reduction on $S^6$. 
+					We thus infer that there exists a consistent truncation of massive IIA supergravity on the six-dimensional hyperboloids $H^{p,7-p}$, down to $\ISO(p,7-p)_m$ gauged supergravity. 
+					As above, the subscript $m$ emphasises that the translational isometries are gauged dyonically. Setting $m=0$, one recovers a truncation of massless type IIA supergravity on $H^{p,7-p}$ down to the $\ISO(p,7-p)$ theory with purely electric gauging (see also~\cite{Hohm:2014qga}).
+
+					It was found in~\cite{Dall'Agata:2012bb} that the only gaugings of four-dimensional maximal supergravity in the $\CSO(p,q,r)$ class (with $r >0$) admitting a symplectic deformation are $\CSO(p,7-p,1)\simeq \ISO(p,7-p)$\footnote{%
+						For these gaugings, the symplectic deformation is of on/off type: all non-zero values of the parameter controlling the magnetic gauging are equivalent.%
+						}.
+					Here we have established that all these symplectic deformations arise as consistent truncations of massive type IIA supergravity: while for $p=7$ the internal manifold is $S^6$, for $1\leq p < 7 $ the internal manifold is the hyperboloid $H^{p,7-p}$.
+
+					The same ideas could be applied to products of hyperboloids and tori, $H^{p,q}\times T^r$, with $p+q+r=7$. 
+					In this case, the parallelisation would satisfy the $\CSO(p,q,r+1)$ algebra.
+					%
+				%
+			\subsubsection{\texorpdfstring{$S^4$ parallelisation with $m=0$ and $D=6$, $\SO(5)$ supergravity}{S4 parallelisation with m=0 and D=6, SO(5) supergravity}}
+				%
+					The U-duality group for type IIA on a four-dimensional manifold $M_4$ is $E_{5(5)}\simeq \SO(5,5)$ and the generalised tangent bundle is
+						%
+							\begin{equation}
+								E \simeq T \oplus T^* \oplus \RR \oplus \Lambda^2 T^*\oplus \Lambda^4 T^*\ .
+							\end{equation}
+						%
+				A section of $E$
+						%
+							\begin{equation}
+								V = v + \lambda + \omega_0 + \omega_2 + \omega_4 
+							\end{equation}
+						%
+				transforms in the spinorial $\mathbf{16^+}$ representation of $\SO(5,5)$.
+
+				We are interested in the case where $M_4$ is the four sphere $S^4$ and we describe it using constrained coordinates $y^i$ in $\RR^5$.
+				It is then convenient to consider the decomposition of the generalised frame $\hat{E}_A$, $A = 1\ldots,16$ under $\SL(5, \RR)$ 
+						%
+							\begin{equation}
+								\begin{split}
+									\SO(5,5) &\supset \SL(5,\RR) \\
+									\mathbf{16^+} &\mapsto \mathbf{10} + \mathbf{5} + \mathbf{1} \, ,
+								\end{split}
+							\end{equation}
+						%
+				so that $\{\hat{E}_{A}\} = \{\hat{E}_{ij}\} \cup \{\hat{E}_{i}\} \cup \{\hat{E}\}$, with $i,j=1,\ldots,5$.
+
+				For \emph{massless} type IIA supergravity on $S^4$, we take the frame
+					%
+						\begin{equation}\label{parall_S4_meq0}
+							\hat{E}_{A} = \begin{cases} \hat{E}_{ij} = v_{ij} + \rho_{ij} + \iota_{v_{ij}} \rg{C_3} \ ,\\
+							\hat{E}_{i} = R\,\dd y_i + y_i \! \rg{\rm vol}_4 + R\, \dd y_i\, \wedge\! \rg{C_3}\ ,\\
+							 \hat{E} = 1 \ ,
+									\end{cases} 
+						\end{equation}
+					%
+				where $v_{ij}$ are the $\SO(4)$ Killing vectors and
+					%
+						\begin{equation}
+							\rho_{ij} = \rg{*} (R^2 \dd y_i \wedge \dd y_j) = \frac{R^2}{2}\, \epsilon_{ijk_1k_2k_3} y^{k_1}\dd y^{k_2}\wedge \dd y^{k_3} \ .							
+						\end{equation}
+					%
+				Note that we have twisted the frame by a background RR potential $\rg{C_3}$, that is the supergravity potential whose field strength threads the whole $S^4$\footnote{%
+					The twist by $C_3$ acts on a vector $\tilde V$ of the untwisted generalised tangent bundle $\tilde E$ on $M_4$ as (cf.~eq.~\eqref{eq:twistC}):
+						%
+							\begin{equation*}
+								V = e^{C_3}\cdot \tilde V = \tilde v + \tilde \lambda + \tilde \omega_0 + (\tilde \omega_2 + \iota_{\tilde v}C_3) + (\tilde \omega_4 + \tilde \lambda \wedge C_3)\ .
+							\end{equation*}
+						%
+					}.
+				This is chosen such that
+					%
+						\begin{equation}
+							\rg{F_4} \ = \dd \rg{C_3} = \frac{3}{R} \rg{\vol}_4\ , 
+						\end{equation}
+					%
+				which, recalling~\eqref{eq:contrvol}, implies
+					%
+						\begin{equation}\label{Fcn}
+							\iota_{v_{ij}} \!\rg{F_4} = \dd\rho_{ij}\ .
+						\end{equation}
+					%
+				We will not twist by $C_1$ or $B$ instead as there are no two- or three-cycles on $S^4$.
+				Following similar reasoning as for $S^6$, it is easy to see that the frame above is globally defined and orthonormal with respect to the generalised metric~\eqref{GofVandV'}, thus it specifies a generalised parallelisation.
+
+				In four dimensions (or lower), the massive generalised Lie derivative simplifies considerably and reads
+					%
+						\begin{equation}\label{dorf4m}
+							\begin{split}
+								L_V V' =& \mathcal{L}_v v' + \left(\mathcal{L}_v \lambda' - \iota_{v^\prime} \dd\lambda\right) + \left(\iota_v \dd\omega_0' - \iota_{v^\prime} (\dd\omega_0 - m\lambda) \right) \\
+										&\phantom{=} + \left(\mathcal{L}_v \omega_2^\prime - \iota_{v^\prime}\dd\omega_2 - \lambda' \wedge (\dd\omega_0 - m\lambda) + \omega_0' \dd\lambda \right) \\
+										&\phantom{=} + \left( \mathcal{L}_v \omega_4^\prime - \iota_{v^\prime}\dd\omega_4 - \lambda' \wedge \dd\omega_2 + \omega_2^\prime \wedge \dd\lambda\right) \ .
+							\end{split}
+						\end{equation}
+					%
+				Using the relations in appendix~\ref{app:constrcoo}, we compute the \emph{massless} Dorfman derivative (that is expression~\eqref{dorf4m} with $m=0$) between the frame elements. 
+				We find that the only non-vanishing pairings are
+					%
+						\begin{equation}\label{Dorfman_par_S4}
+							\begin{split}
+								L_{\hat{E}_{ij}}\hat{E}_{kl} &= 2R^{-1}\big(\delta_{i[k}\hat{E}_{l]j} - \delta_{j[k}\hat{E}_{l]i} \big)\, , \\
+								L_{\hat{E}_{ij}}\hat{E}_{k} &= -2R^{-1}\delta_{k[i}\hat{E}_{j]} \, .
+							\end{split}
+						\end{equation}
+					%
+				This defines a Leibniz algebra since $L_{\hat{E}_{ij}}\hat{E}_{k} \neq -L_{\hat{E}_{k}}\hat{E}_{ij}=0$; the associated gauge algebra, following from~\eqref{eq:gauge-alg-X}, is the $\SO(5)$ algebra.
+
+				A consistent truncation of massless type IIA supergravity on $S^4$ preserving maximal supersymmetry has been constructed in~\cite{Cowdall:1998rs,Cvetic:2000ah} by simply reducing on a circle the seven-dimensional theory defined by eleven-dimensional supergravity on $S^4$. 
+				The gauge group of the resulting $\mathcal{N} =(2,2)$ six-dimensional theory is indeed~$\SO(5)$ (see also~\cite{Bergshoeff:2007ef} for a discussion of the gauging in six dimensions). 
+				This theory does not admit AdS$_6$ vacua: the most symmetric solution is a half-BPS domain-wall, originating from a circle reduction of the AdS$_7\times S^4$ vacuum of eleven-dimensional supergravity, and describing the near-horizon geometry of D4-branes.
+
+				Following the example of $S^6$, one might expect that the same frame~\eqref{parall_S4_meq0} would lead to a generalised parallelisation for $m\neq0$ with a modified gauge group in six-dimensions. 
+				However, it is easy to check by direct computation that with the massive Dorfman derivative the frame~\eqref{parall_S4_meq0} does not satisfy a Leibniz algebra. 
+				We will further comment on this in section~\ref{massive_algebras}.
+				%
+			%
+		\subsubsection{$S^3$ parallelisation with $m=0$ and $D=7$, $\ISO(4)$ supergravity}\label{S3and7dsugra}
+			%
+				The U-duality group of type IIA supergravity on a three-dimensional manifold $M_3$ is $E_{4(4)} \simeq \SL(5,\RR)$, and the corresponding generalised tangent bundle is
+						%
+							\begin{equation}
+								E \cong T \oplus T^* \oplus \RR \oplus \Lambda^2 T^*\, , 
+							\end{equation}
+						%
+				with sections
+						%
+							\begin{equation}
+								V = v + \lambda + \omega_0 + \omega_2 
+							\end{equation}
+						%
+				transforming in the $\mathbf{10}$ of $\SL(5,\RR)$.
+				A generalised frame $\{\hat{E}_A\}$, $A = 1\ldots,10$, can equivalently be denoted as $\{\hat{E}_{IJ}= \hat{E}_{[IJ]}\}$, with $I,J =1,\ldots, 5$.
+				We consider again $M_3 = S^3$ in constrained coordinates $y^i$ in $\RR^4$, and we decompose the frame under $\SL(4, \RR)$ as
+						%
+							\begin{equation}
+								\begin{split}
+									\SL(5,\RR) \; &\supset \SL(4,\RR)  \\[1mm]
+									\mathbf{10}\, &\mapsto \mathbf{6} + \mathbf{4} \, .
+								\end{split}
+							\end{equation}
+						%
+				so that $\{\hat{E}_{IJ}\} = \{\hat{E}_{ij},\,\hat{E}_{i5}\}$, with $i,j=1,\ldots,4$.
+
+				For vanishing Romans mass, $m=0$, we can easily construct a generalised parallelisation that realises the $\mathfrak{iso}(4)$ algebra.
+				We choose the frame
+					%
+						\begin{equation}\label{parall_S3_meq0}
+									\hat{E}_{IJ} = \begin{cases} \hat{E}_{ij} = v_{ij} + \rho_{ij} + \iota_{v_{ij}}\!\rg{B} \, ,\\[1mm]
+										\hat{E}_{i5} = y_i + \kappa_i - y_i \!\rg{B}\, , \end{cases} 
+						\end{equation}
+					%
+				where $v_{ij}$ are the $\SO(4)$ Killing vectors and
+						%
+							\begin{equation}
+								\begin{split}
+									\rho_{ij} &= \rg{*}(R^2 \dd y_i\wedge \dd y_j) = R\, \epsilon_{ijkl}\, y^k\dd y^l \ , \\
+									\kappa_{i} &= \rg{*}(R\, \dd y_i) = \frac{R^2}{2}\,\epsilon_{ijkl}\, y^j \dd y^k \wedge \dd y^l\ .
+								\end{split}
+							\end{equation}
+						%
+				Here, we have twisted the frame by the $B$ field\footnote{%
+					The twist by $B$ acts on a vector $\tilde V$ of the untwisted generalised tangent bundle $\tilde E$ on $M_3$ as
+						%
+							\begin{equation*}
+								V = e^{-B}\cdot \tilde V = \tilde v + (\tilde \lambda + \iota_{\tilde v} B) + \tilde \omega_0 + (\tilde \omega_2 -\tilde \omega_0 B)\ .
+							\end{equation*}
+						%
+						},
+				chosen in such a way that
+					%
+						\begin{equation}\label{HproptoVol_3}
+								\rg{H} = \dd \!\rg{B_{}}  = \frac{2}{R} \rg{\vol}_3\ , 
+							\end{equation}
+						%
+				which, again recalling~\eqref{eq:contrvol}, implies
+						%
+							\begin{equation}\label{hcn}
+								\iota_{v_{ij}} \rg{H} = \dd\rho_{ij}\ .
+							\end{equation}
+						%
+				This frame is globally defined and orthonormal; hence it defines a generalised parallelisation.
+				Recalling appendix~\ref{app:constrcoo} and relation~\eqref{hcn}, one can check that the Dorfman derivative with $m=0$ yields
+						%
+							\begin{equation}\label{ISO4-alg}
+								\begin{split}
+									L_{\hat{E}_{ij}}\hat{E}_{kl} &= 2R^{-1}\big(\delta_{i[k}\hat{E}_{l]j} - \delta_{j[k}\hat{E}_{l]i} \big)\ ,\\
+									L_{\hat{E}_{ij}}\hat{E}_{k5} &= -2R^{-1}\delta_{k[i}\hat{E}_{j]5} \ ,\\
+									L_{\hat{E}_{i5}}\hat{E}_{kl} &= 2R^{-1}\delta_{i[k}\hat{E}_{l]5}\ , \\
+									L_{\hat{E}_{i5}}\hat{E}_{k5} &= 0\ , 
+								\end{split}
+							\end{equation}
+						%
+				and the relation~\eqref{LeibnizParall} is satisfied, with structure constants
+					%
+						\begin{equation}\label{XofISO4}
+							X_{[II'][JJ']}{}^{[KK']} = 2\, \delta_{[I}^{[K}Y_{I'][J}\delta_{J']}^{K']}\ , \qquad Y_{II'} = \frac{2}{R} \mathrm{diag}(1,1,1,1,0)\ .
+							\end{equation}
+						%
+				Note that, as the Dorfman derivative is antisymmetric on this frame, it realises a Lie algebra (rather than just a Leibniz algebra), which in this case is the $\ISO(4)\simeq\CSO(4,0,1)$ algebra. 
+
+				A consistent truncation of massless type IIA supergravity to maximal $D=7$ supergravity with gauge group $\ISO(4)$ has been known for some time. 
+				This can be obtained starting from the well-known reduction of eleven-dimensional supergravity on $S^4$, which yields maximal $D=7$, $\SO(5)$ supergravity~\cite{Nastase:1999kf}, and implementing the limiting procedure of~\cite{Hull:1988jw}. 
+				In the limit, $S^4$ degenerates into $\RR \times S^3$; correspondingly, the $\SO(5)$ gauge group of the seven-dimensional theory is contracted to $\ISO(4)$\footnote{%
+					This is analogous to the way the $\ISO(7)$ reduction of massless IIA supergravity on $S^6$ is obtained from the $\SO(8)$ reduction of eleven-dimensional supergravity on $S^7$.}.
+				The bosonic part of this $S^3$ reduction was worked out in detail in~\cite{Cvetic:2000ah} (where the $\SO(4)$ subgroup of the gauge group was emphasised). 
+				A discussion of the resulting maximal supergravity can be found in~\cite{Samtleben:2005bp}. 
+				In seven dimensions the embedding tensor determining the gauging transforms in the $\mathbf{15} + \mathbf{40'}$ representation of the global symmetry group $\SL(5)$~\cite{Samtleben:2005bp}. 
+				For the $\ISO(4)$ gauging, its non-vanishing components are solely in the $\mathbf{15}$, and match those in~\eqref{XofISO4} obtained from the parallelisation. 
+				In addition to the metric, the fourteen $\SL(5)/\SO(5)$ scalars and the ten $\ISO(4)$ gauge vectors, the bosonic field content of the seven-dimensional theory is made of a massless two-form and four massive self-dual three-forms.
+				The scalar potential does not admit stationary points, and the most symmetric ground state solution is a domain wall, describing the near-horizon geometry of NS5-branes.
+
+				We would now like to see whether the frame~\eqref{parall_S3_meq0} gives a generalised parallelisation also for $m\neq0$. 
+				In this case the problems appear even before considering the action of the massive Dorfman derivative. 
+				Indeed the frame~\eqref{parall_S3_meq0} requires the existence of a non trivial field strength $H$, while we know from~\eqref{eq:H-exact} that for $m\neq 0$ $H$ is exact. 
+ 				%
+			%
+		\subsubsection{Massive algebras on $S^3$ and $S^4$}\label{massive_algebras}
+			%
+				In the previous sections we saw that, contrary to the case of $S^6$, the massless frames for $S^3$ and $S^4$ do not lead to good parallelisations when the Romans mass is turned on. 
+				In this section, we provide some understanding of why the frame on $S^6$ is the only one that satisfies a good algebra also in the massive Dorfman derivative. 
+				We also explore the possibility of finding other parallelisations that do satisfy an algebra of the desired type.
+				For $S^3$ we derive a no-go theorem showing that, under mild assumptions, one cannot find a frame which gives rise to a maximally supersymmetric consistent truncation.
+
+				Given a $d$-dimensional sphere $S^d$ with a non-zero flux for a $d$-form field-strength, one can build a $\GL(d+1)$ generalised tangent bundle, which is isomorphic to $T\oplus \Lambda^{d-2}T^*$. 
+				Since this admits a global generalised frame, the sphere is generalised parallelisable~\cite{spheres}. 
+				This generalised frame is a $\GL(d+1)$ rotation of the coordinate frame. 
+				For spheres, the $\GL(d+1)$ generalised tangent bundle is always a sub-bundle of the full $\E_{d+1(d+1)}\times\RR^+$ bundle and, in fact, it is possible to decompose the whole generalised tangent bundle into representations of the $\GL(d+1)$ subgroup. 
+				Moreover, all the parts of the parallelisations of the bundle $E$ are related to the corresponding coordinate frames by the same $\GL(d+1)$ transformation.
+
+				In the previous sections we constructed the frame $\hat{E}_A$ and the respective Leibniz algebra for type IIA on $S^d$, $d=3,4,6$. 
+				We consider now the effect of adding the Romans mass to the massless Dorfman derivative. 
+				As the given frame on $S^d$ already satisfies a Leibniz algebra for the massless Dorfman derivative with constant structure constants $X_{AB}{}^C$, the structure constants of the same frame with the massive Dorfman derivative will be $X_{AB}{}^C + Y_{AB}{}^C$, where
+						%
+							\begin{equation}
+								Y_{AB}{}^C = \hat{E}_A{}^M \hat{E}_B{}^N E^C{}_P\, \underline{m}_{MN}{}^P \, , 
+							\end{equation}
+						%
+				are the frame components of the Romans mass map $\underline{m}_{MN}{}^P$ (see section~\ref{sec:massive_genLie}).
+				The frame $\hat{E}_A$ will thus give a generalised Leibniz parallelisation in the massive Dorfman derivative if the additional structure constants $Y_{AB}{}^C$ are constant.
+ 
+				A natural way for this to happen would be if the components $Y_{AB}{}^C$ are equal to the components $\underline{m}_{MN}{}^P$, which are constant by definition.
+				This would mean that the frame $\hat{E}_A{}^M$ must lie in the stabiliser group of the Romans mass. 
+				The stabiliser is the subgroup of $E_{d+1(d+1)} \times\RR^+$ that leaves $\underline{m}_{MN}{}^P$ invariant. It can be determined by combining~\eqref{IIAadjvecCompact} and~\eqref{eq:commAdjIIA} with %
+						%
+							\begin{equation}
+								(R\cdot \underline{m}) (V) = [ R, \underline{m}(V) ] - \underline{m} (R\cdot V) \, ,
+							\end{equation}
+						%
+				where $R$ is an element of the adjoint of $\E_{d+1(d+1)}\times\RR^+$, see~\eqref{section_adjoint}. 
+				For instance, in six dimensions we find that $R \cdot \underline{m} = 0$ for $R$ of the form\footnote{For lower-dimensional spheres it is enough to truncate to the relevant potentials.}
+						%
+							\begin{equation}\label{eq:stabiliser}
+								R = l + \varphi + r + \beta + \tilde B + \Gamma_5 + C \, ,
+							\end{equation}
+						% 
+				where $l = -\varphi$ and $\Gamma_5$ is a five-vector, while $C=C_1+ C_3 + C_5$. 
+				The stabiliser group is the semi-direct product of a Lie group $G$ with a nilpotent group $G'$. 
+				The Lie algebra $\mathfrak{g}$ of $G$ is generated by $r$, $\Gamma_5$, $C_5$ and $l = -\varphi$ in~\eqref{eq:stabiliser}. 
+				The Lie algebra of $G'$ is $\mathfrak{g}' = \mathfrak{g}'_1 \oplus \mathfrak{g}'_2$ where $\mathfrak{g}_1$ and $\mathfrak{g}_2$ are generated by $\beta$ and $C_3$, and $C_1$ and $\tilde{B}$, respectively.
+				The algebra $\mathfrak{g}'$ is graded so that the commutator of two $\mathfrak{g}_1$ elements is in $\mathfrak{g}_2$ and all other commutators vanish.
+				The stabiliser groups of $\underline{m}$ for the dimensions of interest in this work are summarised in table~\ref{tab:stab}. 
+				In the table, $\mathbf{R}_1$ and $\mathbf{R}_2$ denote the representations of $G$ in which $\mathfrak{g}'_1$ and $\mathfrak{g}'_2$ transform.
+					%
+						\begin{table}[h]
+						\centering
+							\begin{tabular}{rccc}
+									$d$ & $G$ & $\mathbf{R}_1$ & $\mathbf{R}_2$ \\ 
+									\hline
+ 										$6$ & $\GL(7)$ & $\mathbf{35}$ & $\mathbf{7'}$ \\
+		 								$5$ & $\SL(5)\times\SL(2)\times\RR^+$ & $(\mathbf{10},\mathbf{2})_{+1}$ & $(\mathbf{5},\mathbf{1})_{+2}$ \\
+										$\leq 4$ & $\GL(d) \times \RR^+$ & $(\Lambda^2 T)_{+1} \oplus (\Lambda^3 T^*)_{+1}$ & $(T^*)_{+2}$
+							\end{tabular}
+						\caption{Constituents of the stabiliser group of $\underline{m}_{MN}{}^P$.}
+						\label{tab:stab}
+						\end{table}
+					%
+
+				It is noteworthy that only for $d=6$ the group $G$ coincides with $\GL(d+1)$. 
+				Since the frame $\hat{E}_A{}^M$ is an element of $\GL(d+1)$, we see that for $S^6$ the frame does lie in the relevant stabiliser group\footnote{%
+					Note that for $d=6$ the full stabiliser group is isomorphic to the geometric subgroup of $E_{7(7)}\times\RR^+$ for M-theory.}.
+				Hence the massless frame remains a good Leibniz parallelisation when the Romans mass is switched on. 
+				However, for $d \leq 5$ it does not, and this provides a partial explanation for why these frames do not give Leibniz parallelisations in massive IIA. 
+				By this reasoning, one is not surprised that $S^6$ is the only case which works in massive IIA without modifying the frame.
+
+				However, the above argument does not rule out the possibility that there are alternative Leibniz generalised parallelisations of the lower-dimensional spheres in the massive IIA. 
+				In what follows, we explore this possibility focusing on the case of $S^3$, for simplicity. 
+				As noted before, in massive type IIA $H_3$ must be trivial in cohomology. 
+				As $S^3$ has only a non-trivial 3-cycle, this means that there can be no cohomologically non-trivial field strengths. 
+				We thus assume that the background field configuration has non-zero Romans mass and all other fields are zero. 
+				This implies that the generalised tangent space has no twisting and is given by the direct sum 
+						%
+							\begin{equation}
+								E = \tilde{E} = T \oplus T^* \oplus \Lambda^0 T^* \oplus \Lambda^2 T^* \, .
+							\end{equation}
+						%
+				Suppose now that there exists a generalised Leibniz parallelisation $\hat{E}_A$ that gives an $SO(4)$ algebra
+						%
+							\begin{equation}\label{massive_algebra_S3}
+								\begin{split}
+									L_{\hat{E}_{ij}}\hat{E}_{kl} &= 2R^{-1}\big(\delta_{i[k}\hat{E}_{l]j} - \delta_{j[k}\hat{E}_{l]i} \big)\ ,\\
+									L_{\hat{E}_{ij}}\hat{E}_{k5} &= -2R^{-1}\delta_{k[i}\hat{E}_{j]5} \ , \\
+									L_{\hat{E}_{i5}}\hat{E}_{kl} &=0\ , \\
+									L_{\hat{E}_{i5}}\hat{E}_{k5} &= 0\ ,
+								\end{split}
+							\end{equation}
+						%
+				where $L$ is the massive Dorfman derivative. 
+				This implies that the generalised metric $\mathcal{G}^{-1} = \delta^{AB} \hat{E}_A \otimes \hat{E}_B$ is preserved by the Dorfman derivative so that the $\hat{E}_A$ are generalised Killing vectors~\cite{Grana:2008yw, Lee:2015xga}. 
+				Thus the gauge transformations of the background fields generated by the $\hat{E}_A$ all vanish. 
+				As we have no gauge fields, this leads to the conditions
+						%
+							\begin{align}\label{eq:gen-Killing}
+								& & \mathcal{L}_{v_A} g = 0 \, , & &  \dd \lambda_A = 0 \, ,& & \dd \omega_A - m \lambda_A = 0 \, ,& & 
+							\end{align}
+						%
+				which imply that the Dorfman derivative reduces to the Lie derivative term only
+						%
+							\begin{equation}
+								L_{\hat{E}_A} \equiv \mathcal{L}_{v_A} \, . 
+							\end{equation}
+						%
+				As the vector parts of the $\hat{E}_{ij}$ satisfy the $\SO(4)$ algebra, these must be the $S^3$ Killing vectors (up to an overall constant automorphism), and we have that
+						%
+							\begin{equation}
+								L_{\hat{E}_{ij}} \equiv \mathcal{L}_{v_{ij}} 
+							\end{equation}
+						%
+				is the action of the $\SO(4)$ isometry group. 
+				The second of~\eqref{massive_algebra_S3} then says that the $\hat{E}_{k 5}$ components of the frame transform in the vector representation. 
+				This implies that
+					%
+							\begin{equation}
+								\hat{E}_{i5} = a_1 k_i + a_2 y_i + a_3 \dd y_i + a_4 * \dd y_i
+							\end{equation}
+						%
+				for some real coefficients $a_n$, where $y^i$, with $i=1, \ldots, 4$ are the constrained coordinates on $\RR^4$. 
+				Here, $k_i$ are the standard conformal Killing vectors on the sphere (cf.~appendix~\ref{app:constrcoo}). 
+				As $L_{\hat{E}_{i5}} \hat{E}_{j5} = 0$ we have $a_1=0$ and~\eqref{eq:gen-Killing} gives us $a_2 = ma_3$ and $a_4=0$. 
+ 				One can then see that
+ 					%
+						\begin{equation}\label{parall_S3_m}
+							\hat{E}_A = \hat{E}_{IJ} = \begin{cases} \hat{E}_{ij} = v_{ij} + R^2 \,\dd y_i \wedge \dd y_j \\[1mm]
+														\hat{E}_{i5} = R\,(m\,y_i + \dd y_i)\ , \end{cases} 
+							\end{equation}
+						%
+%
+				where $R$ is the radius of $S^3$, is the unique frame giving a parallelisation of the generalised tangent bundle on $S^3$ which satisfies the $SO(4)$ algebra~\eqref{massive_algebra_S3}\footnote{%
+					In appendix~\ref{IIBonS3} we show that in type IIB it is possible to find a parallelisation for the generalised tangent bundle on $S^3$ that satisfies the same Leibniz algebra~\eqref{massive_algebra_S3}.}.
+				If $mR=1$, the frame is also orthonormal in the generalised metric.
+				However, the frame~\eqref{parall_S3_m} fails to be in the $\SL(5,\RR)\times\RR^+$ generalised frame bundle. 
+				We recall from~\cite{Coimbra:2011ky} that the generalised frame bundle is defined to be those frames which are related to the coordinate frame by an $\E_{d+1(d+1)}\times\RR^+$ transformation. 
+				In the $\SL(5,\RR)\times\RR^+$ case, this means that there must also be a parallelisation $\hat{E}_I$ of the bundle $W \simeq (\det T)^{-1/2} \otimes (T + \det T)$, discussed in~\cite{spheres}, such that
+						%
+							\begin{equation}
+								\hat{E}_{IJ} = \hat{E}_I \wedge \hat{E}_J \,.
+							\end{equation}
+						%
+				It is simple to show that our frame~\eqref{parall_S3_m} is not of this form, and is thus outside of the generalised frame bundle. 
+				This means that one cannot use it to describe a consistent truncation of supergravity. 
+				For example, the Scherk-Schwarz twist of this frame does not define a generalised metric which can be parameterised in terms of supergravity fields, and as such it does not provide a scalar ansatz for such a reduction.
+				
+				Having ruled out the possibility of the algebra~\eqref{massive_algebra_S3}, one could still wonder if there are other frame algebras containing $\SO(4)$ which could fare better. 
+				The obvious alternative would be the $ISO(4)$ algebra~\eqref{ISO4-alg}. 
+				However, we will now see that just requiring this algebra already leads to a contradiction.
+
+				For the $\hat{E}_{ij}$ parts of the frame, we can use the same generalised Killing vector arguments as above to deduce that $L_{\hat{E}_{ij}} \equiv \mathcal{L}_{v_{ij}}$, so we can again decompose the frames into $\SO(4)$ representations. 
+				This decomposition implies that the one-form part of $\hat{E}_i$ is closed, and, together with the generalised Killing vector condition, that the one-form part of $\hat{E}_{ij}$ vanishes. 
+				The constraint $L_{\hat{E}_{i5}} \hat{E}_{j5} = 0$ then gives that $L_{\hat{E}_{i5}} \equiv - (\dd \omega_{2,i}) \cdot$ is the adjoint action of $\dd \omega_{2,i} \in \Lambda^3 T^* \subset \adj$, where $\omega_{2,i}$ is the two-form part of $\hat E_{i5}$.
+				However, this contradicts another of the hypothesised algebra relations $L_{\hat{E}_{i5}}\hat{E}_{kl} = 2R^{-1}\delta_{i[k}\hat{E}_{l]5}$ as the image of $\dd \omega_{2,i} \in \adj$ is contained in $\Lambda^2 T^* \subset E$, while $\hat{E}_{i5}$ must feature one-form parts in order for $\hat{E}_{IJ}$ to give a parallelisation.
+
+				We have thus shown that the two most likely frame algebras featuring $\SO(4)$ in the gauge group cannot be realised in massive type IIA parallelisations. While these arguments do not systematically rule out all possibilities, they are highly suggestive that there is no maximally supersymmetric consistent truncation of massive type IIA on $S^3$ with gauge group $\SO(4)$ (or larger).
+				It seems that a similar conclusion can be reached for the $S^4$ case. 
+				We note that~\eqref{parall_S3_m}, augmented by an additional piece $\hat{E} = \vol_4$, also yields a Leibniz parallelisation of the type IIA generalised tangent bundle on $S^4$, satisfying the $\SO(5)$ algebra. 					However, again one can prove this is not an $\SO(5,5)\times {\mathbb R}^+$ frame. 
+
+				One can construct an $\SO(5,5)\times\RR^+$ covariant projection acting on four generalised vectors $E^4 \rightarrow \Lambda^4 T^*$. 
+				This is done by taking the projections to the bundle $N$ of the two pairs of generalised vectors and then contracting the resulting sections of $N$, which transform in the vector representation of $\SO(5,5)$, using the $\SO(5,5)$ invariant metric. Due to the $\RR^+$ weights, the inner product is in fact a volume form and transforms under $\RR^+$, but it is $\SO(5,5)$ invariant. 
+				By explicit computation, one can check that the components of this quartic $\SO(5,5)$ invariant on $E$ are not preserved, or rescaled, when one moves to the frame~\eqref{parall_S3_m} combined with $\hat{E} = \vol_4$, showing that this frame is not an $\SO(5,5)\times\RR^+$ frame.
+				%
+			%
+		\subsubsection{\texorpdfstring{$S^2$ parallelisation and $D=8$, $\SO(3)$ supergravity}{S2 parallelisation and D=8, SO(3) supergravity}}
+			%
+				We conclude our set of examples by considering type IIA supergravity on the two-sphere $S^2$. 
+				Again, we will see that while it is easy to define a generalised Leibniz parallelisation for $m=0$, in the massive case the most likely frames do not work.
+
+				On a two-dimensional manifold, the U-duality group is $\SL(3)\times \SL(2)$, and the generalised tangent bundle reads
+					%
+						\begin{equation}
+							E \cong T \oplus T^* \oplus \RR \oplus \Lambda^2 T^*\, ,
+						\end{equation}
+					%
+				which factorises as
+					%
+						\begin{equation}\label{2dEfactorised}
+	E\cong (\RR \oplus \det T^* ) \otimes ( T \oplus \RR)\, =\, U \otimes W \,,
+						\end{equation}
+					%
+				where $U$ transforms as an $\SL(2)$ doublet and $W$ as an $\SL(3)$ triplet.
+
+				An $\SL(3)\times \SL(2)$ frame is specified by $\{\hat E_{i\alpha}\}$, where $i=1,2,3$ is an $\SL(3)$ index while $\alpha =\pm$ is an $\SL(2)$ index.
+				According to the factorisation~\eqref{2dEfactorised}, it can be written as 
+					%
+						\begin{equation}\label{factorSL3SL2}
+							\hat{E}_{i \alpha} = \hat{E}_\alpha \otimes \hat{E}_i\,,
+						\end{equation}
+					%
+				where $\hat{E}_\alpha$ is a frame for $V$ and $\hat{E}_i$ is a frame for $W$. 
+				This guarantees that the scalar matrix $\mathcal{M}^{i\alpha,j\beta}$ defined by the generalised Scherk-Schwarz ansatz parameterises the seven-dimensional coset $\frac{\SL(3)}{\SO(3)}\times \frac{\SL(2)}{\SO(2)}$, as expected for maximal supergravity in eight dimensions.
+
+				For vanishing Romans mass, a generalised Leibniz parallelisation on $S^2$ is given by
+					%
+						\begin{equation}\label{S2parallel}
+							\begin{cases}
+								\hat E_{i+} = v_i + y_i + \iota_{v_i} \rg{C_1}\ , \\[1mm]
+								\hat E_{i-} = \dd y_i + y_i \rg{\rm vol}_2 -\, \dd y_i\, \wedge \rg{C_1}\ ,
+							\end{cases}
+						\end{equation}
+					%
+				where $v_i = \frac 12\epsilon_{i}{}^{jk}v_{jk}$ are the $\SO(3)$ Killing vectors and $\rg{\rm vol}_2$ is the volume on the round $S^2$ of unitary radius. 
+				Notice that (before twisting by $\rg{C_1}$) the factorisation condition~\eqref{factorSL3SL2} is satisfied by taking
+					%
+						\begin{equation}
+							\begin{split}
+								\hat{E}_i &= v_i + y_i\,, \\
+								\hat{E}_\alpha &= { 1 \choose {\rm vol}_2 }_\alpha\,.
+							\end{split}
+						\end{equation}
+					%
+				Moreover, choosing the two-form flux as
+					%
+						\begin{equation}
+							\rg{F_2} = \dd\! \rg{C_1}\ =\, \frac{1}{R} \rg{\vol}_2\ , 
+						\end{equation}
+					%
+				so that $\iota_{v_i}\dd \!\rg{C_1} = c\,R\,\dd y_i$, the massless Dorfman derivative yields
+					%
+						\begin{equation}\label{S2Leibniz}
+							\begin{array}{lcc}
+								L_{\hat E_{i+}}\hat E_{j+} = - \tfrac{1}{R}\epsilon_{ij}{}^k \hat E_{k+} \, , & \phantom{L_{\hat{E}_{i+}} \hat{E}_{j-} = - \tfrac{1}{R}} & L_{\hat{E}_{i+}} \hat{E}_{j-} = - \tfrac{1}{R}\epsilon_{ij}{}^k \hat{E}_{k+}\, , \\ 
+								L_{\hat{E}_{i-}}\hat{E}_{j+} = 0 \ , & \phantom{L_{\hat{E}_{i+}} \hat{E}_{j-} = - \tfrac{1}{R}} & L_{\hat{E}_{i-}} \hat{E}_{j-} \ =\ 0 \, ,
+							\end{array}
+						\end{equation}
+					%
+				which is a Leibniz algebra leading to an $\SO(3)$ gauge algebra.
+
+				Hence we have an $\SL(3)\times \SL(2)$ Leibniz parallelisation with associated $\SO(3)$ gauge algebra. 
+				This can be used to define a generalised Scherk--Schwarz reduction of massless type IIA supergravity on $S^2$, down to to maximal supergravity in eight dimensions with gauge group $\SO(3)$. 
+				As pointed out in~\cite{Boonstra:1998mp}, this consistent reduction on $S^2$ is the same as the conventional Scherk--Schwarz reduction of eleven-dimensional supergravity on the group manifold $\SU(2)\simeq S^3$, presented long ago in~\cite{Salam:1984ft}.
+				The explicit truncation ansatz for the metric, dilaton and RR two-form on $S^2$ can be found in~\cite[sect.$\:$6]{Cvetic:2000dm}, and its relation with the $S^3$ reduction of eleven-dimensional supergravity is explained in~\cite{Cvetic:2003jy}.
+
+ 				When the Romans mass is switched on, the frame~\eqref{S2parallel} fails to satisfy an algebra under the Dorfman derivative with $m\neq 0$. One could consider the alternative generalised frame
+					%
+						\begin{equation}\label{alternateS2frame}
+							\begin{cases}
+								\hat E_{i+} = v_i + y_i \!\rg{\rm vol}_2\,, \\[1mm]
+								\hat E_{i-} = \dd y_i + y_i \,,
+							\end{cases}
+						\end{equation}
+					%
+				which compared to~\eqref{S2parallel} has the role of the $\RR$ and $\Lambda^2 T^*$ terms exchanged, and is not twisted by $\rg{C_1}$.
+				This frame is still globally defined, orthonormal and can easily be checked to satisfy the $\SO(3)$ algebra under the massive Dorfman derivative for $mR=1$. 
+				However, it cannot be put in the form~\eqref{factorSL3SL2}, so it is not an acceptable $\SL(3)\times \SL(2)$ frame. 
+				This means that a Scherk-Schwarz reduction based on~\eqref{alternateS2frame} would not define a generalised metric of the type given by the supergravity degrees of freedom~\eqref{genmetfor}, so it would not make sense to define an ansatz like~\eqref{invG_from_parall}.
+				The $S^2$ case is thus on the same footing as $S^3$ and $S^4$, that is it does not seem to allow for a consistent truncation of massive type IIA supergravity preserving maximal supersymmetry.
+			%
+		%
+\end{document}

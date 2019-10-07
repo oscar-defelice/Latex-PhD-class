@@ -1,0 +1,190 @@
+\documentclass[border=2pt]{standalone}
+
+\input{preamble}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\ppinit
+\ppseteyeposition{-2}{-2}{1.7}
+\ppseteyedirectionposition{0}{0}{0}
+\ppseteyefocallength{7}
+%
+\pgfmathsetmacro{\pi}{180}
+%
+\foreach \xindex in {0,...,20}{
+	\pgfmathsetmacro{\xb}{\xindex/10 - 1}
+	\pgfmathsetmacro{\xe}{min(\xindex + 1, 20)/10 - 1}
+	%
+	\foreach \yindex in {0,...,20}{
+		\pgfmathsetmacro{\yb}{\yindex/10 - 1}
+		\pgfmathsetmacro{\ye}{min(\yindex + 1, 20)/10 - 1}
+		%
+		\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+		\pgfmathsetmacro{\zeb}{\xe/exp(\xe*\xe + \yb*\yb)}
+		\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+		\pgfmathsetmacro{\zbe}{\xb/exp(\xb*\xb + \ye*\ye)}
+		%
+		\pgfmathsetmacro{\level}{100*((\zbb + \zeb + \zee + \zbe)/(4*0.428882) + 1)/2}
+		%
+		\fill[EE245!\level!EE198] (pp cs:x=\xb,y=\yb,z=\zbb) -- (pp cs:x=+\xe,y=\yb,z=\zeb) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=+\xb,y=\ye,z=\zbe) -- cycle;
+		\draw[black!74, cap = round, ultra thin] (pp cs:x=\xb,y=\yb,z=\zbb) -- (pp cs:x=+\xe,y=\yb,z=\zeb);
+		\draw[black!74, cap = round, ultra thin] (pp cs:x=\xb,y=\yb,z=\zbb) -- (pp cs:x=+\xb,y=\ye,z=\zbe);
+	}
+}
+\pgfmathsetmacro{\xb}{-1}
+\pgfmathsetmacro{\yb}{0.74}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\draw (pp cs:x=\xb,y=\yb,z=\zbb) node[below left]{$\Omega$};
+%
+\pgfmathsetmacro{\xT}{0.6}
+\pgfmathsetmacro{\yT}{-0.3}
+\pgfmathsetmacro{\zT}{\xT/exp(\xT*\xT + \yT*\yT)}
+%
+\pgfmathsetmacro{\rp}{0.7}
+\pgfmathsetmacro{\rs}{(\rp + 1)*sqrt(1 - 1/((\rp + 1)*(\rp + 1))) - 1}
+\pgfmathsetmacro{\rho}{(\rp + 1)/10}
+\foreach \theta in {0,10,...,350}{
+	\pgfmathsetmacro{\xb}{\xT + \rho*cos(\theta)}
+	\pgfmathsetmacro{\yb}{\yT + \rho*sin(\theta)}
+	\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+	\pgfmathsetmacro{\xe}{\xT + \rho*cos(\theta + 10)}
+	\pgfmathsetmacro{\ye}{\yT + \rho*sin(\theta + 10)}
+	\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+	%
+	\draw[cap = round, very thin] (pp cs:x=\xb,y=\yb,z=\zbb) -- (pp cs:x=+\xe,y=\ye,z=\zee);
+}
+\pgfmathsetmacro{\xb}{\xT - 0.2}
+\pgfmathsetmacro{\yb}{\yT}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT - 0.1}
+\pgfmathsetmacro{\ye}{\yT}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rp!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xT,y=\yT,z=\zT);
+\pgfmathsetmacro{\xb}{\xT + 0.2}
+\pgfmathsetmacro{\yb}{\yT}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT + 0.1}
+\pgfmathsetmacro{\ye}{\yT}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rp!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xT,y=\yT,z=\zT);
+\pgfmathsetmacro{\xb}{\xT}
+\pgfmathsetmacro{\yb}{\yT - 0.2}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT}
+\pgfmathsetmacro{\ye}{\yT - 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rp!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xT,y=\yT,z=\zT);
+\pgfmathsetmacro{\xb}{\xT}
+\pgfmathsetmacro{\yb}{\yT + 0.2}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT}
+\pgfmathsetmacro{\ye}{\yT + 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\draw[join = round, cap = rounde] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rp!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xT,y=\yT,z=\zT);
+\pgfmathsetmacro{\xb}{\xT - 0.2}
+\pgfmathsetmacro{\yb}{\yT - 0.1}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT - 0.1}
+\pgfmathsetmacro{\ye}{\yT - 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT}
+\pgfmathsetmacro{\yc}{\yT - 0.1}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT + 0.2}
+\pgfmathsetmacro{\yb}{\yT - 0.1}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT + 0.1}
+\pgfmathsetmacro{\ye}{\yT - 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT}
+\pgfmathsetmacro{\yc}{\yT - 0.1}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT - 0.2}
+\pgfmathsetmacro{\yb}{\yT + 0.1}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT - 0.1}
+\pgfmathsetmacro{\ye}{\yT + 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT}
+\pgfmathsetmacro{\yc}{\yT + 0.1}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT + 0.2}
+\pgfmathsetmacro{\yb}{\yT + 0.1}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT + 0.1}
+\pgfmathsetmacro{\ye}{\yT + 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT}
+\pgfmathsetmacro{\yc}{\yT + 0.1}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT - 0.1}
+\pgfmathsetmacro{\yb}{\yT - 0.2}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT - 0.1}
+\pgfmathsetmacro{\ye}{\yT - 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT - 0.1}
+\pgfmathsetmacro{\yc}{\yT}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT - 0.1}
+\pgfmathsetmacro{\yb}{\yT + 0.2}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT - 0.1}
+\pgfmathsetmacro{\ye}{\yT + 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT - 0.1}
+\pgfmathsetmacro{\yc}{\yT}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT + 0.1}
+\pgfmathsetmacro{\yb}{\yT - 0.2}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT + 0.1}
+\pgfmathsetmacro{\ye}{\yT - 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT + 0.1}
+\pgfmathsetmacro{\yc}{\yT}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\pgfmathsetmacro{\xb}{\xT + 0.1}
+\pgfmathsetmacro{\yb}{\yT + 0.2}
+\pgfmathsetmacro{\zbb}{\xb/exp(\xb*\xb + \yb*\yb)}
+\pgfmathsetmacro{\xe}{\xT + 0.1}
+\pgfmathsetmacro{\ye}{\yT + 0.1}
+\pgfmathsetmacro{\zee}{\xe/exp(\xe*\xe + \ye*\ye)}
+\pgfmathsetmacro{\xc}{\xT + 0.1}
+\pgfmathsetmacro{\yc}{\yT}
+\pgfmathsetmacro{\zcc}{\xc/exp(\xc*\xc + \yc*\yc)}
+\draw[join = round, cap = round] ($(pp cs:x=\xe,y=\ye,z=\zee)!\rs!(pp cs:x=\xb,y=\yb,z=\zbb)$) -- (pp cs:x=\xe,y=\ye,z=\zee) -- (pp cs:x=\xc,y=\yc,z=\zcc);
+\draw (pp cs:x=\xT,y=\yT,z=\zT) node[above right]{$Z$};
+%
+\pgfmathsetmacro{\zTbb}{(2*\xT*(\xT*(\xT + 1) + \yT*(\yT + 1)) - 1)/exp(\xT*\xT + \yT*\yT)}
+\pgfmathsetmacro{\zTbe}{(2*\xT*(\xT*(\xT + 1) + \yT*(\yT - 1)) - 1)/exp(\xT*\xT + \yT*\yT)}
+\pgfmathsetmacro{\zTee}{(2*\xT*(\xT*(\xT - 1) + \yT*(\yT - 1)) + 1)/exp(\xT*\xT + \yT*\yT)}
+\pgfmathsetmacro{\zTeb}{(2*\xT*(\xT*(\xT - 1) + \yT*(\yT + 1)) + 1)/exp(\xT*\xT + \yT*\yT)}
+\fill[EE222, fill opacity = 0.7, draw = black, join = round] (pp cs:x=-1,y=-1,z=\zTbb) -- (pp cs:x=-1,y=+1,z=\zTbe) node[black, opacity = 1, sloped, midway, above]{$T_z\Omega$} -- (pp cs:x=+1,y=+1,z=\zTee) -- (pp cs:x=+1,y=-1,z=\zTeb) -- cycle;
+%
+\fill (pp cs:x=\xT,y=\yT,z=\zT) circle (0.07) node[below right]{$z$};
+%
+\pgfmathsetmacro{\dzx}{(1 - 2*\xT*\xT)/exp(\xT*\xT + \yT*\yT)}
+\pgfmathsetmacro{\dzy}{-2*\xT*\yT/exp(\xT*\xT + \yT*\yT)}
+\pgfmathsetmacro{\dx}{-0.7}
+\pgfmathsetmacro{\dy}{0.7}
+\pgfmathsetmacro{\xTx}{\xT + \dx}
+\pgfmathsetmacro{\yTx}{\yT}
+\pgfmathsetmacro{\zTx}{\zT + \dx*\dzx}
+\pgfmathsetmacro{\xTy}{\xT}
+\pgfmathsetmacro{\yTy}{\yT + \dy}
+\pgfmathsetmacro{\zTy}{\zT + \dy*\dzy}
+\draw[latex-latex, join = round] (pp cs:x=\xTx,y=\yTx,z=\zTx) node[below]{$\bm{\partial}_2$} -- (pp cs:x=\xT,y=\yT,z=\zT) -- (pp cs:x=\xTy,y=\yTy,z=\zTy) node[left]{$\bm{\partial}_1$};
+
+\end{tikzpicture}
+
+\end{document}

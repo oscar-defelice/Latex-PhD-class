@@ -1,0 +1,328 @@
+%
+%  lrmath.sty
+%
+%  Created by Hugo Ricateau on 14/03/2017, this file is standalone.
+%  Copyright © 2017 Hugo Ricateau.
+%
+%  This file is free software: you can redistribute it and/or modify it under
+%  the terms of the GNU General Public License as published by the
+%  Free Software Foundation, either version 3 of the License, or any
+%  later version.
+%
+%  This program is distributed in the hope that it will be useful, but
+%  WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+%  See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License
+%  along with this program. If not, see <http://www.gnu.org/licenses/>.
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lrmath}[2017/03/14]
+\RequirePackage{xifthen}
+\RequirePackage{xstring}
+
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+% AMS
+\providecommand\lvert{.}
+\providecommand\rvert{.}
+\providecommand\lVert{.}
+\providecommand\rVert{.}
+
+% stmaryrd
+\providecommand\llbracket{.}
+\providecommand\rrbracket{.}
+
+% mathabx
+\providecommand\ldbrack{.}
+\providecommand\rdbrack{.}
+\providecommand\lfilet{.}
+\providecommand\rfilet{.}
+\providecommand\thickvert{.}
+\providecommand\vvvert{.}
+
+% MnSymbol
+\providecommand\lsem{.}
+\providecommand\rsem{.}
+\providecommand\lbrace{.}
+\providecommand\rbrace{.}
+\providecommand\llangle{.}
+\providecommand\rrangle{.}
+\providecommand\llcorner{.}
+\providecommand\lrcorner{.}
+\providecommand\ulcorner{.}
+\providecommand\urcorner{.}
+\providecommand\ullcorner{.}
+\providecommand\ulrcorner{.}
+\providecommand\lwavy{.}
+\providecommand\rwavy{.}
+\providecommand\lWavy{.}
+\providecommand\rWavy{.}
+\providecommand\langlebar{.}
+\providecommand\ranglebar{.}
+
+% fdsymbol
+\providecommand\lparen{.}
+\providecommand\rparen{.}
+\providecommand\lvert{.}
+\providecommand\rvert{.}
+\providecommand\lVert{.}
+\providecommand\rVert{.}
+\providecommand\Vvert{.}
+\providecommand\lVvert{.}
+\providecommand\rVvert{.}
+\providecommand\mathslash{.}
+\providecommand\lAngle{.}
+\providecommand\rAngle{.}
+\providecommand\langledot{.}
+\providecommand\rangledot{.}
+\providecommand\lbrace{.}
+\providecommand\rbrace{.}
+\providecommand\lbrack{.}
+\providecommand\rbrack{.}
+\providecommand\lBrack{.}
+\providecommand\rBrack{.}
+\providecommand\llcorner{.}
+\providecommand\lrcorner{.}
+\providecommand\ulcorner{.}
+\providecommand\urcorner{.}
+\providecommand\ullcorner{.}
+\providecommand\ulrcorner{.}
+
+% stix
+\providecommand\lAngle{.}
+\providecommand\rAngle{.}
+\providecommand\lbrace{.}
+\providecommand\rbrace{.}
+\providecommand\lBrace{.}
+\providecommand\rBrace{.}
+\providecommand\lbrbrak{.}
+\providecommand\rbrbrak{.}
+\providecommand\lBrack{.}
+\providecommand\rBrack{.}
+\providecommand\lParen{.}
+\providecommand\rParen{.}
+\providecommand\Vvert{.}
+\providecommand\Ddownarrow{.}
+\providecommand\DDownarrow{.}
+\providecommand\Uuparrow{.}
+\providecommand\UUparrow{.}
+
+% mathdesign
+\providecommand\leftwave{.}
+\providecommand\rightwave{.}
+\providecommand\leftevaw{.}
+\providecommand\rightevaw{.}
+
+% fourier
+\providecommand\llbracket{.}
+\providecommand\rrbracket{.}
+\providecommand\VERT{.}
+
+\newcommand{\lr}[1]{\ifthenelse{\isempty{#1}}{\relax}{\ensuremath{%
+	\noexpandarg%
+	\StrLeft{#1}{1}[\lrfirstchar]%
+	\fullexpandarg%
+	\IfStrEqCase{\lrfirstchar}{%
+		{\downarrow}{\left\downarrow}%
+		{\Downarrow}{\left\Downarrow}%
+		{[}{\left[}%
+		{]}{\left]}%
+		{\langle}{\left\langle}%
+		{\rangle}{\left\rangle}%
+		{|}{\left|}%
+		{\vert}{\left\vert}%
+		{\|}{\left\|}%
+		{\Vert}{\left\Vert}%
+		{\lceil}{\left\lceil}%
+		{\rceil}{\left\rceil}%
+		{\uparrow}{\left\uparrow}%
+		{\Uparrow}{\left\Uparrow}%
+		{\lfloor}{\left\lfloor}%
+		{\rfloor}{\left\rfloor}%
+		{\updownarrow}{\left\updownarrow}%
+		{\Updownarrow}{\left\Updownarrow}%
+		{(}{\left(}%
+		{)}{\left)}%
+		{<}{\left<}%
+		{>}{\left>}%
+		{\{}{\left\{}%
+		{\}}{\left\}}%
+		{/}{\left/}%
+		{\backslash}{\left\backslash}%
+		{\lmoustache}{\left\lmoustache}%
+		{\rmoustache}{\left\rmoustache}%
+		{\lgroup}{\left\lgroup}%
+		{\rgroup}{\left\rgroup}%
+		{\arrowvert}{\left\arrowvert}%
+		{\Arrowvert}{\left\Arrowvert}%
+		{\bracevert}{\left\bracevert}%
+		{\lvert}{\left\lvert}%
+		{\rvert}{\left\rvert}%
+		{\lVert}{\left\lVert}%
+		{\rVert}{\left\rVert}%
+		{\llbracket}{\left\llbracket}%
+		{\rrbracket}{\left\rrbracket}%
+		{\ldbrack}{\left\ldbrack}%
+		{\rdbrack}{\left\rdbrack}%
+		{\lfilet}{\left\lfilet}%
+		{\rfilet}{\left\rfilet}%
+		{\thickvert}{\left\thickvert}%
+		{\vvvert}{\left\vvvert}%
+		{\lsem}{\left\lsem}%
+		{\rsem}{\left\rsem}%
+		{\lbrace}{\left\lbrace}%
+		{\rbrace}{\left\rbrace}%
+		{\llangle}{\left\llangle}%
+		{\rrangle}{\left\rrangle}%
+		{\llcorner}{\left\llcorner}%
+		{\lrcorner}{\left\lrcorner}%
+		{\ulcorner}{\left\ulcorner}%
+		{\urcorner}{\left\urcorner}%
+		{\ullcorner}{\left\ullcorner}%
+		{\ulrcorner}{\left\ulrcorner}%
+		{\lwavy}{\left\lwavy}%
+		{\rwavy}{\left\rwavy}%
+		{\lWavy}{\left\lWavy}%
+		{\rWavy}{\left\rWavy}%
+		{\langlebar}{\left\langlebar}%
+		{\ranglebar}{\left\ranglebar}%
+		{\lparen}{\left\lparen}%
+		{\rparen}{\left\rparen}%
+		{\Vvert}{\left\Vvert}%
+		{\lVvert}{\left\lVvert}%
+		{\rVvert}{\left\rVvert}%
+		{\mathslash}{\left\mathslash}%
+		{\lAngle}{\left\lAngle}%
+		{\rAngle}{\left\rAngle}%
+		{\langledot}{\left\langledot}%
+		{\rangledot}{\left\rangledot}%
+		{\lbrack}{\left\lbrack}%
+		{\rbrack}{\left\rbrack}%
+		{\lBrack}{\left\lBrack}%
+		{\rBrack}{\left\rBrack}%
+		{\lBrace}{\left\lBrace}%
+		{\rBrace}{\left\rBrace}%
+		{\lbrbrak}{\left\lbrbrak}%
+		{\rbrbrak}{\left\rbrbrak}%
+		{\lParen}{\left\lParen}%
+		{\rParen}{\left\rParen}%
+		{\Ddownarrow}{\left\Ddownarrow}%
+		{\DDownarrow}{\left\DDownarrow}%
+		{\Uuparrow}{\left\Uuparrow}%
+		{\UUparrow}{\left\UUparrow}%
+		{\leftwave}{\left\leftwave}%
+		{\rightwave}{\left\rightwave}%
+		{\leftevaw}{\left\leftevaw}%
+		{\rightevaw}{\left\rightevaw}%
+		{\VERT}{\left\VERT}%
+	}[\left.\lrfirstchar]%
+	\noexpandarg%
+	\StrGobbleLeft{#1}{1}[\lrmiddlestring]%
+	\expandarg\StrGobbleRight{\lrmiddlestring}{1}[\lrmiddlestring]%
+	\fullexpandarg\lrmiddlestring%
+	\noexpandarg%
+	\StrRight{#1}{1}[\lrlastchar]%
+	\fullexpandarg%
+	\IfStrEqCase{\lrlastchar}{%
+		{\downarrow}{\right\downarrow}%
+		{\Downarrow}{\right\Downarrow}%
+		{[}{\right[}%
+		{]}{\right]}%
+		{\langle}{\right\langle}%
+		{\rangle}{\right\rangle}%
+		{|}{\right|}%
+		{\vert}{\right\vert}%
+		{\|}{\right\|}%
+		{\Vert}{\right\Vert}%
+		{\lceil}{\right\lceil}%
+		{\rceil}{\right\rceil}%
+		{\uparrow}{\right\uparrow}%
+		{\Uparrow}{\right\Uparrow}%
+		{\lfloor}{\right\lfloor}%
+		{\rfloor}{\right\rfloor}%
+		{\updownarrow}{\right\updownarrow}%
+		{\Updownarrow}{\right\Updownarrow}%
+		{(}{\right(}%
+		{)}{\right)}%
+		{<}{\right<}%
+		{>}{\right>}%
+		{\{}{\right\{}%
+		{\}}{\right\}}%
+		{/}{\right/}%
+		{\backslash}{\right\backslash}%
+		{\lmoustache}{\right\lmoustache}%
+		{\rmoustache}{\right\rmoustache}%
+		{\lgroup}{\right\lgroup}%
+		{\rgroup}{\right\rgroup}%
+		{\arrowvert}{\right\arrowvert}%
+		{\Arrowvert}{\right\Arrowvert}%
+		{\bracevert}{\right\bracevert}%
+		{\lvert}{\right\lvert}%
+		{\rvert}{\right\rvert}%
+		{\lVert}{\right\lVert}%
+		{\rVert}{\right\rVert}%
+		{\llbracket}{\right\llbracket}%
+		{\rrbracket}{\right\rrbracket}%
+		{\ldbrack}{\right\ldbrack}%
+		{\rdbrack}{\right\rdbrack}%
+		{\lfilet}{\right\lfilet}%
+		{\rfilet}{\right\rfilet}%
+		{\thickvert}{\right\thickvert}%
+		{\vvvert}{\right\vvvert}%
+		{\lsem}{\right\lsem}%
+		{\rsem}{\right\rsem}%
+		{\lbrace}{\right\lbrace}%
+		{\rbrace}{\right\rbrace}%
+		{\llangle}{\right\llangle}%
+		{\rrangle}{\right\rrangle}%
+		{\llcorner}{\right\llcorner}%
+		{\lrcorner}{\right\lrcorner}%
+		{\ulcorner}{\right\ulcorner}%
+		{\urcorner}{\right\urcorner}%
+		{\ullcorner}{\right\ullcorner}%
+		{\ulrcorner}{\right\ulrcorner}%
+		{\lwavy}{\right\lwavy}%
+		{\rwavy}{\right\rwavy}%
+		{\lWavy}{\right\lWavy}%
+		{\rWavy}{\right\rWavy}%
+		{\langlebar}{\right\langlebar}%
+		{\ranglebar}{\right\ranglebar}%
+		{\lparen}{\right\lparen}%
+		{\rparen}{\right\rparen}%
+		{\Vvert}{\right\Vvert}%
+		{\lVvert}{\right\lVvert}%
+		{\rVvert}{\right\rVvert}%
+		{\mathslash}{\right\mathslash}%
+		{\lAngle}{\right\lAngle}%
+		{\rAngle}{\right\rAngle}%
+		{\langledot}{\right\langledot}%
+		{\rangledot}{\right\rangledot}%
+		{\lbrack}{\right\lbrack}%
+		{\rbrack}{\right\rbrack}%
+		{\lBrack}{\right\lBrack}%
+		{\rBrack}{\right\rBrack}%
+		{\lBrace}{\right\lBrace}%
+		{\rBrace}{\right\rBrace}%
+		{\lbrbrak}{\right\lbrbrak}%
+		{\rbrbrak}{\right\rbrbrak}%
+		{\lParen}{\right\lParen}%
+		{\rParen}{\right\rParen}%
+		{\Ddownarrow}{\right\Ddownarrow}%
+		{\DDownarrow}{\right\DDownarrow}%
+		{\Uuparrow}{\right\Uuparrow}%
+		{\UUparrow}{\right\UUparrow}%
+		{\leftwave}{\right\leftwave}%
+		{\rightwave}{\right\rightwave}%
+		{\leftevaw}{\right\leftevaw}%
+		{\rightevaw}{\right\rightevaw}%
+		{\VERT}{\right\VERT}%
+	}[\lrlastchar\right.]%
+}}}
+
+\endinput

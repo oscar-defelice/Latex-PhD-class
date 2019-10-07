@@ -1,0 +1,59 @@
+\documentclass{phd}
+%\documentclass[externalize]{phd}
+%\documentclass[debug, externalize]{phd}
+%\documentclass[debug]{phd}
+%\documentclass[draft]{phd}
+
+%\marginnote{Use me to produce a margin footnote.}
+%\comment{Use me to make a comment.} <=> \comment[c]{Use me to make a comment.}
+%\comment[w]{Use me to make a comment (emphasised as a warning).}
+%\comment[e]{Use me to make a comment (emphasised as an error).}
+
+\begin{document}
+	%
+	\input{./Resources/titlepage}
+	%
+	\preface
+		%
+		\input{./Resources/acknowledgements}
+		%
+		\abstracten
+		\abstractfr
+		%
+		\tableofcontents
+		%
+	%
+	\content
+		%
+		\input{./Resources/Chapters/Introduction}
+		%
+		\input{./Resources/Chapters/Chap1}
+		%
+		\input{./Resources/Chapters/ChapSugra}
+		%
+		\input{./Resources/Chapters/ChapEGG}
+		%
+		\input{./Resources/Chapters/ChapComp}
+		%
+		\input{./Resources/Chapters/ChapBranes}
+		%
+		\input{./Resources/Chapters/Conclusions}
+		%
+	%
+	\appendix
+		%
+		\input{./Resources/Appendices/App1}
+		%
+		\input{./Resources/Appendices/AppEGG}
+		%
+%		\input{./Resources/Appendices/AppGamma}
+		%
+		\nocite{*}
+		\bibliography{./Resources/Bibliography/Bibliography}
+		%
+		\listoffigures
+		%
+	%
+	\abstractpage
+	%
+\end{document}

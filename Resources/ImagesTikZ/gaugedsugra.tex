@@ -1,0 +1,25 @@
+\documentclass[border=5mm,tikz]{standalone}
+
+\input{preamble}
+
+\begin{document}
+				\begin{tikzpicture}
+				%
+					%nodes
+					\node[punkt] (Msugra) {$11$/$10$d sugra};
+					\node[punkt, inner sep=5pt,below=3cm of Msugra] (4sugra) {$4$d ungauged sugra};
+					\node[punkt, below=3cm of Msugra, right=3cm of 4sugra, color=red] (gaugedsugra) {$4$d gauged sugra};
+					%drawings
+					\draw[->, thick] (Msugra.south) -- (4sugra.north)
+						node[pos=0.5, left, text width = 2.7cm] {Toroidal compactifications, $T^d$};
+					%
+					\draw[->, color=blue, ultra thick] (4sugra.east) -- (gaugedsugra.west)
+						node[pos=0.5, below, color = black] {Gaugings};
+					%
+					\draw[->, thick] (Msugra.south east) -- (gaugedsugra.north west)
+						node[pos=0.4, above right, text width = 2.5cm] {$p$-form fluxes}
+						node[pos=0.6, above right, text width = 3cm] {geometric fluxes}
+						node[pos=0.8, above right, text width = 4cm] {non-geometric fluxes};
+				%
+				\end{tikzpicture}
+\end{document}

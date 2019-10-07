@@ -1,0 +1,201 @@
+%
+%  tikz3dcs-pp.sty
+%
+%  Created by Hugo Ricateau on 24/11/2016, this file is standalone.
+%  Copyright © 2016 - 2017 Hugo Ricateau.
+%
+%  This file is free software: you can redistribute it and/or modify it under
+%  the terms of the GNU General Public License as published by the
+%  Free Software Foundation, either version 3 of the License, or any
+%  later version.
+%
+%  This program is distributed in the hope that it will be useful, but
+%  WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+%  See the GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License
+%  along with this program. If not, see <http://www.gnu.org/licenses/>.
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tikz3dcs-pp}[2016/11/24 tikz3dcs-pp: "PGF-TikZ 3D Coordinate System for Perspective Projection", declares a custom PGF-TikZ coordinate system projecting any 3-dimensional cartesian point in a perspective view.]
+\RequirePackage{tikz}
+
+\newlength{\ppeyepositionxU}
+\newlength{\ppeyepositionyU}
+\newlength{\ppeyepositionzU}
+\newlength{\ppeyedirectionpositionxU}
+\newlength{\ppeyedirectionpositionyU}
+\newlength{\ppeyedirectionpositionzU}
+\newlength{\ppeyefocallengthU}
+\newlength{\ppobjxU}
+\newlength{\ppobjyU}
+\newlength{\ppobjzU}
+\newlength{\ppobjxP}
+\newlength{\ppobjyP}
+
+\newcommand\ppinit{
+	\ppseteyeposition{2}{2}{2}
+	\ppseteyedirectionposition{0}{0}{0}
+	%\ppseteyedirection{-1}{-1}{-1}
+	\ppseteyefocallength{1}
+}
+
+\newcommand\ppseteyeposition[3]{
+	\pgfmathsetmacro\ppeyepositionxK{#1}
+	\pgfmathparse\ppeyepositionxK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyepositionxU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyepositionxU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyepositionxU
+	\pgfmathsetmacro\ppeyepositionx{\pgfmathresult}
+	%
+	\pgfmathsetmacro\ppeyepositionyK{#2}
+	\pgfmathparse\ppeyepositionyK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyepositionyU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyepositionyU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyepositionyU
+	\pgfmathsetmacro\ppeyepositiony{\pgfmathresult}
+	%
+	\pgfmathsetmacro\ppeyepositionzK{#3}
+	\pgfmathparse\ppeyepositionzK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyepositionzU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyepositionzU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyepositionzU
+	\pgfmathsetmacro\ppeyepositionz{\pgfmathresult}
+}
+
+\newcommand\ppseteyedirectionposition[3]{
+	\pgfmathsetmacro\ppeyedirectionpositionxK{#1}
+	\pgfmathparse\ppeyedirectionpositionxK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyedirectionpositionxU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyedirectionpositionxU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyedirectionpositionxU
+	\pgfmathsetmacro\ppeyedirectionpositionx{\pgfmathresult - \ppeyepositionx}
+	%
+	\pgfmathsetmacro\ppeyedirectionpositionyK{#2}
+	\pgfmathparse\ppeyedirectionpositionyK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyedirectionpositionyU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyedirectionpositionyU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyedirectionpositionyU
+	\pgfmathsetmacro\ppeyedirectionpositiony{\pgfmathresult - \ppeyepositiony}
+	%
+	\pgfmathsetmacro\ppeyedirectionpositionzK{#3}
+	\pgfmathparse\ppeyedirectionpositionzK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyedirectionpositionzU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyedirectionpositionzU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyedirectionpositionzU
+	\pgfmathsetmacro\ppeyedirectionpositionz{\pgfmathresult - \ppeyepositionz}
+	%
+	\ppseteyedirection{\ppeyedirectionpositionx}{\ppeyedirectionpositiony}{\ppeyedirectionpositionz}
+}
+
+\newcommand\ppseteyedirection[3]{
+	\pgfmathsetmacro\ppeyedirectionx{#1}
+	\pgfmathsetmacro\ppeyedirectiony{#2}
+	\pgfmathsetmacro\ppeyedirectionz{#3}
+	%
+	\pgfmathsetmacro\ppeyedirectionnorm{sqrt(\ppeyedirectionx*\ppeyedirectionx + \ppeyedirectiony*\ppeyedirectiony + \ppeyedirectionz*\ppeyedirectionz)}
+	\pgfmathsetmacro\ppeyedirectionx{\ppeyedirectionx/\ppeyedirectionnorm}
+	\pgfmathsetmacro\ppeyedirectiony{\ppeyedirectiony/\ppeyedirectionnorm}
+	\pgfmathsetmacro\ppeyedirectionz{\ppeyedirectionz/\ppeyedirectionnorm}
+	\pgfmathsetmacro\ppeyedirectionnorm{1}
+	%
+	\ppseteyeup{0}{0}{1}
+}
+
+\newcommand\ppseteyeup[3]{
+	\pgfmathsetmacro\ppeyeupx{#1}
+	\pgfmathsetmacro\ppeyeupy{#2}
+	\pgfmathsetmacro\ppeyeupz{#3}
+	%
+	\pgfmathsetmacro\ppeyeupscaldir{\ppeyedirectionx*\ppeyeupx + \ppeyedirectiony*\ppeyeupy + \ppeyedirectionz*\ppeyeupz}
+	\pgfmathsetmacro\ppeyeupx{\ppeyeupx - \ppeyedirectionx*\ppeyeupscaldir}
+	\pgfmathsetmacro\ppeyeupy{\ppeyeupy - \ppeyedirectiony*\ppeyeupscaldir}
+	\pgfmathsetmacro\ppeyeupz{\ppeyeupz - \ppeyedirectionz*\ppeyeupscaldir}
+	%
+	\pgfmathsetmacro\ppeyeupnorm{sqrt(\ppeyeupx*\ppeyeupx + \ppeyeupy*\ppeyeupy + \ppeyeupz*\ppeyeupz)}
+	\pgfmathsetmacro\ppeyeupx{\ppeyeupx/\ppeyeupnorm}
+	\pgfmathsetmacro\ppeyeupy{\ppeyeupy/\ppeyeupnorm}
+	\pgfmathsetmacro\ppeyeupz{\ppeyeupz/\ppeyeupnorm}
+	\pgfmathsetmacro\ppeyeupnorm{1}
+	%
+	\pgfmathsetmacro\ppeyerightx{\ppeyedirectiony*\ppeyeupz - \ppeyedirectionz*\ppeyeupy}
+	\pgfmathsetmacro\ppeyerighty{\ppeyedirectionz*\ppeyeupx - \ppeyedirectionx*\ppeyeupz}
+	\pgfmathsetmacro\ppeyerightz{\ppeyedirectionx*\ppeyeupy - \ppeyedirectiony*\ppeyeupx}
+	%\pgfmathsetmacro\ppeyerightnorm{1}
+}
+
+\newcommand\ppseteyefocallength[1]{
+	\pgfmathsetmacro\ppeyefocallengthK{#1}
+	\pgfmathparse\ppeyefocallengthK
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppeyefocallengthU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppeyefocallengthU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppeyefocallengthU
+	\pgfmathsetmacro\ppeyefocallength{\pgfmathresult}
+}
+
+\makeatletter
+\define@key{ppcskeys}{x}{\def\ppcsxkey{#1}}
+\define@key{ppcskeys}{y}{\def\ppcsykey{#1}}
+\define@key{ppcskeys}{z}{\def\ppcszkey{#1}}
+\makeatother
+\tikzdeclarecoordinatesystem{pp}{
+	\setkeys{ppcskeys}{#1}
+	%
+	\pgfmathparse\ppcsxkey
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppobjxU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppobjxU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppobjxU
+	\pgfmathsetmacro\ppobjx{\pgfmathresult - \ppeyepositionx}
+	%
+	\pgfmathparse\ppcsykey
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppobjyU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppobjyU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppobjyU
+	\pgfmathsetmacro\ppobjy{\pgfmathresult - \ppeyepositiony}
+	%
+	\pgfmathparse\ppcszkey
+	\ifpgfmathunitsdeclared
+		\pgfmathsetlength\ppobjzU{\pgfmathresult pt}
+	\else
+		\pgfmathsetlength\ppobjzU{\pgfmathresult cm}
+	\fi
+	\pgfmathparse\ppobjzU
+	\pgfmathsetmacro\ppobjz{\pgfmathresult - \ppeyepositionz}
+	%
+	\pgfmathsetmacro\ppobjcomP{\ppeyefocallength/(\ppobjx*\ppeyedirectionx + \ppobjy*\ppeyedirectiony + \ppobjz*\ppeyedirectionz)}
+	\pgfmathsetlengthmacro\ppobjxP{(\ppobjx*\ppeyerightx + \ppobjy*\ppeyerighty + \ppobjz*\ppeyerightz)*\ppobjcomP}
+	\pgfmathsetlengthmacro\ppobjyP{(\ppobjx*\ppeyeupx + \ppobjy*\ppeyeupy + \ppobjz*\ppeyeupz)*\ppobjcomP}
+	\pgfpoint{\ppobjxP}{\ppobjyP}
+}
+%\tikzaliascoordinatesystem{3dpp}{pp}
+
+\endinput

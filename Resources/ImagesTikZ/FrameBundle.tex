@@ -1,0 +1,36 @@
+\documentclass{standalone}
+
+\input{preamble}
+
+\tikzset{every node/.style={font=\tiny}}
+
+\begin{document}
+\begin{tikzpicture}[>=stealth]
+%\draw[color=red](2,0)--(4,0)node[midway,below]{\textcolor{black}{fibre bundle}}arc(0:70:4)--(90:2)arc(90:0:2)--cycle;
+\draw[color=red](2,0)--(4,0)arc(0:70:4)--(90:2)arc(90:0:2)--cycle;
+\fill[fill = red, opacity = .2] (2,0)--(4,0)arc(0:70:4)--(90:2)arc(90:0:2)--cycle;
+
+\draw[->] (15:0.7)node[below,xshift=-2mm]{base manifold $M$}--(30:2);
+
+\begin{scope}[bend right]
+\foreach \i[count=\x] in {10,30,50,70}
+{\node(a\x)[circle,fill,inner sep=1pt]at (\i:2.4){};
+\draw[color= gray](a\x)to(a\x|-0,4);}
+
+\foreach \i[count=\x] in {7,26,46,66}
+{\node(b\x)[circle,fill,inner sep=1pt]at (\i:3){};
+\draw[color= gray](b\x)to(b\x|-0,4);}
+
+\foreach \i[count=\x] in {6,26,46,66}
+{\node(c\x)[circle,fill,inner sep=1pt]at (\i:3.6){};
+\draw[color= gray](c\x)to(c\x|-0,4);}
+
+\path(c1)to coordinate[near start](d)(c1|-0,4);
+\end{scope}
+\draw[<-](d)--+(0.8,-0.5)node[right]{fibre};
+\draw[->, color=blue](4.07,1.7) to [out=35, in= 20] +(-.2,1.77)node[above right]{$G$ action};
+\node(e)[circle, fill, color=blue, inner sep=.5pt] at (4.07,1.7){};
+\node(f)[circle, fill, color=blue, inner sep=.5pt] at (3.85,3.46){};
+
+\end{tikzpicture}
+\end{document}

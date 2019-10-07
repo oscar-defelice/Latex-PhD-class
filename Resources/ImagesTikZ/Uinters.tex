@@ -1,0 +1,24 @@
+\documentclass[border=5mm,tikz]{standalone}
+
+\input{preamble}
+
+\begin{document}
+
+\begin{tikzpicture}
+	\draw [blue, ultra thick] plot [smooth cycle] coordinates {(1,1) (0,-1) (-2.5,-1.5) (-1,1)};
+	\draw [red, ultra thick] plot [smooth cycle] coordinates {(-1,1) (0,-1) (2.5,-1.5) (1,1)};
+	\draw [yellow, ultra thick] plot [smooth cycle] coordinates {(0,3) (-1,1) (0,-1) (1,1)};
+	
+	\fill [green, opacity=.2] plot [smooth cycle] coordinates {(1,1) (0,-1) (-1,1)};
+	
+	\draw (-1.3,-.5) node [text = black] {$O(2n)$};
+	\draw (1.3,-.5) node [text = black] {$Sp(2n, \mathbb{R})$};
+	\draw (0,1.7) node [text = black] {$GL(n, \mathbb{C})$};
+	\draw (0,.3) node [text = black] {$U(n)$};
+%
+%	\draw [gray!50, xshift=4cm]  (0,0) -- (1,1) -- (2,-2) -- (3,0);
+%	\draw [cyan, xshift=4cm] plot [smooth, tension=2] coordinates { (0,0) (1,1) (2,-2) (3,0)};
+\end{tikzpicture}
+
+
+\end{document}

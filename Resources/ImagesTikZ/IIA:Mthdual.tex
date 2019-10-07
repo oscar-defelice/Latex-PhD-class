@@ -1,0 +1,27 @@
+\documentclass[border=5mm,tikz]{standalone}
+
+\input{preamble}
+
+\begin{document}
+				\begin{tikzpicture}
+				%
+					%nodes
+					\node[punkt, color = blue] (Mth) {M theory};
+					\node[punkt, inner sep=5pt,below=3cm of Mth, color=red] (IIAth) {IIA string theory};
+					\node[punkt, below=3cm of Mth, right=3cm of IIAth, color=red] (IIAsugra) {IIA Supergravity};
+					\node[punkt, right=3cm of Mth, color=blue] (Msugra) {$11$d Supergravity};
+					%drawings
+					\draw[->, thick] (Mth.south) -- (IIAth.north)
+						node[pos=0.5, left, text width = 3cm] {Circle compactification};
+					%
+					\draw[->, thick] (IIAth.east) -- (IIAsugra.west)
+						node[pos=0.5, below, color = black] {Low energy limit};
+					%
+					\draw[->, thick] (Mth.east) -- (Msugra.west)
+						node[pos=0.5, above, text width = 2.5cm] {Low energy limit};
+					%
+					\draw[->, thick] (Msugra.south) -- (IIAsugra.north)
+						node[pos=0.5, right, text width = 3cm] {Circle compactification};
+				%
+				\end{tikzpicture}
+\end{document}
