@@ -28,7 +28,7 @@ Command               | Description
 Content Cell  | Content Cell
 
 In a terminal one can give the following command
-```
+```bash
 make 
 ```
 
