@@ -11,11 +11,11 @@
 
 \begin{document}
 	%
-	\input{./Resources/titlepage}
+	\input{./Resources/Others/titlepage}
 	%
 	\preface
 		%
-		\input{./Resources/acknowledgements}
+		\input{./Resources/Others/acknowledgements}
 		%
 		\abstracten
 		\abstractfr

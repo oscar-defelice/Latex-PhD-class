@@ -1,0 +1,58 @@
+\babel@toc {english}{}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {english}{}
+\babel@toc {french}{}
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {}Introduction}{1}{section*.5}
+\contentsline {chapter}{\numberline {1}An Important Chapter}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction and Motivations}{7}{section.1.1}
+\contentsline {chapter}{\numberline {2}Generalised Calibrations in $\mathrm {AdS}$ backgrounds}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction and Motivations}{9}{section.2.1}
+\contentsline {section}{\numberline {2.2}Generalised calibrations in M-theory}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Calibrations on $\mathrm {AdS}_5 \times M_6$}{13}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Calibrations in $\mathrm {AdS}_4 \times M_7$}{16}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Supersymmetric branes in type IIB}{19}{section.2.3}
+\contentsline {chapter}{\numberline {3}Flux Compactifications}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction and motivations}{25}{section.3.1}
+\contentsline {section}{\numberline {3.2}Supergravity theories}{25}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Eleven-dimensional supergravity}{25}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Type II theories}{26}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Supersymmetric backgrounds and compactifications}{30}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Calabi-Yau backgrounds in type II}{31}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Backgrounds with fluxes in type II}{33}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Generalising the geometry}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction and motivations}{35}{section.4.1}
+\contentsline {section}{\numberline {4.2}Generalised complex geometry}{35}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}The generalised frame bundle}{38}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Generalised metric}{38}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Generalised almost complex structure}{41}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Dorfman derivative and Courant bracket}{42}{subsection.4.2.4}
+\contentsline {subsubsection}{Integrability}{43}{subsubsection*.12}
+\contentsline {subsection}{\numberline {4.2.5}Generalised geometry and compactifications}{44}{subsection.4.2.5}
+\contentsline {section}{\numberline {4.3}Exceptional generalised geometry}{44}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}M-theory}{45}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Type IIA}{48}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Type IIB}{52}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Generalised metric}{54}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Generalised parallelisation}{56}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}Generalised HV structures}{57}{subsection.4.3.6}
+\contentsline {chapter}{\numberline {}Conclusions}{59}{section*.13}
+\contentsline {chapter}{\numberline {A}Very important appendix}{63}{appendix.A}
+\contentsline {section}{\numberline {A.1}Very important section}{63}{section.A.1}
+\contentsline {chapter}{\numberline {B}An even more important appendix}{65}{appendix.B}
+\contentsline {section}{\numberline {B.1}An even more important section}{65}{section.B.1}
+\contentsline {chapter}{\numberline {C}The most important appendix}{67}{appendix.C}
+\contentsline {section}{\numberline {C.1}The most important section}{67}{section.C.1}
+\contentsline {subsection}{\numberline {C.1.1}The most important subsection}{67}{subsection.C.1.1}
+\contentsline {section}{\numberline {C.2}The second most important section}{67}{section.C.2}
+\contentsline {subsection}{\numberline {C.2.1}The second most important subsection}{67}{subsection.C.2.1}
+\contentsline {subsection}{\numberline {C.2.2}The almost important subsection}{67}{subsection.C.2.2}
+\contentsline {subsection}{\numberline {C.2.3}The not so important subsection}{67}{subsection.C.2.3}
+\contentsline {subsection}{\numberline {C.2.4}Another subsection}{67}{subsection.C.2.4}
+\contentsline {chapter}{\numberline {}Bibliography}{69}{section*.15}
+\contentsline {chapter}{\numberline {}List of Figures}{87}{section*.17}
+\babel@toc {french}{}
+\babel@toc {english}{}

@@ -70,5 +70,9 @@ clearall:
 	@rm -f ./Resources/Externalised/*
 	@rm -f ./Resources/ImagesTikZ/*.pdf
 
+.PHONY: force
+force:
+	@latexmk -f $(SRC)
+
 .PHONY: rebuild
-rebuild: clear view
+rebuild: clear view 

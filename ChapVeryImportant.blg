@@ -1,0 +1,90 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: ChapVeryImportant.aux
+The style file: unsrtsiam.bst
+I found no \bibdata command---while reading file ChapVeryImportant.aux
+Warning--I didn't find a database entry for "oscar2"
+Warning--I didn't find a database entry for "AshmoreESE"
+Warning--I didn't find a database entry for "AshmoreECY"
+Warning--I didn't find a database entry for "Cal_Geo"
+Warning--I didn't find a database entry for "Joyce:2001nm"
+Warning--I didn't find a database entry for "Becker:1995kb"
+Warning--I didn't find a database entry for "Becker:1996ay"
+Warning--I didn't find a database entry for "Gibbons:1998hm"
+Warning--I didn't find a database entry for "Gauntlett:1998vk"
+Warning--I didn't find a database entry for "Gutowski:1999iu"
+Warning--I didn't find a database entry for "Gutowski:1999tu"
+Warning--I didn't find a database entry for "Townsend:1999nf"
+Warning--I didn't find a database entry for "Gauntlett:2001ur"
+Warning--I didn't find a database entry for "Gauntlett:2002sc"
+Warning--I didn't find a database entry for "Gauntlett:2003cy"
+Warning--I didn't find a database entry for "MS03"
+Warning--I didn't find a database entry for "Cascales:2004qp"
+Warning--I didn't find a database entry for "HPS03"
+Warning--I didn't find a database entry for "HPS04"
+Warning--I didn't find a database entry for "Martucci:2005ht"
+Warning--I didn't find a database entry for "Martelli:2006yb"
+Warning--I didn't find a database entry for "Koerber:2007jb"
+Warning--I didn't find a database entry for "GauntlettGeomKill"
+Warning--I didn't find a database entry for "Gabella:2012rc"
+Warning--I didn't find a database entry for "Pasti:1997gx"
+Warning--I didn't find a database entry for "Pasti:1995tn"
+Warning--I didn't find a database entry for "Bergshoeff:1998vx"
+Warning--I didn't find a database entry for "Barwald:1999hx"
+Warning--I didn't find a database entry for "Martucci:2011dn"
+Warning--I didn't find a database entry for "Gauntlett:2004zh"
+Warning--I didn't find a database entry for "Grana_Ntokos"
+Warning--I didn't find a database entry for "Gabella:2011sg"
+Warning--I didn't find a database entry for "SanchezLoureda:2005ap"
+Warning--I didn't find a database entry for "Schwarz:1983qr"
+Warning--I didn't find a database entry for "BJRT99"
+Warning--I didn't find a database entry for "Tomasiello:2011eb"
+Warning--I didn't find a database entry for "BT97"
+Warning--I didn't find a database entry for "Marolf:2003vf"
+Warning--I didn't find a database entry for "Evslin:2007ti"
+Warning--I didn't find a database entry for "Gauntlett:2005ww"
+Warning--I didn't find a database entry for "GGPSW09"
+Warning--I didn't find a database entry for "GGPSW09_02"
+Warning--I didn't find a database entry for "Gauntlett:2004yd"
+You've used 0 entries,
+            2035 wiz_defined-function locations,
+            580 strings with 4777 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There was 1 error message)
