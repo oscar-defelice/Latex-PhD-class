@@ -10,6 +10,7 @@ The makefile contains the instruction to compile the whole thesis or a single ch
 ```bash
 sudo apt-get install latexmk
 ```
+### Make Options
 
 Indeed, the several make options are:
 
@@ -25,11 +26,41 @@ Indeed, the several make options are:
 Command               | Description
 -------------         | -------------
 `make all` or `make`  | Compiles the default TARGET tex file.
-Content Cell  | Content Cell
+`make view`           | Compiles and shows the produced pdf file.
+`make continuous`     | Compiles live and updates the produced pdf file.
+`make clear`          | Compiles and removes the auxiliary files.
+`make clearall`       | Compiles and removes auxiliary files and all images and not-locked pdf.
+
+### Compile command
 
 In a terminal one can give the following command
 ```bash
 make 
 ```
+
+## Configuration file
+
+The hidden file `.latexmkrc` contains the configurations for the working of make command.
+
+### Ubuntu/Debian vs OSX use.
+
+As it is, the whole structure works on Linux systems with evince installed.
+If you wanna change the pdf viewer, you have to change the line 
+```makefile
+$pdf_previewer = 'start evince %O locked.%S';
+```
+to 
+
+```makefile
+$pdf_previewer = 'start your_pdf_viewer %O locked.%S';
+```
+
+To work in Mac OSX, you can simply write
+
+```makefile
+$pdf_previewer = 'start open %O locked.%S';
+```
+
+
 
 
