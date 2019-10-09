@@ -46,18 +46,18 @@ The hidden file `.latexmkrc` contains the configurations for the working of make
 
 As it is, the whole structure works on Linux systems with evince installed.
 If you wanna change the pdf viewer, you have to change the line 
-```makefile
+```perl
 $pdf_previewer = 'start evince %O locked.%S';
 ```
 to 
 
-```makefile
+```perl
 $pdf_previewer = 'start your_pdf_viewer %O locked.%S';
 ```
 
 To work in Mac OSX, you can simply write
 
-```makefile
+```perl
 $pdf_previewer = 'start open %O locked.%S';
 ```
 
