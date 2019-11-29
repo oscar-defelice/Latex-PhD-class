@@ -13,7 +13,7 @@ You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recomm
 
 At a command prompt, run
 ```bash
-$ make TARGET = path_to_file/{your-file}.tex
+$ make TARGET=path_to_file/{your-file}.tex
 ```
 This should result in the creation of ``{your-file}.pdf`` and a locked copy ``locked.{your-file}.pdf``
 
