@@ -13,7 +13,7 @@ You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recomm
 
 At a command prompt, run
 ```bash
-$ make TARGET=path_to_file/{your-file}.tex
+$: make TARGET=path_to_file/{your-file}.tex
 ```
 This should result in the creation of ``{your-file}.pdf`` and a locked copy ``locked.{your-file}.pdf``
 
@@ -21,7 +21,7 @@ This should result in the creation of ``{your-file}.pdf`` and a locked copy ``lo
 
 The makefile contains the instruction to compile the whole thesis or a single chapter. It makes use of the latexmk command (you can install it, in an Ubuntu/Debian environment with the command
 ```bash
-sudo apt-get install latexmk
+$: sudo apt-get install latexmk
 ```
 ### Make Options
 
@@ -48,7 +48,7 @@ Command               | Description
 
 In a terminal one can give the following command
 ```bash
-make
+$: make
 ```
 
 ### Configuration file
