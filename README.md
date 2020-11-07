@@ -50,6 +50,7 @@ In a terminal one can give the following command
 ```bash
 $: make
 ```
+this will compile the default TARGET file given in `.latexmkrc`, *i.e.* `main.tex`. 
 
 ### Configuration file
 
